@@ -1,0 +1,33 @@
+用户注册 
+/signup/id=deviceid
+{id,noid,score,ticket,reward{id,opened},position}
+用户登录
+/signin/id=deviceid
+{id,noid,score,ticket,reward{id,opened},position}
+查询积分
+/checkscore/id=deviceid
+{score}
+查询奖券
+/checkticket/id=deviceid
+{ticket}
+查询中奖情况
+/checkrewards/id=deviceid
+{reward{id,opened}}
+开始抽奖
+/startlottery/id=deviceid
+{step} // 骰子点数
+点赞
+/like/id=deviceid&likeid=likedeviceid
+{result}
+请求排行榜
+/rank/id=deviceid&from=0&to=8
+{{id,noid,photo_url,like_count}[]}
+请求个人照片墙
+/getinfo/id=deviceid
+{noid,photo_url,like_count}
+领取奖励
+/getrewards/id=deviceid&rewardid=rid
+{result,complete} //complete领奖资料是否齐全
+填写(修改)信息
+/uploadinfo/id=deviceid&name=name&phone=13812345678&mrzaccount=13812345678
+{result}
