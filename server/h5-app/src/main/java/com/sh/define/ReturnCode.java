@@ -15,7 +15,7 @@ public enum ReturnCode {
 	/** 未知错误 */
 	UNKNOWN_ERROR(-1),
 	/** 参数缺少 */
-	PARAM_MISSING(-10086);
+	PARAM_MISSING(-2);
 
 	Integer nCode;
 

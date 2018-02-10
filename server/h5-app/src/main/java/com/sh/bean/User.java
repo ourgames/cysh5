@@ -5,30 +5,34 @@ import java.sql.Timestamp;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class User {
-	int user_no;
+	Integer user_no;
+	@JsonIgnore
 	String account_uuid;
 	String user_name;
 	String user_photo;
-	int user_score;
-	int user_step;
-	int user_tickets;
-	int user_be_liked;
-	int user_likes_today;
-	int user_likes_total;
+	Integer user_score;
+	Integer user_step;
+	Integer user_tickets;
+	Integer user_be_liked;
+	@JsonIgnore
+	Integer user_likes_today;
+	@JsonIgnore
+	Integer user_likes_total;
 	@JsonIgnore
 	Timestamp last_refresh_time;
-	int phone_no;
-	int qq_no;
-	String location;
+	String phone_no;
+	@JsonIgnore
+	Integer qq_no;
+	String address;
 	@JsonIgnore
 	Timestamp regist_time;
 	@JsonIgnore
 	String regist_ip;
 	
-	public int getUser_no() {
+	public Integer getUser_no() {
 		return user_no;
 	}
-	public void setUser_no(int user_no) {
+	public void setUser_no(Integer user_no) {
 		this.user_no = user_no;
 	}
 	public String getAccount_uuid() {
@@ -49,40 +53,40 @@ public class User {
 	public void setUser_photo(String user_photo) {
 		this.user_photo = user_photo;
 	}
-	public int getUser_score() {
+	public Integer getUser_score() {
 		return user_score;
 	}
-	public void setUser_score(int user_score) {
+	public void setUser_score(Integer user_score) {
 		this.user_score = user_score;
 	}
-	public int getUser_step() {
+	public Integer getUser_step() {
 		return user_step;
 	}
-	public void setUser_step(int user_step) {
+	public void setUser_step(Integer user_step) {
 		this.user_step = user_step;
 	}
-	public int getUser_tickets() {
+	public Integer getUser_tickets() {
 		return user_tickets;
 	}
-	public void setUser_tickets(int user_tickets) {
+	public void setUser_tickets(Integer user_tickets) {
 		this.user_tickets = user_tickets;
 	}
-	public int getUser_be_liked() {
+	public Integer getUser_be_liked() {
 		return user_be_liked;
 	}
-	public void setUser_be_liked(int user_be_liked) {
+	public void setUser_be_liked(Integer user_be_liked) {
 		this.user_be_liked = user_be_liked;
 	}
-	public int getUser_likes_today() {
+	public Integer getUser_likes_today() {
 		return user_likes_today;
 	}
-	public void setUser_likes_today(int user_likes_today) {
+	public void setUser_likes_today(Integer user_likes_today) {
 		this.user_likes_today = user_likes_today;
 	}
-	public int getUser_likes_total() {
+	public Integer getUser_likes_total() {
 		return user_likes_total;
 	}
-	public void setUser_likes_total(int user_likes_total) {
+	public void setUser_likes_total(Integer user_likes_total) {
 		this.user_likes_total = user_likes_total;
 	}
 	public Timestamp getLast_refresh_time() {
@@ -91,23 +95,23 @@ public class User {
 	public void setLast_refresh_time(Timestamp last_refresh_time) {
 		this.last_refresh_time = last_refresh_time;
 	}
-	public int getPhone_no() {
+	public String getPhone_no() {
 		return phone_no;
 	}
-	public void setPhone_no(int phone_no) {
+	public void setPhone_no(String phone_no) {
 		this.phone_no = phone_no;
 	}
-	public int getQq_no() {
+	public Integer getQq_no() {
 		return qq_no;
 	}
-	public void setQq_no(int qq_no) {
+	public void setQq_no(Integer qq_no) {
 		this.qq_no = qq_no;
 	}
-	public String getLocation() {
-		return location;
+	public String getAddress() {
+		return address;
 	}
-	public void setLocation(String location) {
-		this.location = location;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	public Timestamp getRegist_time() {
 		return regist_time;

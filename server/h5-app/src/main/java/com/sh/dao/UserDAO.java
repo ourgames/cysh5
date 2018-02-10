@@ -21,7 +21,7 @@ public interface UserDAO {
 
 	// 按编号获取用户详细信息
 	@Select("SELECT * FROM tb_user WHERE user_no = #{user_no}")
-	public User selectUserDetail(@Param("user_no") int user_no);
+	public User selectUserInfo(@Param("user_no") int user_no);
 
 	// 修改用户信息
 	public Integer updateUserInfo(User user);

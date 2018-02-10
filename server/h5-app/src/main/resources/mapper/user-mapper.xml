@@ -4,17 +4,20 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 
 <mapper namespace="com.sh.dao.UserDAO">
-	<update id="updateUser">
+	<update id="updateUserInfo">
 		update tb_user
 		<set>
-			<if test="user_photo != null">user_photo = ${user_photo},</if>
+			<if test="user_name != null">user_name = '${user_name}',</if>
+			<if test="user_photo != null">user_photo = '${user_photo}',</if>
 			<if test="user_score != null">user_score = '${user_score}',</if>
 			<if test="user_step != null">user_step = '${user_step}',</if>
 			<if test="user_tickets != null">user_tickets = '${user_tickets}',</if>
 			<if test="user_be_liked != null">user_be_liked = ${user_be_liked},</if>
 			<if test="user_likes_today != null">user_likes_today = ${user_likes_today},</if>
 			<if test="user_likes_total != null">user_likes_total = ${user_likes_total},</if>
-			<if test="last_refresh_time != null">last_refresh_time = ${last_refresh_time},</if>
+			<if test="last_refresh_time != null">last_refresh_time = '${last_refresh_time}',</if>
+			<if test="phone_no != null">phone_no = '${phone_no}',</if>
+			<if test="address != null">address = '${address}',</if>
 		</set>
 		where user_no = ${user_no}
 	</update>
