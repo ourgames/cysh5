@@ -1,4 +1,4 @@
-package com.sh.controller;
+package com.sh.msg;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
@@ -8,16 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @EnableAutoConfiguration
 @ComponentScan
-public class LotteryController {
+public class LotteryMsg {
 	// 开始抽奖
 	@RequestMapping("/startlottery")
 	public String startlottery() {
-		return "Hello page";
-	}
-
-	// 用户登录消息
-	@RequestMapping("/signin")
-	public String signin() {
 		return "Hello page";
 	}
 }
