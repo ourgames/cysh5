@@ -15,7 +15,7 @@ public class UserService {
 	@Autowired
 	private TimeUtil TimeUtil;
 
-	public ReturnCode insert(String uuid, String user_name, String ip) {
+	public User insert(String uuid, String user_name, String ip) {
 		User user = (User) SpringUtil.getBean("User");
 		user.setAccount_uuid(uuid);
 		user.setUser_name(user_name);
@@ -26,16 +26,17 @@ public class UserService {
 		// 记录最后刷新时间
 		user.setLast_refresh_time(TimeUtil.now());
 
-		try{
-			if (UserDAO.insert(user) > 0) {
-				return ReturnCode.SUCCESS;
+		try {
+			int user_no = UserDAO.insert(user);
+			if (user_no > 0) {
+				// user.setUser_no(user_no);
+				return user;
 			}
-		}
-		catch(Exception e){
+		} catch (Exception e) {
 			Log.error("插入玩家失败", e);
-			return ReturnCode.USER_INSERT_FAILED;
+			return null;
 		}
-		
-		return ReturnCode.USER_INSERT_FAILED;
+
+		return null;
 	}
 }
