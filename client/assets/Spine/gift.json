@@ -1,0 +1,210 @@
+{
+"skeleton": { "hash": "CRlO/YZxFMCq5HIjzX/V7dOiET4", "spine": "2.1.27", "width": 0, "height": 0 },
+"bones": [
+	{ "name": "root" },
+	{ "name": "coupon_o", "parent": "root" },
+	{ "name": "coupon_y", "parent": "root" },
+	{ "name": "giftbox", "parent": "root" },
+	{ "name": "lipstick", "parent": "root" }
+],
+"slots": [
+	{ "name": "pngs/coupon_y", "bone": "coupon_y" },
+	{ "name": "pngs/Lipstick", "bone": "lipstick" },
+	{ "name": "pngs/coupon_o", "bone": "coupon_o" },
+	{ "name": "pngs/giftbox", "bone": "giftbox" }
+],
+"skins": {
+	"default": {
+		"pngs/Lipstick": {
+			"pngs/Lipstick": { "y": 62.48, "width": 80, "height": 127 }
+		},
+		"pngs/coupon_o": {
+			"pngs/coupon_o": { "y": 40, "width": 124, "height": 80 }
+		},
+		"pngs/coupon_y": {
+			"pngs/coupon_y": { "y": 28.95, "width": 89, "height": 58 }
+		},
+		"pngs/giftbox": {
+			"pngs/giftbox": { "y": 57.14, "width": 119, "height": 110 }
+		}
+	}
+},
+"animations": {
+	"coupon_o": {
+		"slots": {
+			"pngs/coupon_o": {
+				"attachment": [
+					{ "time": 0, "name": "pngs/coupon_o" },
+					{ "time": 1.3333, "name": "pngs/coupon_o" }
+				]
+			}
+		},
+		"bones": {
+			"coupon_o": {
+				"translate": [
+					{
+						"time": 0,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.348, 0.77, 0.755, 0.98 ]
+					},
+					{
+						"time": 0.6666,
+						"x": 0,
+						"y": 9.42,
+						"curve": [ 0.385, 0, 1, 0.92 ]
+					},
+					{ "time": 1.3333, "x": 0, "y": 0 }
+				],
+				"scale": [
+					{
+						"time": 0,
+						"x": 1,
+						"y": 1,
+						"curve": [ 0.348, 0.77, 0.755, 0.98 ]
+					},
+					{
+						"time": 0.6666,
+						"x": 1.017,
+						"y": 1.017,
+						"curve": [ 0.385, 0, 1, 0.92 ]
+					},
+					{ "time": 1.3333, "x": 1, "y": 1 }
+				]
+			}
+		}
+	},
+	"coupon_y": {
+		"slots": {
+			"pngs/coupon_y": {
+				"attachment": [
+					{ "time": 0, "name": "pngs/coupon_y" },
+					{ "time": 1.3333, "name": "pngs/coupon_y" }
+				]
+			}
+		},
+		"bones": {
+			"coupon_y": {
+				"translate": [
+					{
+						"time": 0,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.348, 0.77, 0.755, 0.98 ]
+					},
+					{
+						"time": 0.6666,
+						"x": 0,
+						"y": 9.42,
+						"curve": [ 0.385, 0, 1, 0.92 ]
+					},
+					{ "time": 1.3333, "x": 0, "y": 0 }
+				],
+				"scale": [
+					{
+						"time": 0,
+						"x": 1,
+						"y": 1,
+						"curve": [ 0.348, 0.77, 0.755, 0.98 ]
+					},
+					{
+						"time": 0.6666,
+						"x": 1.017,
+						"y": 1.017,
+						"curve": [ 0.385, 0, 1, 0.92 ]
+					},
+					{ "time": 1.3333, "x": 1, "y": 1 }
+				]
+			}
+		}
+	},
+	"giftbox": {
+		"slots": {
+			"pngs/giftbox": {
+				"attachment": [
+					{ "time": 0, "name": "pngs/giftbox" },
+					{ "time": 1.3333, "name": "pngs/giftbox" }
+				]
+			}
+		},
+		"bones": {
+			"giftbox": {
+				"translate": [
+					{
+						"time": 0,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.348, 0.77, 0.755, 0.98 ]
+					},
+					{
+						"time": 0.6666,
+						"x": 0,
+						"y": 9.42,
+						"curve": [ 0.385, 0, 1, 0.92 ]
+					},
+					{ "time": 1.3333, "x": 0, "y": 0 }
+				],
+				"scale": [
+					{
+						"time": 0,
+						"x": 1,
+						"y": 1,
+						"curve": [ 0.348, 0.77, 0.755, 0.98 ]
+					},
+					{
+						"time": 0.6666,
+						"x": 1.017,
+						"y": 1.017,
+						"curve": [ 0.385, 0, 1, 0.92 ]
+					},
+					{ "time": 1.3333, "x": 1, "y": 1 }
+				]
+			}
+		}
+	},
+	"lipstick": {
+		"slots": {
+			"pngs/Lipstick": {
+				"attachment": [
+					{ "time": 0, "name": "pngs/Lipstick" },
+					{ "time": 1.3333, "name": "pngs/Lipstick" }
+				]
+			}
+		},
+		"bones": {
+			"lipstick": {
+				"translate": [
+					{
+						"time": 0,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.348, 0.77, 0.755, 0.98 ]
+					},
+					{
+						"time": 0.6666,
+						"x": 0,
+						"y": 9.42,
+						"curve": [ 0.385, 0, 1, 0.92 ]
+					},
+					{ "time": 1.3333, "x": 0, "y": 0 }
+				],
+				"scale": [
+					{
+						"time": 0,
+						"x": 1,
+						"y": 1,
+						"curve": [ 0.348, 0.77, 0.755, 0.98 ]
+					},
+					{
+						"time": 0.6666,
+						"x": 1.017,
+						"y": 1.017,
+						"curve": [ 0.385, 0, 1, 0.92 ]
+					},
+					{ "time": 1.3333, "x": 1, "y": 1 }
+				]
+			}
+		}
+	}
+}
+}
