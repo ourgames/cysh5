@@ -1,5 +1,8 @@
 package com.sh.msg;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sh.util.NetUtil;
+import com.sh.bean.User;
 import com.sh.define.ReturnCode;
 import com.sh.service.UserService;
 
@@ -23,10 +27,20 @@ public class UserMsg {
 
 	// 用户注册消息
 	@RequestMapping("/signup")
-	public int signup(HttpServletRequest request, String uuid, String user_name) throws Exception {
+	public Map<String, Object> signup(HttpServletRequest request, String uuid, String user_name) throws Exception {
 		String ip = NetUtil.getRemoteAddress(request);
-		ReturnCode code = UserService.insert(uuid, user_name, ip);
-		return code.getCode();
+		User user = UserService.insert(uuid, user_name, ip);
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+
+		// 插入成功
+		if (user != null) {
+			resultMap.put("User", user);
+			resultMap.put("ReturnCode", ReturnCode.SUCCESS.getCode());
+		} else {
+			resultMap.put("ReturnCode", ReturnCode.USER_INSERT_FAILED.getCode());
+		}
+
+		return resultMap;
 	}
 
 	// 用户登录消息
