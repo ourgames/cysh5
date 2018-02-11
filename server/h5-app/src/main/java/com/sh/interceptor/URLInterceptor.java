@@ -22,13 +22,6 @@ public class URLInterceptor implements HandlerInterceptor {
 		String uri = request.getRequestURI();
 		// 获取用户ID
 		Integer user_no = (Integer) request.getSession().getAttribute(Define.USER_NO);
-		
-		
-		// 增加header
-		response.setHeader("Access-Control-Allow-Origin", "*");
-		response.setHeader("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
-		response.setHeader("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
-		response.setHeader("X-Powered-By","Jetty");
 
 		// TODO 查看是否为黑名单
 		// if (isInBlackList(IP)) {
@@ -58,6 +51,11 @@ public class URLInterceptor implements HandlerInterceptor {
 		String uri = request.getRequestURI();
 		// 获取用户ID
 		Integer user_no = (Integer) request.getSession().getAttribute(Define.USER_NO);
+		// 增加header
+		response.setHeader("Access-Control-Allow-Origin", "*");
+		response.setHeader("Access-Control-Allow-Headers", "Content-Type, Content-Length, Authorization, Accept, X-Requested-With, X-HTTP-Method-Override");
+		response.setHeader("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+		response.setHeader("X-Powered-By","Jetty");
 
 		// TODO 查看是否为黑名单
 		// if (isInBlackList(IP)) {
