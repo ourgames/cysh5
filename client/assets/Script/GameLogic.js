@@ -65,6 +65,7 @@ cc.Class({
         this.curStep = 0;
         this.isMoving = false;
         this.isMovingEnd = true;
+        this.dice = this.dice.getComponent('sp.Skeleton');
         this.refreshPanel();
     },
 
@@ -181,18 +182,32 @@ cc.Class({
     },
 
     onBtnSummon: function(){
-        var callback = function(step){
-            D.gameLogic.diceCount = parseInt(step);
-            cc.log("callback:"+D.gameLogic.diceCount)
-            D.gameLogic.targetStep += step;
-            D.gameLogic.isMoving = true;
-            // D.gameLogic.ctrlMiku("run",D.gameLogic.curStep);
-        };
-        D.common.Summon(callback);
+        // this.onRoll(2);
+        // var callback = function(step){
+        //     D.gameLogic.diceCount = parseInt(step);
+        //     cc.log("callback:"+D.gameLogic.diceCount)
+        //     D.gameLogic.targetStep += step;
+        //     D.gameLogic.isMoving = true;
+        //     // D.gameLogic.ctrlMiku("run",D.gameLogic.curStep);
+        // };
+        D.common.Summon(this.onRoll.bind(this));
     },
 
     onRoll: function(step)
     {
-        this.dice.
-    },
+        var diceAni = function(){
+            this.dice.setAnimation(0, 'dice'+step, false);
+        };
+        var moveAct = function(){
+            D.gameLogic.diceCount = parseInt(step);
+            cc.log("callback:"+D.gameLogic.diceCount)
+            D.gameLogic.targetStep += step;
+            D.gameLogic.isMoving = true;
+        }
+        var diceAniCB = cc.callFunc(diceAni.bind(this));
+        var delay = cc.delayTime(1);
+        var moveActCB = cc.callFunc(moveAct.bind(this));
+        var seq = cc.sequence(diceAniCB, delay, moveActCB);
+        this.node.runAction(seq);
+    }
 });

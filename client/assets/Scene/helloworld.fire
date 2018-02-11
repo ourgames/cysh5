@@ -9594,10 +9594,12 @@
     "_enabled": true,
     "_paused": false,
     "defaultSkin": "",
-    "defaultAnimation": "",
+    "defaultAnimation": "miku_idle",
     "loop": true,
     "_premultipliedAlpha": false,
-    "_N$skeletonData": null,
+    "_N$skeletonData": {
+      "__uuid__": "8a4bb850-9ae3-4174-9415-8230bece902d"
+    },
     "_N$timeScale": 1,
     "_N$debugSlots": false,
     "_N$debugBones": false
@@ -11743,7 +11745,12 @@
     "tile": {
       "__id__": 104
     },
-    "label_pop": null
+    "label_pop": {
+      "__id__": 96
+    },
+    "dice": {
+      "__id__": 283
+    }
   },
   {
     "__type__": "cc.Widget",

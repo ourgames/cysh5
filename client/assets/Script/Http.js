@@ -20,16 +20,29 @@ var Http = cc.Class({
         var request = cc.loader.getXMLHttpRequest();
 	    cc.log("Status: Send Get Request to " + url);
 	    request.open("GET", url, true);
-
+	    request.setRequestHeader("Access-Control-Allow-Origin", "*");
+	    request.setRequestHeader("Access-Control-Allow-Headers", "Content-Type, Content-Length, Authorization, Accept, X-Requested-With, X-HTTP-Method-Override");
+	    request.setRequestHeader("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+	    request.setRequestHeader("X-Powered-By","Jetty");
+	    // request.setRequestHeader("Content-Type","application/x-www-form-urlencode;charset=UTF-8");
 	    request.onreadystatechange = function () {
 	    	cc.log("request.status:"+request.status)
-	        if (request.readyState == 4 && (request.status >= 200 && request.status <= 207)) {
-	            var httpStatus = request.statusText;
+	        // if (request.readyState == 4 && (request.status >= 200 && request.status <= 207)) {
+	        //     var httpStatus = request.statusText;
+	        //     var response = request.responseText;
+	        //     cc.log("Status: Got GET response! " + httpStatus);
+	        //     callback(false, request);
+	        // }else{
+	        //     callback(true, request);
+	        // }
+	        if(request.readyState == 4 && request.status == 200){
+            	var response = request.responseText;
+            	if(callback)
+                	callback(true, response);
+	        }else if(request.readyState == 4 && request.status != 200){
 	            var response = request.responseText;
-	            cc.log("Status: Got GET response! " + httpStatus);
-	            callback(true, request);
-	        }else{
-	            callback(false, request);
+            	if(callback)
+	            	callback(false, response);
 	        }
 	    };
 	    request.send();
