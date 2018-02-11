@@ -8,7 +8,7 @@
 //  - [Chinese] http://www.cocos.com/docs/creator/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/editors_and_tools/creator-chapters/scripting/life-cycle-callbacks/index.html
 
-var RoleCtrl = cc.Class({
+cc.Class({
     extends: cc.Component,
     editor: {
         requireComponent: sp.Skeleton
@@ -36,7 +36,9 @@ var RoleCtrl = cc.Class({
 
     onLoad () {
         var spine = this.spine = this.getComponent('sp.Skeleton');
-        this.Idle();
+        this.spine.setAnimation(0, 'working', true);
+        // var node = this.node = this.getComponent('cc.Node');
+        this.node.setPosition(0,0);
     },
 
     start () {
@@ -44,30 +46,4 @@ var RoleCtrl = cc.Class({
     },
 
     // update (dt) {},
-
-    Idle: function()
-    {
-        this.node.setScaleX(1)
-        this.spine.setAnimation(0, 'miku_idle', true);
-    },
-
-    RunTo: function(pos, callback)
-    {
-        var spine = this.spine = this.getComponent('sp.Skeleton');
-        this.spine.setAnimation(0, 'miku_run', true);
-        var curPos = this.node.getPosition();
-        var dir = cc.pSub(pos, curPos);
-        if (dir.x > 10)
-        {
-            this.node.setScaleX(1)
-        }
-        else if(dir.x < -10)
-        {
-            this.node.setScaleX(-1)
-        }
-        var moveTo = cc.moveTo(1, pos);
-        var dataCB = cc.callFunc(callback);
-        var seq = cc.sequence(moveTo, dataCB);
-        this.node.runAction(seq);
-    },
 });

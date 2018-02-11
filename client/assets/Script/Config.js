@@ -177,11 +177,5 @@ cc.Class({
 
     },
 
-    getItemById: function(config_, id)
-    {
-        var item = config_.filter(function (e) { return e.id == id; }); 
-        return item;
-    },
-     
     // update (dt) {},
 });

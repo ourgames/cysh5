@@ -1,0 +1,17 @@
+<Root>
+  <表结构>
+    <表结构 表结构="0" />
+    <battle.xls>
+      <battle.xls battle.xls="1" />
+      <服务器 服务器="1" />
+    </battle.xls>
+    <battle_step.xls>
+      <battle_step.xls battle_step.xls="2" />
+      <服务器 服务器="2" />
+    </battle_step.xls>
+    <weight_pool.xls>
+      <weight_pool.xls weight_pool.xls="3" />
+      <服务器 服务器="3" />
+    </weight_pool.xls>
+  </表结构>
+</Root>

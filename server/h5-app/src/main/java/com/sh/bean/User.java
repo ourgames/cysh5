@@ -10,7 +10,8 @@ public class User {
 	String account_uuid;
 	String user_name;
 	String user_photo;
-	Integer user_score;
+	Integer user_score_a;
+	Integer user_score_b;
 	Integer user_step;
 	Integer user_tickets;
 	Integer user_be_liked;
@@ -53,11 +54,17 @@ public class User {
 	public void setUser_photo(String user_photo) {
 		this.user_photo = user_photo;
 	}
-	public Integer getUser_score() {
-		return user_score;
+	public Integer getUser_score_a() {
+		return user_score_a;
 	}
-	public void setUser_score(Integer user_score) {
-		this.user_score = user_score;
+	public void setUser_score_a(Integer user_score_a) {
+		this.user_score_a = user_score_a;
+	}
+	public Integer getUser_score_b() {
+		return user_score_b;
+	}
+	public void setUser_score_b(Integer user_score_b) {
+		this.user_score_b = user_score_b;
 	}
 	public Integer getUser_step() {
 		return user_step;
