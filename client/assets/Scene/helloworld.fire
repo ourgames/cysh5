@@ -3319,7 +3319,7 @@
     },
     "_enabled": true,
     "_useOriginalSize": false,
-    "_string": "北京市海淀区中关村大街鼎好电子大厦B座1122",
+    "_string": "",
     "_tabIndex": 0,
     "editingDidBegan": [],
     "textChanged": [],
@@ -3341,7 +3341,7 @@
       "a": 255
     },
     "_N$placeholder": "请输入联系地址.",
-    "_N$placeholderFontSize": 20,
+    "_N$placeholderFontSize": 40,
     "_N$placeholderFontColor": {
       "__type__": "cc.Color",
       "r": 127,
