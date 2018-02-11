@@ -5,11 +5,16 @@ var Http = cc.Class({
     },
 
 	statics: {
-        init: null
+        init: null,
+        url: null,
+        port: null,
     },
+    
     onLoad: function(){
     	Http.init = this;
     	cc.log("http init");
+    	this.url = "http://127.0.0.1";
+    	this.port = "80";
     },
 	/*
      * 网络请求之GET
@@ -17,9 +22,10 @@ var Http = cc.Class({
      * callback 回调参数
      * */
     getWithUrl : function(url,callback){
+    	var realUrl = this.url + ":" + this.port + url;
         var request = cc.loader.getXMLHttpRequest();
-	    cc.log("Status: Send Get Request to " + url);
-	    request.open("GET", url, true);
+	    cc.log("Status: Send Get Request to " + realUrl);
+	    request.open("GET", realUrl, true);
 	    request.setRequestHeader("Access-Control-Allow-Origin", "*");
 	    request.setRequestHeader("Access-Control-Allow-Headers", "Content-Type, Content-Length, Authorization, Accept, X-Requested-With, X-HTTP-Method-Override");
 	    request.setRequestHeader("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");

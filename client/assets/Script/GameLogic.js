@@ -88,10 +88,11 @@ cc.Class({
         }
         if (this.diceCount == 0)
         {
-            var c_event = D.config.getItemById(D.config.battle, "pos_" + this.curStep)
-            c_event = c_event[0];
+            // var c_event = D.config.getItemById(D.config.battle, "pos_" + this.curStep)
+            // c_event = c_event[0];
+            var c_event = D.config.battle[this.curStep];
             cc.log("----c_event:"+c_event.event_type);
-            if (c_event == null || c_event.event_type == null)
+            if (c_event == null || c_event.event_type == null || c_event.event_type == "null")
             {
                 cc.log("--0--c_event null:");
                 this.miku.Idle();

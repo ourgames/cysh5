@@ -47,7 +47,7 @@ cc.Class({
         if (uuid == null) {
             uuid = this.uuidv4();
         }
-        var url = "http://127.0.0.1/signin?uuid=" + uuid;
+        var url = "/signin?uuid=" + uuid;
         cc.log(url);
         Http.init.getWithUrl(url, function(err, response) {
             cc.log("err:" + err);
@@ -61,7 +61,7 @@ cc.Class({
     },
 
     getUserInfo: function() {
-        var url = "http://127.0.0.1/getuserinfo";
+        var url = "/getuserinfo";
         cc.log(url);
         Http.init.getWithUrl(url, function(err, response) {
             cc.log("response:" + response);
@@ -72,7 +72,7 @@ cc.Class({
     },
 
     updateUserInfo: function(user_name, phone_no, address) {
-        var url = "http://127.0.0.1/updateuserinfo?";
+        var url = "/updateuserinfo?";
         var baselen = url.length;
         if (user_name != null && user_name != "") {
             url += "user_name=" + user_name;
@@ -99,15 +99,16 @@ cc.Class({
     },
 
     Summon: function(callback) {
-        var url = "http://127.0.0.1/startlottery";
-        Http.init.getWithUrl(url, function(err, response) {
-            cc.log("response:" + response);
-            if (err) {
-                this.userInfo = JSON.parse(response);
-                callback(step);
-            }
-        });
-        // var step = Math.floor(Math.random()*6+1);
-        // return step;
+        // var url = "/startlottery";
+        // Http.init.getWithUrl(url, function(err, response) {
+        //     cc.log("response:" + response);
+        //     if (err) {
+        //         this.userInfo = JSON.parse(response);
+        //         callback(step);
+        //     }
+        // });
+        var step = Math.floor(Math.random()*6+1);
+        callback(step); 
+        return step;
     },
 });
