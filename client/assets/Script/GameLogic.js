@@ -40,6 +40,14 @@ cc.Class({
             default: null,
             type:cc.Node,
         },
+        label_pop:{
+            default: null,
+            type:cc.Label,
+        },
+        dice:{
+            default: null,
+            type:sp.Skeleton,
+        },
     },
 
     statics: {
@@ -93,14 +101,14 @@ cc.Class({
             {
                 cc.log("--1--c_event:"+c_event.event_value);
                 this.diceCount = parseInt(c_event.event_value);
-                this.triggerEvent();
+                this.triggerEvent(c_event);
             }
             else if (c_event.event_type == "reward")
             {
                 cc.log("--2--c_event:"+c_event.event_value);
                 this.isMoving = false;
                 this.miku.Idle();
-                this.triggerEvent();
+                this.triggerEvent(c_event);
                 return;
             }
         }
@@ -162,8 +170,9 @@ cc.Class({
         this.setSummonTips(D.common.userInfo.user_tickets);
     },
 
-    triggerEvent: function(){
+    triggerEvent: function(event){
         //更新对话
+        this.label_pop.string = event.tips;
         //触发事件
         // var c_event = D.config.getItemById(D.config.battle, "pos_" + this.curStep)
         cc.log("----triggerEvent:");
@@ -181,4 +190,9 @@ cc.Class({
         };
         D.common.Summon(callback);
     },
+
+    onRoll: function(step)
+    {
+        this.dice.
+    }
 });
