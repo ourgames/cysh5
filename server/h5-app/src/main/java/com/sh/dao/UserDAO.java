@@ -11,7 +11,7 @@ import com.sh.bean.User;
 public interface UserDAO {
 
 	// 插入新用户
-	@Insert("INSERT INTO tb_user(account_uuid, user_name, last_refresh_time, regist_time, regist_ip) VALUES (#{account_uuid}, #{user_name}, #{last_refresh_time}, #{regist_time}, #{regist_ip})")
+	@Insert("INSERT INTO tb_user(account_uuid, user_name, user_step, user_tickets, last_refresh_time, regist_time, regist_ip) VALUES (#{account_uuid}, #{user_name}, #{user_step}, #{user_tickets}, #{last_refresh_time}, #{regist_time}, #{regist_ip})")
 	@Options(useGeneratedKeys = true, keyProperty = "user_no")
 	public int insert(User user);
 

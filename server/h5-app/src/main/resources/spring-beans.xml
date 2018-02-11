@@ -37,13 +37,20 @@
 	<!-- 网络实用类 -->
 	<bean id="NetUtil" class="com.sh.util.NetUtil">
 	</bean>
+	
+	<!-- 随机实用类 -->
+	<bean id="RandomUtil" class="com.sh.util.RandomUtil">
+	</bean>
 
-	<!-- CSV读取类 -->
-	<bean id="CsvReader" class="com.sh.csv.CsvReader">
+	<!-- Json读取类 -->
+	<bean id="TableReader" class="com.sh.table.TableReader">
 	</bean>
 
 	<!-- 用户服务类 -->
 	<bean id="UserService" class="com.sh.service.UserService"></bean>
+	
+	<!-- 抽奖服务类 -->
+	<bean id="LotteryService" class="com.sh.service.LotteryService"></bean>
 
 	<!-- 用户类 -->
 	<bean id="User" class="com.sh.bean.User" scope="prototype">

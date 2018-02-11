@@ -81,6 +81,8 @@ public class UserMsg {
 			// 注册用户失败
 			if (user == null) {
 				resultMap.put("ReturnCode", ReturnCode.USER_INSERT_FAILED.getCode());
+			} else {
+				user_no = user.getUser_no();
 			}
 		}
 

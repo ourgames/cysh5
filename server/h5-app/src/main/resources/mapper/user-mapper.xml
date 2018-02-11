@@ -9,7 +9,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		<set>
 			<if test="user_name != null">user_name = '${user_name}',</if>
 			<if test="user_photo != null">user_photo = '${user_photo}',</if>
-			<if test="user_score != null">user_score = '${user_score}',</if>
+			<if test="user_score_a != null">user_score_a = '${user_score_a}',</if>
+			<if test="user_score_b != null">user_score_b = '${user_score_b}',</if>
 			<if test="user_step != null">user_step = '${user_step}',</if>
 			<if test="user_tickets != null">user_tickets = '${user_tickets}',</if>
 			<if test="user_be_liked != null">user_be_liked = ${user_be_liked},</if>

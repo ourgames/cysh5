@@ -12,6 +12,8 @@ public enum ReturnCode {
 	USER_UPDATE_FAILED(2003),
 	/** 用户未登录 */
 	USER_NOT_LOGIN(2004),
+	/** 抽奖失败 */
+	LOTTERY_START_FAILED(3001),
 	/** 未知错误 */
 	UNKNOWN_ERROR(-1),
 	/** 参数缺少 */

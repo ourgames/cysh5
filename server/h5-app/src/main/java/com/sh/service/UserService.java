@@ -5,6 +5,7 @@ import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 
 import com.sh.bean.User;
+import com.sh.config.SHConfig;
 import com.sh.dao.UserDAO;
 import com.sh.define.Define;
 import com.sh.util.Log;
@@ -16,6 +17,8 @@ public class UserService {
 	private UserDAO UserDAO;
 	@Autowired
 	private TimeUtil TimeUtil;
+	@Autowired
+	SHConfig SHConfig;
 
 	// 插入新用户
 	public User insert(String uuid, String user_name, String ip) {
@@ -28,6 +31,12 @@ public class UserService {
 		user.setRegist_time(TimeUtil.now());
 		// 记录最后刷新时间
 		user.setLast_refresh_time(TimeUtil.now());
+		// 记录初始位置
+		Integer start_step = Integer.parseInt(SHConfig.getConfig("start-step"));
+		user.setUser_step(start_step);
+		// 记录初始奖券数
+		Integer init_ticket = Integer.parseInt(SHConfig.getConfig("init-ticket"));
+		user.setUser_tickets(init_ticket);
 
 		try {
 			int user_no = UserDAO.insert(user);
@@ -59,6 +68,20 @@ public class UserService {
 
 	public User getUserInfo(int user_no) {
 		return UserDAO.selectUserInfo(user_no);
+	}
+
+	public User updateUserInfo(User user) {
+		try {
+			Integer count = UserDAO.updateUserInfo(user);
+			if (count != null && count > 0) {
+				return user;
+			}
+		} catch (Exception e) {
+			Log.error("更新玩家信息失败", e);
+			return null;
+		}
+
+		return null;
 	}
 
 	public User updateUserInfo(String user_name, String phone_no, String address) {
