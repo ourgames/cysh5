@@ -51,6 +51,8 @@ public class URLInterceptor implements HandlerInterceptor {
 		String uri = request.getRequestURI();
 		// 获取用户ID
 		Integer user_no = (Integer) request.getSession().getAttribute(Define.USER_NO);
+		// 增加header
+		response.setHeader("Access-Control-Allow-Origin", "*");
 
 		// TODO 查看是否为黑名单
 		// if (isInBlackList(IP)) {
