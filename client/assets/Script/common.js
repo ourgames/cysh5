@@ -99,8 +99,15 @@ cc.Class({
     },
 
     Summon: function(callback) {
-        var step = Math.floor(Math.random()*6+1);
-        callback(step);
-        return step;
+        var url = "http://127.0.0.1/startlottery";
+        Http.init.getWithUrl(url, function(err, response) {
+            cc.log("response:" + response);
+            if (err) {
+                this.userInfo = JSON.parse(response);
+                callback(step);
+            }
+        });
+        // var step = Math.floor(Math.random()*6+1);
+        // return step;
     },
 });

@@ -182,14 +182,6 @@ cc.Class({
     },
 
     onBtnSummon: function(){
-        // this.onRoll(2);
-        // var callback = function(step){
-        //     D.gameLogic.diceCount = parseInt(step);
-        //     cc.log("callback:"+D.gameLogic.diceCount)
-        //     D.gameLogic.targetStep += step;
-        //     D.gameLogic.isMoving = true;
-        //     // D.gameLogic.ctrlMiku("run",D.gameLogic.curStep);
-        // };
         D.common.Summon(this.onRoll.bind(this));
     },
 
