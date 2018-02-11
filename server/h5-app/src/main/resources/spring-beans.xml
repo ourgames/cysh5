@@ -16,6 +16,16 @@
             http://www.springframework.org/schema/context 
             http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
+	<bean id="PropUtil" class="com.sh.util.PropUtil">
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="locations">
+			<list>
+				<value>classpath:application.properties</value>
+			</list>
+		</property>
+		<property name="fileEncoding" value="UTF-8"></property>
+	</bean>
+
 	<!-- 图片实用类 -->
 	<bean id="PicUtil" class="com.sh.util.PicUtil">
 	</bean>
@@ -28,16 +38,20 @@
 	<bean id="NetUtil" class="com.sh.util.NetUtil">
 	</bean>
 
+	<!-- CSV读取类 -->
+	<bean id="CsvReader" class="com.sh.csv.CsvReader">
+	</bean>
+
 	<!-- 用户服务类 -->
 	<bean id="UserService" class="com.sh.service.UserService"></bean>
 
 	<!-- 用户类 -->
 	<bean id="User" class="com.sh.bean.User" scope="prototype">
 	</bean>
-	
+
 	<!-- 配置类 -->
 	<bean id="SHConfig" class="com.sh.config.SHConfig"></bean>
-	
+
 	<!-- 配置RestTemplate -->
 	<!--Http client Factory -->
 	<bean id="httpClientFactory"
@@ -50,7 +64,7 @@
 	<bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
 		<constructor-arg ref="httpClientFactory" />
 	</bean>
-	
+
 	<!-- 事务管理器 -->
 	<bean id="txManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
