@@ -14,6 +14,8 @@ public enum ReturnCode {
 	USER_NOT_LOGIN(2004),
 	/** 抽奖失败 */
 	LOTTERY_START_FAILED(3001),
+	/** 抽奖券不足 */
+	LOTTERY_TICKETS_NOT_ENOUGHT(3002),
 	/** 未知错误 */
 	UNKNOWN_ERROR(-1),
 	/** 参数缺少 */
