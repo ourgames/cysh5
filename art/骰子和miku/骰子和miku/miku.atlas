@@ -1,0 +1,194 @@
+
+miku.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+pngs/miku-idle_0
+  rotate: true
+  xy: 2, 3
+  size: 81, 96
+  orig: 81, 96
+  offset: 0, 0
+  index: -1
+pngs/miku-idle_1
+  rotate: false
+  xy: 365, 198
+  size: 81, 96
+  orig: 81, 96
+  offset: 0, 0
+  index: -1
+pngs/miku-idle_2
+  rotate: true
+  xy: 100, 3
+  size: 81, 96
+  orig: 81, 96
+  offset: 0, 0
+  index: -1
+pngs/miku-idle_3
+  rotate: false
+  xy: 365, 100
+  size: 81, 96
+  orig: 81, 96
+  offset: 0, 0
+  index: -1
+pngs/miku-idle_4
+  rotate: true
+  xy: 198, 3
+  size: 81, 96
+  orig: 81, 96
+  offset: 0, 0
+  index: -1
+pngs/miku-idle_5
+  rotate: true
+  xy: 296, 3
+  size: 81, 96
+  orig: 81, 96
+  offset: 0, 0
+  index: -1
+pngs/miku-idle_6
+  rotate: false
+  xy: 394, 2
+  size: 81, 96
+  orig: 81, 96
+  offset: 0, 0
+  index: -1
+pngs/miku-run_0
+  rotate: false
+  xy: 2, 401
+  size: 119, 103
+  orig: 119, 103
+  offset: 0, 0
+  index: -1
+pngs/miku-run_1
+  rotate: false
+  xy: 2, 296
+  size: 119, 103
+  orig: 119, 103
+  offset: 0, 0
+  index: -1
+pngs/miku-run_10
+  rotate: false
+  xy: 123, 86
+  size: 119, 103
+  orig: 119, 103
+  offset: 0, 0
+  index: -1
+pngs/miku-run_11
+  rotate: false
+  xy: 244, 191
+  size: 119, 103
+  orig: 119, 103
+  offset: 0, 0
+  index: -1
+pngs/miku-run_12
+  rotate: false
+  xy: 365, 296
+  size: 119, 103
+  orig: 119, 103
+  offset: 0, 0
+  index: -1
+pngs/miku-run_13
+  rotate: false
+  xy: 244, 86
+  size: 119, 103
+  orig: 119, 103
+  offset: 0, 0
+  index: -1
+pngs/miku-run_2
+  rotate: false
+  xy: 123, 401
+  size: 119, 103
+  orig: 119, 103
+  offset: 0, 0
+  index: -1
+pngs/miku-run_3
+  rotate: false
+  xy: 2, 191
+  size: 119, 103
+  orig: 119, 103
+  offset: 0, 0
+  index: -1
+pngs/miku-run_4
+  rotate: false
+  xy: 123, 296
+  size: 119, 103
+  orig: 119, 103
+  offset: 0, 0
+  index: -1
+pngs/miku-run_5
+  rotate: false
+  xy: 244, 401
+  size: 119, 103
+  orig: 119, 103
+  offset: 0, 0
+  index: -1
+pngs/miku-run_6
+  rotate: false
+  xy: 2, 86
+  size: 119, 103
+  orig: 119, 103
+  offset: 0, 0
+  index: -1
+pngs/miku-run_7
+  rotate: false
+  xy: 123, 191
+  size: 119, 103
+  orig: 119, 103
+  offset: 0, 0
+  index: -1
+pngs/miku-run_8
+  rotate: false
+  xy: 244, 296
+  size: 119, 103
+  orig: 119, 103
+  offset: 0, 0
+  index: -1
+pngs/miku-run_9
+  rotate: false
+  xy: 365, 401
+  size: 119, 103
+  orig: 119, 103
+  offset: 0, 0
+  index: -1
+
+miku2.png
+size: 512,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+pngs/miku-idle_10
+  rotate: false
+  xy: 251, 2
+  size: 81, 96
+  orig: 81, 96
+  offset: 0, 0
+  index: -1
+pngs/miku-idle_11
+  rotate: false
+  xy: 334, 2
+  size: 81, 96
+  orig: 81, 96
+  offset: 0, 0
+  index: -1
+pngs/miku-idle_7
+  rotate: false
+  xy: 2, 2
+  size: 81, 96
+  orig: 81, 96
+  offset: 0, 0
+  index: -1
+pngs/miku-idle_8
+  rotate: false
+  xy: 85, 2
+  size: 81, 96
+  orig: 81, 96
+  offset: 0, 0
+  index: -1
+pngs/miku-idle_9
+  rotate: false
+  xy: 168, 2
+  size: 81, 96
+  orig: 81, 96
+  offset: 0, 0
+  index: -1
