@@ -1,14 +1,18 @@
 package com.sh.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import com.sh.bean.User;
 import com.sh.config.SHConfig;
+import com.sh.define.ReturnCode;
 import com.sh.table.TableReader;
 import com.sh.table.battle;
 import com.sh.table.battle_step;
 import com.sh.table.weight_pool;
+import com.sh.util.Log;
 import com.sh.util.RandomUtil;
 import com.sh.util.RandomUtil.RandomObject;
 
@@ -26,11 +30,13 @@ public class LotteryService {
 	static final int MAX_SCORE_B_MAX = 100;
 
 	// 开始摇奖
-	public int startLottery(User user) {
+	public Map<String, Integer> startLottery(User user) {
+		Map<String, Integer> mapResult = new HashMap<String, Integer>();
 		// 判断抽奖券是否足够
 		Integer tickets = user.getUser_tickets();
 		if (tickets == null || tickets <= 0) {
-			return 0;
+			mapResult.put("ReturnCode", ReturnCode.LOTTERY_TICKETS_NOT_ENOUGHT.getCode());
+			return mapResult;
 		}
 		// 减少抽奖券
 		Integer tickets_cost = Integer.parseInt(SHConfig.getConfig("tickets-cost"));
@@ -44,27 +50,30 @@ public class LotteryService {
 
 		// 获取用户当前pos
 		Integer currentStep = user.getUser_step();
-		int finalStep = calculateStep(currentStep, score_b);
+		mapResult = calculateStep(currentStep, score_b);
 
+		// 获取增加的积分
 		battle battleInfo = TableReader.getTableRow(battle.class, currentStep);
 		Integer score_add = battleInfo.getScore();
 
 		// 添加积分
 		score_a = score_a + score_add;
 		score_b = loopAdd(MAX_SCORE_B_MAX, score_b, score_add);
-		
+
 		// 保存用户各种信息
 		user.setUser_score_a(score_a);
 		user.setUser_score_b(score_b);
 		user.setUser_tickets(tickets);
-		user.setUser_step(finalStep);
+		user.setUser_step(mapResult.get("finalStep"));
 		UserService.updateUserInfo(user);
-		
-		return finalStep;
+
+		mapResult.put("ReturnCode", ReturnCode.SUCCESS.getCode());
+		return mapResult;
 	}
 
 	// 计算最终步骤
-	private int calculateStep(int currentStep, int score_b) {
+	private Map<String, Integer> calculateStep(int currentStep, int score_b) {
+		Map<String, Integer> mapResult = new HashMap<String, Integer>();
 		int diceKey = getWeightPool(currentStep, score_b);
 		battle_step stepInfo = TableReader.getTableRow(battle_step.class, diceKey);
 
@@ -78,13 +87,27 @@ public class LotteryService {
 			objects[i] = object;
 		}
 
-		// 计算最终步骤
-		Integer diceValue = (Integer) RandomUtil.randomByWeight(objects);
+		// 计算骰子步数
+		int diceValue = (Integer) RandomUtil.randomByWeight(objects);
 		Integer finalStep = move(currentStep, diceValue);
 
 		// 计算棋盘触发事件
+		battle battleInfo = TableReader.getTableRow(battle.class, finalStep);
+		if (battleInfo.getEvent_type() != null) {
+			switch (battleInfo.getEvent_type()) {
+			case "move":
+				int moveStep = Integer.parseInt(battleInfo.getEvent_value());
+				move(finalStep, moveStep);
+				Log.debug("触发移动事件，移动{}步", moveStep);
+				break;
+			case "reward":
+				break;
+			}
+		}
 
-		return diceValue;
+		mapResult.put("diceValue", diceValue);
+		mapResult.put("finalStep", finalStep);
+		return mapResult;
 	}
 
 	// 根据骰子点数向前移动
@@ -111,12 +134,13 @@ public class LotteryService {
 
 	// 循环加法算法
 	private int loopAdd(int max, int current, int add) {
-		if (current + add > max) {
-			current = current + add - max;
-		} else {
-			current = current + add;
+		int result = current + add;
+		if (result > max) {
+			result = result - max;
+		} else if (result < 0) {
+			result = result + max;
 		}
 
-		return current;
+		return result;
 	}
 }

@@ -11,6 +11,7 @@ public class User {
 	String user_name;
 	String user_photo;
 	Integer user_score_a;
+	@JsonIgnore
 	Integer user_score_b;
 	Integer user_step;
 	Integer user_tickets;

@@ -27,18 +27,16 @@ public class LotteryMsg {
 	@RequestMapping("/startlottery")
 	public Map<String, Object> startlottery() {
 		Map<String, Object> resultMap = new HashMap<String, Object>();
-		resultMap.put("ReturnCode", ReturnCode.SUCCESS.getCode());
 
 		User user = UserService.getUserInfo();
-		int step = LotteryService.startLottery(user);
-		if (step == 0) {
-			resultMap.put("ReturnCode", ReturnCode.LOTTERY_START_FAILED.getCode());
-			return resultMap;
+		Map<String, Integer> mapResult = LotteryService.startLottery(user);
+		
+		if(mapResult.get("ReturnCode") == ReturnCode.SUCCESS.getCode()){
+			resultMap.put("Dice", mapResult.get("diceValue"));
+			resultMap.put("User", user);
 		}
-
-		resultMap.put("Step", step);
-		resultMap.put("User", user);
-
+		
+		resultMap.put("ReturnCode", mapResult.get("ReturnCode"));
 		return resultMap;
 	}
 }
