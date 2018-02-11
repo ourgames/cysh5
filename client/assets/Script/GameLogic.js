@@ -194,5 +194,5 @@ cc.Class({
     onRoll: function(step)
     {
         this.dice.
-    }
+    },
 });
