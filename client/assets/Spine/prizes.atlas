@@ -1,0 +1,48 @@
+
+prizes.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+pngs/bg
+  rotate: false
+  xy: 2, 495
+  size: 730, 499
+  orig: 730, 499
+  offset: 0, 0
+  index: -1
+pngs/box
+  rotate: false
+  xy: 2, 2
+  size: 180, 230
+  orig: 180, 230
+  offset: 0, 0
+  index: -1
+pngs/iphonex
+  rotate: false
+  xy: 2, 234
+  size: 180, 259
+  orig: 180, 259
+  offset: 0, 0
+  index: -1
+pngs/miku
+  rotate: false
+  xy: 734, 673
+  size: 130, 102
+  orig: 130, 102
+  offset: 0, 0
+  index: -1
+pngs/tf
+  rotate: false
+  xy: 734, 777
+  size: 202, 217
+  orig: 202, 217
+  offset: 0, 0
+  index: -1
+pngs/word
+  rotate: false
+  xy: 184, 435
+  size: 266, 58
+  orig: 266, 58
+  offset: 0, 0
+  index: -1

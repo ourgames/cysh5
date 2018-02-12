@@ -131,4 +131,8 @@ cc.Class({
         cc.log("onEditAddressEnd:"+this.edit_address.string)
 
     },
+
+    refreshRank: function() {
+        
+    }
 });

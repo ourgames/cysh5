@@ -9,7 +9,7 @@ var Http = cc.Class({
         url: null,
         port: null,
     },
-    
+
     onLoad: function(){
     	Http.init = this;
     	cc.log("http init");
@@ -52,5 +52,5 @@ var Http = cc.Class({
 	        }
 	    };
 	    request.send();
-    },
+    }, 
 });

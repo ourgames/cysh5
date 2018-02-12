@@ -1,0 +1,90 @@
+
+dialog.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+pngs/dh1
+  rotate: false
+  xy: 409, 567
+  size: 313, 84
+  orig: 313, 84
+  offset: 0, 0
+  index: -1
+pngs/dh2
+  rotate: false
+  xy: 2, 316
+  size: 405, 113
+  orig: 405, 113
+  offset: 0, 0
+  index: -1
+pngs/dh4
+  rotate: false
+  xy: 2, 586
+  size: 405, 153
+  orig: 405, 153
+  offset: 0, 0
+  index: -1
+pngs/dh5
+  rotate: false
+  xy: 409, 787
+  size: 405, 153
+  orig: 405, 153
+  offset: 0, 0
+  index: -1
+pngs/dh6
+  rotate: false
+  xy: 409, 653
+  size: 405, 132
+  orig: 405, 132
+  offset: 0, 0
+  index: -1
+pngs/dh7
+  rotate: false
+  xy: 2, 431
+  size: 405, 153
+  orig: 405, 153
+  offset: 0, 0
+  index: -1
+pngs/dh8
+  rotate: true
+  xy: 816, 712
+  size: 228, 82
+  orig: 228, 82
+  offset: 0, 0
+  index: -1
+pngs/dh9
+  rotate: false
+  xy: 2, 741
+  size: 405, 199
+  orig: 405, 199
+  offset: 0, 0
+  index: -1
+pngs/p1
+  rotate: false
+  xy: 2, 159
+  size: 155, 155
+  orig: 155, 155
+  offset: 0, 0
+  index: -1
+pngs/p2
+  rotate: false
+  xy: 409, 410
+  size: 155, 155
+  orig: 155, 155
+  offset: 0, 0
+  index: -1
+pngs/p3
+  rotate: false
+  xy: 2, 2
+  size: 155, 155
+  orig: 155, 155
+  offset: 0, 0
+  index: -1
+pngs/p4
+  rotate: false
+  xy: 159, 159
+  size: 155, 155
+  orig: 155, 155
+  offset: 0, 0
+  index: -1
