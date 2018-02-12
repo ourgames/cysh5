@@ -1,0 +1,54 @@
+
+rule.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+pngs/bg2
+  rotate: false
+  xy: 2, 166
+  size: 730, 626
+  orig: 730, 626
+  offset: 0, 0
+  index: -1
+pngs/miku
+  rotate: false
+  xy: 2, 2
+  size: 130, 102
+  orig: 130, 102
+  offset: 0, 0
+  index: -1
+pngs/word1
+  rotate: false
+  xy: 439, 106
+  size: 165, 58
+  orig: 165, 58
+  offset: 0, 0
+  index: -1
+pngs/word2
+  rotate: false
+  xy: 2, 106
+  size: 435, 58
+  orig: 435, 58
+  offset: 0, 0
+  index: -1
+pngs/word3
+  rotate: true
+  xy: 734, 445
+  size: 347, 58
+  orig: 347, 58
+  offset: 0, 0
+  index: -1
+
+rule2.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+pngs/bg1
+  rotate: false
+  xy: 2, 2
+  size: 730, 582
+  orig: 730, 582
+  offset: 0, 0
+  index: -1

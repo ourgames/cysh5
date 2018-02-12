@@ -1,6 +1,6 @@
 var UserInfo = {
     "user_no": 1000001,
-    "user_name": "我的名字",
+    "user_name": "女装大佬",
     "user_score": 150,
     "user_step": 28,
     "user_tickets": 100,
@@ -21,7 +21,8 @@ cc.Class({
     },
 
     statics: {
-        userInfo: null
+        userInfo: null,
+        uuid: null
     },
 
     uuidv4: function() {
@@ -39,15 +40,22 @@ cc.Class({
 
     // called every frame
     update: function(dt) {
+        
+    },
 
+    getUuid: function() {
+        if (this.uuid != null)
+            return this.uuid;
+
+        var uuid = cc.sys.localStorage.getItem('uuid');
+        if (uuid == null) {
+            this.uuid = uuid = this.uuidv4();
+        }
+        return this.uuid;
     },
 
     signin: function() {
-        var uuid = cc.sys.localStorage.getItem('uuid');
-        if (uuid == null) {
-            uuid = this.uuidv4();
-        }
-        var url = "/signin?uuid=" + uuid;
+        var url = "/signin?uuid=" + this.getUuid();
         cc.log(url);
         Http.init.getWithUrl(url, function(err, response) {
             cc.log("err:" + err);
@@ -61,7 +69,7 @@ cc.Class({
     },
 
     getUserInfo: function() {
-        var url = "/getuserinfo";
+        var url = "/getuserinfo?uuid=" + this.getUuid();
         cc.log(url);
         Http.init.getWithUrl(url, function(err, response) {
             cc.log("response:" + response);
@@ -72,21 +80,15 @@ cc.Class({
     },
 
     updateUserInfo: function(user_name, phone_no, address) {
-        var url = "/updateuserinfo?";
-        var baselen = url.length;
+        var url = "/updateuserinfo?uuid=" + this.getUuid();
         if (user_name != null && user_name != "") {
-            url += "user_name=" + user_name;
+            url += "&&user_name=" + user_name;
         }
-
         if (phone_no != null && phone_no != "") {
-            if (url.length > baselen)
-                url += "&&";
-            url += "phone_no=" + phone_no;
+            url += "&&phone_no=" + phone_no;
         }
         if (address != null && address != "") {
-            if (url.length > baselen)
-                url += "&&";
-            url += "address=" + address;
+            url += "&&address=" + address;
         }
 
         cc.log(url);
@@ -99,15 +101,18 @@ cc.Class({
     },
 
     Summon: function(callback) {
-        // var url = "/startlottery";
+        // var url = "/startlottery?uuid=" + this.getUuid();
         // Http.init.getWithUrl(url, function(err, response) {
         //     cc.log("response:" + response);
         //     if (err) {
-        //         this.userInfo = JSON.parse(response);
+        //         var msg = JSON.parse(response);
+        //         this.userInfo = msg.User;
+        //         var step = msg.Dice;
         //         callback(step);
         //     }
         // });
         var step = Math.floor(Math.random()*6+1);
+        // step = 6;
         callback(step); 
         return step;
     },
