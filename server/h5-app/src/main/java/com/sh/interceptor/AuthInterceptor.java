@@ -3,13 +3,18 @@ package com.sh.interceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sh.define.Define;
+import com.sh.service.UserService;
 import com.sh.util.Log;
 
 public class AuthInterceptor implements HandlerInterceptor {
+	@Autowired
+	private UserService UserService;
+	
 	@Override
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
@@ -26,6 +31,8 @@ public class AuthInterceptor implements HandlerInterceptor {
 		// user_no = 1000000009;
 
 		if (user_no != null) {
+			// 检查是否需要刷新玩家
+			UserService.isNeedRefresh();
 			return true;
 		}
 

@@ -22,4 +22,15 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		</set>
 		where user_no = ${user_no}
 	</update>
+
+	<select id="selectUsersShort" resultType="java.util.HashMap">
+		SELECT user_no, user_name, user_photo, user_be_liked FROM tb_user
+		<where>
+			user_no IN
+			<foreach item="id" index="index" collection="user_nums"
+				open="(" separator="," close=")"> #{id}</foreach>
+		</where>
+		ORDER BY user_be_liked DESC
+	</select>
 </mapper>
+

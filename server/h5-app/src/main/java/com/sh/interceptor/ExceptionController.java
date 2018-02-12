@@ -15,8 +15,8 @@ public class ExceptionController {
 	@ResponseBody
 	public String error(HttpServletRequest request, Exception exception)
 			throws Exception {
-		Log.error("消息处理失败", exception);
-		return "消息处理失败";
+		Log.error("SERVER_ERROR", exception);
+		return "SERVER_ERROR";
 	}
 
 }

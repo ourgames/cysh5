@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE mapper   
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.sh.dao.RankDAO">
+	<!-- 更新收藏列表 -->
+	<select id="updateRank" statementType="CALLABLE">
+		{call
+		proc_update_rank(
+		#{params.result, mode=OUT, jdbcType=INTEGER},
+		#{params.user_no, mode=IN, jdbcType=INTEGER},
+		#{params.user_likes, mode=IN, jdbcType=INTEGER},
+		#{params.rank_max, mode=IN, jdbcType=INTEGER}
+		)}
+	</select>
+</mapper>

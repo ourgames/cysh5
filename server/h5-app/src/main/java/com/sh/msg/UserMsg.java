@@ -30,7 +30,7 @@ public class UserMsg {
 	SHConfig SHConfig;
 
 	// 用户注册消息
-	@RequestMapping("/signup")
+	@Deprecated
 	public Map<String, Object> signup(HttpServletRequest request, String uuid, String user_name) throws Exception {
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		if (uuid == null || uuid.isEmpty() || user_name == null || user_name.isEmpty()) {
@@ -121,6 +121,6 @@ public class UserMsg {
 
 		resultMap.put("User", user);
 		return resultMap;
-
 	}
+
 }

@@ -51,6 +51,9 @@
 	
 	<!-- 抽奖服务类 -->
 	<bean id="LotteryService" class="com.sh.service.LotteryService"></bean>
+	
+	<!-- 排行榜服务类 -->
+	<bean id="RankService" class="com.sh.service.RankService"></bean>
 
 	<!-- 用户类 -->
 	<bean id="User" class="com.sh.bean.User" scope="prototype">

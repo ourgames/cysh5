@@ -2,6 +2,7 @@ package com.sh.config;
 
 import java.util.List;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -22,9 +23,14 @@ import com.sh.interceptor.URLInterceptor;
 @EnableJdbcHttpSession
 @ImportResource(locations = { "classpath:spring-beans.xml" })
 public class SpringConfig extends WebMvcConfigurationSupport {
+	@Bean
+	AuthInterceptor getAuthInterceptor() {
+        return new AuthInterceptor();
+    }
+	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(new AuthInterceptor()).addPathPatterns("/**")
+		registry.addInterceptor(getAuthInterceptor()).addPathPatterns("/**")
 				.excludePathPatterns("/error/**").excludePathPatterns("/wx/**");
 		registry.addInterceptor(new URLInterceptor()).addPathPatterns("/**");
 	}

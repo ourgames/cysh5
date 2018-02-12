@@ -1,10 +1,15 @@
 package com.sh.service;
 
+import java.sql.Timestamp;
+import java.util.List;
+
+import org.apache.commons.lang3.concurrent.TimedSemaphore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 
 import com.sh.bean.User;
+import com.sh.bean.UserShortInfo;
 import com.sh.config.SHConfig;
 import com.sh.dao.UserDAO;
 import com.sh.define.Define;
@@ -37,6 +42,16 @@ public class UserService {
 		// 记录初始奖券数
 		Integer init_ticket = Integer.parseInt(SHConfig.getConfig("init-ticket"));
 		user.setUser_tickets(init_ticket);
+		// 初始化用户初始积分
+		user.setUser_score_a(0);
+		// 初始化照片
+		user.setUser_photo("");
+		// 初始化电话号
+		user.setPhone_no("");
+		// 初始化地址
+		user.setAddress("");
+		// 初始化点赞数
+		user.setUser_be_liked(0);
 
 		try {
 			int user_no = UserDAO.insert(user);
@@ -102,5 +117,60 @@ public class UserService {
 		}
 
 		return null;
+	}
+
+	public User like(int user_no) {
+		// 更新我自己的信息
+		User user = getUserInfo();
+		Integer user_likes_today = user.getUser_likes_today();
+		int user_like_max = Integer.parseInt(SHConfig.getConfig("user-like-max"));
+
+		// 判断今天是否还可以点赞
+		if (user_likes_today >= user_like_max) {
+			return null;
+		}
+
+		Integer user_likes_total = user.getUser_likes_total();
+		user.setUser_likes_today(user_likes_today = user_likes_today + 1);
+		user.setUser_likes_total(user_likes_total = user_likes_total + 1);
+
+		// 如果被赞的是自己
+		if (user_no == user.getUser_no()) {
+			int be_liked = user.getUser_be_liked();
+			user.setUser_be_liked(be_liked + 1);
+		} else {
+			// 保存其他用户点赞信息
+			UserDAO.like(user_no);
+		}
+
+		// 保存用户信息
+		updateUserInfo(user);
+		return user;
+	}
+
+	public boolean isNeedRefresh() {
+		User user = getUserInfo();
+		Long last_refresh_time = user.getLast_refresh_time().getTime();
+		Long system_refresh_time = TimeUtil.getTimestampToday(0, 0, 0).getTime();
+		// 判断上次刷新是否小于今天0点
+		if (last_refresh_time < system_refresh_time) {
+			// 需要刷新
+			// 重置今天的点赞数
+			user.setUser_likes_today(0);
+
+			// 设置刷新时间为现在
+			user.setLast_refresh_time(TimeUtil.now());
+
+			// 保存玩家信息
+			updateUserInfo(user);
+			return true;
+		}
+
+		return false;
+	}
+
+	public List<UserShortInfo> getUserShortInfos(List<Integer> user_nums) {
+		List<UserShortInfo> infos = UserDAO.selectUsersShort(user_nums);
+		return infos;
 	}
 }
