@@ -115,7 +115,7 @@ cc.Class({
     },
 
     onBtnShare: function() {
-
+        window.open("http://www.baidu.com");
     },
 
     onEditNickEnd: function(sender) {
