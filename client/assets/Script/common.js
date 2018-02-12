@@ -1,6 +1,6 @@
 var UserInfo = {
     "user_no": 1000001,
-    "user_name": "我的名字",
+    "user_name": "女装大佬",
     "user_score": 150,
     "user_step": 28,
     "user_tickets": 100,
@@ -101,18 +101,19 @@ cc.Class({
     },
 
     Summon: function(callback) {
-        var url = "/startlottery?uuid=" + this.getUuid();
-        Http.init.getWithUrl(url, function(err, response) {
-            cc.log("response:" + response);
-            if (err) {
-                var msg = JSON.parse(response);
-                this.userInfo = msg.User;
-                var step = msg.Dice;
-                callback(step);
-            }
-        });
-        // var step = Math.floor(Math.random()*6+1);
-        // callback(step); 
+        // var url = "/startlottery?uuid=" + this.getUuid();
+        // Http.init.getWithUrl(url, function(err, response) {
+        //     cc.log("response:" + response);
+        //     if (err) {
+        //         var msg = JSON.parse(response);
+        //         this.userInfo = msg.User;
+        //         var step = msg.Dice;
+        //         callback(step);
+        //     }
+        // });
+        var step = Math.floor(Math.random()*6+1);
+        // step = 6;
+        callback(step); 
         return step;
     },
 });

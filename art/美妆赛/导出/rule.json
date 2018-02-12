@@ -162,23 +162,6 @@
 			}
 		},
 		"bones": {
-			"bg": {
-				"translate": [
-					{ "time": 0, "x": 0, "y": 0, "curve": "stepped" },
-					{ "time": 0.5, "x": 0, "y": 0, "curve": "stepped" },
-					{ "time": 1.3333, "x": 0, "y": 0 }
-				],
-				"scale": [
-					{
-						"time": 0,
-						"x": 0.748,
-						"y": 0.748,
-						"curve": [ 0.312, 0.98, 0.75, 1 ]
-					},
-					{ "time": 0.5, "x": 1, "y": 1, "curve": "stepped" },
-					{ "time": 1.3333, "x": 1, "y": 1 }
-				]
-			},
 			"pngs/miku": {
 				"translate": [
 					{ "time": 0.3333, "x": 0, "y": -3.38 },

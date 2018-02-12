@@ -15,27 +15,32 @@ var C_Setting = [{
     "value": "1519142400"
 }, ];
 
-var C_Reward = [{
-        "id": "reward_1",
-        "name": "20元代金券"
-    }, {
-        "id": "reward_2",
-        "name": "50元代金券"
-    }, {
-        "id": "reward_3",
-        "name": "迪奥粉饼"
-    }, {
-        "id": "reward_4",
-        "name": "TF口红"
-    }, {
-        "id": "reward_5",
+var C_Reward = {
+    "reward_1": {
+        "icon": "reward_1.png",
+        "name": "20元优惠卷"
+    },
+    "reward_2": {
+        "icon": "reward_2.png",
+        "name": "50元优惠卷"
+    },
+    "reward_3": {
+        "icon": "reward_3.png",
         "name": "TF07口红"
-    }, {
-        "id": "reward_6",
+    },
+    "reward_4": {
+        "icon": "reward_4.png",
         "name": "纪梵希礼盒"
     },
-
-];
+    "reward_5": {
+        "icon": "reward_5.png",
+        "name": "迪奥粉饼"
+    },
+    "reward_6": {
+        "icon": "reward_6.png",
+        "name": "TF口红"
+    },
+}
 
 var C_Battle = {
   "1": {
@@ -76,9 +81,9 @@ var C_Battle = {
   "6": {
     "battle_id": "6",
     "event_type": "reward",
-    "event_value": "reward_1",
+    "event_value": "reward_2",
     "score": "10",
-    "tips": "恭喜获得奖励1"
+    "tips": "恭喜获得50元优惠卷"
   },
   "7": {
     "battle_id": "7",
@@ -104,9 +109,9 @@ var C_Battle = {
   "10": {
     "battle_id": "10",
     "event_type": "reward",
-    "event_value": "reward_2",
+    "event_value": "reward_1",
     "score": "10",
-    "tips": "恭喜获得奖励2"
+    "tips": "恭喜获得20元优惠卷"
   },
   "11": {
     "battle_id": "11",
@@ -148,7 +153,7 @@ var C_Battle = {
     "event_type": "reward",
     "event_value": "reward_3",
     "score": "10",
-    "tips": "恭喜获得奖励3"
+    "tips": "恭喜获得TF07口红"
   },
   "17": {
     "battle_id": "17",
@@ -167,9 +172,9 @@ var C_Battle = {
   "19": {
     "battle_id": "19",
     "event_type": "reward",
-    "event_value": "reward_4",
+    "event_value": "reward_1",
     "score": "10",
-    "tips": "恭喜获得奖励4"
+    "tips": "恭喜获得20元优惠卷"
   },
   "20": {
     "battle_id": "20",
@@ -188,9 +193,9 @@ var C_Battle = {
   "22": {
     "battle_id": "22",
     "event_type": "reward",
-    "event_value": "reward_5",
+    "event_value": "reward_4",
     "score": "10",
-    "tips": "恭喜获得奖励5"
+    "tips": "恭喜获得纪梵希礼盒"
   },
   "23": {
     "battle_id": "23",

@@ -48,6 +48,10 @@ cc.Class({
             default: null,
             type:sp.Skeleton,
         },
+        reward_show:{
+            default: null,
+            type:require("RewardShow"),
+        }
     },
 
     statics: {
@@ -164,6 +168,7 @@ cc.Class({
     },
 
     refreshPanel: function() {
+        this.reward_show.hide();
         //刷新积分
         this.setScore(D.common.userInfo.user_score);
         //刷新抽奖卷
@@ -180,6 +185,10 @@ cc.Class({
         cc.log("----triggerEvent:");
         // if (c_event.) {}
         //播放动画
+        if (event.event_type == "reward")
+        {
+            this.reward_show.show(event.event_value);
+        }
     },
 
     onBtnSummon: function(){

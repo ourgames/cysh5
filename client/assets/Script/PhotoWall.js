@@ -57,6 +57,10 @@ cc.Class({
         btn_commit:{
             default: null,
             type:cc.Button,
+        },
+        btn_upload_photo:{
+            default: null,
+            type:cc.Button, 
         }
     },
 
@@ -73,9 +77,7 @@ cc.Class({
     // update (dt) {},
 
     refreshPanel: function() {
-        this.tab_rank.active = true;
-        this.tab_self.active = false;
-        this.self_info.active = false;
+        this.onBtnTabRank();
         //self
         //照片
         //名字
@@ -88,12 +90,20 @@ cc.Class({
         this.tab_rank.active = true;
         this.tab_self.active = false;
         this.self_info.active = false;
+        this.btn_rank.getComponent("cc.Sprite").spriteFrame = this.btn_rank.getComponent("BtnIcon").btn_selected;
+        this.btn_rank.height = 62;
+        this.btn_self.getComponent("cc.Sprite").spriteFrame = this.btn_self.getComponent("BtnIcon").btn_unSelected;
+        this.btn_self.height = 54;
     },
 
     onBtnTabSelf: function() {
         this.tab_rank.active = false;
         this.tab_self.active = true;
         this.self_info.active = false;
+        this.btn_rank.getComponent("cc.Sprite").spriteFrame = this.btn_rank.getComponent("BtnIcon").btn_unSelected;
+        this.btn_rank.height = 54;
+        this.btn_self.getComponent("cc.Sprite").spriteFrame = this.btn_self.getComponent("BtnIcon").btn_selected;
+        this.btn_self.height = 62;
     },
 
     onBtnInputInfo: function() {
@@ -129,6 +139,10 @@ cc.Class({
 
     onEditAddressEnd: function(sender) {
         cc.log("onEditAddressEnd:"+this.edit_address.string)
+
+    },
+
+    onUploadPhoto: function() {
 
     },
 
