@@ -9,6 +9,41 @@ var UserInfo = {
     "address": "北京市朝阳区"
 };
 
+var RankRet = {
+    "ReturnCode": 200,
+    "Rank": [{
+        "user_name": "佳丽1",
+        "user_photo": "http://jaredpath.oss-cn-beijing.aliyuncs.com/7bSvAhF1XVt5e-EBc7ElvwjgMf7DwuTx67nFwgLAcghit7gf8MsFB00U4mXN5hSH.jpg",
+        "user_be_liked": 5,
+        "user_no": 1000001
+    }, {
+        "user_name": "佳丽2",
+        "user_photo": "http://jaredpath.oss-cn-beijing.aliyuncs.com/7bSvAhF1XVt5e-EBc7ElvwjgMf7DwuTx67nFwgLAcghit7gf8MsFB00U4mXN5hSH.jpg",
+        "user_be_liked": 1,
+        "user_no": 1000002
+    }, {
+        "user_name": "佳丽3",
+        "user_photo": "http://jaredpath.oss-cn-beijing.aliyuncs.com/7bSvAhF1XVt5e-EBc7ElvwjgMf7DwuTx67nFwgLAcghit7gf8MsFB00U4mXN5hSH.jpg",
+        "user_be_liked": 2,
+        "user_no": 1000003
+    }, {
+        "user_name": "佳丽4",
+        "user_photo": "http://jaredpath.oss-cn-beijing.aliyuncs.com/7bSvAhF1XVt5e-EBc7ElvwjgMf7DwuTx67nFwgLAcghit7gf8MsFB00U4mXN5hSH.jpg",
+        "user_be_liked": 4,
+        "user_no": 1000004
+    }, {
+        "user_name": "佳丽5",
+        "user_photo": "http://jaredpath.oss-cn-beijing.aliyuncs.com/7bSvAhF1XVt5e-EBc7ElvwjgMf7DwuTx67nFwgLAcghit7gf8MsFB00U4mXN5hSH.jpg",
+        "user_be_liked": 5,
+        "user_no": 1000005
+    }, {
+        "user_name": "佳丽6",
+        "user_photo": "http://jaredpath.oss-cn-beijing.aliyuncs.com/7bSvAhF1XVt5e-EBc7ElvwjgMf7DwuTx67nFwgLAcghit7gf8MsFB00U4mXN5hSH.jpg",
+        "user_be_liked": 6,
+        "user_no": 1000006
+    }]
+};
+
 const Http = require('Http');
 cc.Class({
     extends: cc.Component,
@@ -40,7 +75,7 @@ cc.Class({
 
     // called every frame
     update: function(dt) {
-        
+
     },
 
     getUuid: function() {
@@ -63,7 +98,7 @@ cc.Class({
             if (err) {
                 cc.sys.localStorage.setItem('uuid', uuid);
                 this.userInfo = JSON.parse(response);
-                cc.log("--user_score--:"+this.userInfo.user_score)
+                cc.log("--user_score--:" + this.userInfo.user_score)
             }
         });
     },
@@ -111,9 +146,36 @@ cc.Class({
         //         callback(step);
         //     }
         // });
-        var step = Math.floor(Math.random()*6+1);
+        var step = Math.floor(Math.random() * 6 + 1);
         // step = 6;
-        callback(step); 
+        callback(step);
         return step;
     },
+
+
+    GetRank: function(from, limit, callback) {
+        // var url = "/rank?start=" + form + "&&limit=" + limit;
+        // Http.init.getWithUrl(url, function(err, response) {
+        //     if (err) {
+        //         var msg = JSON.parse(response);
+        //         var rank = msg.Rank;
+        //         callback(rank);
+        //     }
+        // });
+        // var msg = JSON.parse(RankRet);
+        callback(RankRet.Rank);
+        // return RankRet;
+    },
+
+    LikeYou: function(user_no, callback) {
+        // var url = "/like?user_no=" + user_no;
+        // Http.init.getWithUrl(url, function(err, response) {
+        //     if (err) {
+        //         var msg = JSON.parse(response);
+        //         callback();
+        //     }
+        // });
+        var no = Math.floor(Math.random() * 10000);
+        callback(no);
+    }
 });
