@@ -53,26 +53,28 @@ cc.Class({
 
     refreshGrid: function(ranks)
     {
-        cc.log("refreshGrid:"+ranks)
         var index = this.pageWnd.getCurrentPageIndex();
         var curPage = this.pageWnd.getPages()[index];
         // 添加照片
-        var t1 = ranks["0"];
-        var t2 = ranks[0];
         var from = index * 6 + 1;
-        this.refreshRankItem(curPage, "node_1", from, ranks["0"]);
-        this.refreshRankItem(curPage, "node_2", from+1, ranks[1]);
-        this.refreshRankItem(curPage, "node_3", from+2, ranks[2]);
-        this.refreshRankItem(curPage, "node_4", from+3, ranks[3]);
-        this.refreshRankItem(curPage, "node_5", from+4, ranks[4]);
-        this.refreshRankItem(curPage, "node_6", from+5, ranks[5]);
+        for (var i = 0; i < 6; i++) {
+            var active = false;
+            if (i < ranks.length) {
+                active = true;
+            }
+            this.refreshRankItem(active, curPage, "node_1", from, ranks["0"]);
+        }
     },
 
-    refreshRankItem: function(page, nodeId, rankId, rankData)
+    refreshRankItem: function(active, page, nodeId, rankId, rankData)
     {
         var node = page.getChildByName(nodeId).getChildByName("rank_item");
-        var rankItem = node.getComponent("RankItem");
-        rankItem.refresh(rankId, rankData);
+        node.active = active;
+        if (active)
+        {
+            var rankItem = node.getComponent("RankItem");
+            rankItem.refresh(rankId, rankData);
+        }
     },
 
     OnPagePrevious: function()
