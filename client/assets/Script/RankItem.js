@@ -97,10 +97,34 @@ cc.Class({
         // }, function(err, img) {
         //     this.photo.spriteFrame = new cc.SpriteFrame(texture);
         // });
+        rankData.user_photo = "http://jaredpath.oss-cn-beijing.aliyuncs.com/7bSvAhF1XVt5e-EBc7ElvwjgMf7DwuTx67nFwgLAcghit7gf8MsFB00U4mXN5hSH.jpg";
+        if (rankData.user_photo != undefined && rankData.user_photo != "") {
+            // cc.loader.load({
+            //     url: rankData.user_photo,
+            //     isCrossOrigin: true
+            // }, function(err, tex) {
+            //     cc.log('Should load a texture from RESTful API by specify the type: ' + (tex instanceof cc.Texture2D));
+            // });
+            // var item = {
+            //     url: rankData.user_photo
+            // };
+            var callback = function(texture) {
+                if (texture) {
+                    this.photo.spriteFrame = new cc.SpriteFrame(texture);
+                    // spTouXiang.setPosition(x, y);
+                    // m_choiceLayer.addChild(spTouXiang);
 
-        cc.loader.load({url: rankData.user_photo, isCrossOrigin: true}, function (err, tex) {
-            cc.log('Should load a texture from RESTful API by specify the type: ' + (tex instanceof cc.Texture2D));
-        });
+                }
+            }
+            // var isCrossOrigin = true;
+            // cc.loader.loadImage(item, callback.bind(this), isCrossOrigin)
+            var url = rankData.user_photo;
+            // cc.loader.addDownloadHandlers({
+            //     'png': function(url, callback) {}
+            // });
+            var tex = cc.textureCache.addImage(url, callback.bind(this), this);
+        }
+        // addDownloadHandlers
         // this.loadImage(rankData.user_photo, this.photo.spriteFrame);
     },
 
@@ -108,7 +132,7 @@ cc.Class({
         var likeCallback = function(likeCount) {
             this.label_like.string = "<color=#000000>点赞数:</c><color=#ff0000>" + likeCount + "</color>"
         };
-        D.common.LikeYou(this.user_no, likeCallback.bind(this));
+        D.common.LikeYou(this.user_no, rankData.user_be_liked, likeCallback.bind(this));
     },
 
     loadImage: function(url, target) {

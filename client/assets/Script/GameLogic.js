@@ -70,11 +70,14 @@ cc.Class({
         this.isMoving = false;
         this.isMovingEnd = true;
         this.dice = this.dice.getComponent('sp.Skeleton');
-        this.refreshPanel();
     },
 
     start : function () {
 
+    },
+
+    Init: function(){
+        this.refreshPanel();
     },
 
     movingCallback: function() {
@@ -190,9 +193,14 @@ cc.Class({
             this.reward_show.show(event.event_value);
         }
     },
-
+//     "user_score_a": 10,
+//     "user_step": 2,
+//     "user_tickets": 4,
     onBtnSummon: function(){
-        D.common.Summon(this.onRoll.bind(this));
+        if (D.common.userInfo.user_tickets > 0)
+        {
+            D.common.Summon(this.onRoll.bind(this));
+        }
     },
 
     onRoll: function(step)

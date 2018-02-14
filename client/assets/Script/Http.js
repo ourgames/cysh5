@@ -13,8 +13,8 @@ var Http = cc.Class({
     onLoad: function(){
     	Http.init = this;
     	cc.log("http init");
-    	this.url = "http://127.0.0.1";
-    	this.port = "80";
+    	this.url = "";//http://127.0.0.1";
+    	this.port = "";//"8080";
     },
 	/*
      * 网络请求之GET
@@ -22,7 +22,7 @@ var Http = cc.Class({
      * callback 回调参数
      * */
     getWithUrl : function(url,callback){
-    	var realUrl = this.url + ":" + this.port + url;
+    	var realUrl = url;
         var request = cc.loader.getXMLHttpRequest();
 	    cc.log("Status: Send Get Request to " + realUrl);
 	    request.open("GET", realUrl, true);

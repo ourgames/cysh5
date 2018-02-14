@@ -61,13 +61,17 @@ cc.Class({
         btn_upload_photo:{
             default: null,
             type:cc.Button, 
-        }
+        },
+        rank_page:{
+            default: null,
+            type:require("RankPage"), 
+        },
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad: function() {
-        this.refreshPanel();
+        D.photoWall = this;
     },
 
     start: function() {
@@ -75,6 +79,11 @@ cc.Class({
     },
 
     // update (dt) {},
+
+    Init: function(){
+        this.refreshPanel();
+        this.rank_page.Init();
+    },
 
     refreshPanel: function() {
         this.onBtnTabRank();

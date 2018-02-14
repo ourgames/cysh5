@@ -4,4 +4,5 @@ window.D = {
     common: null, //
     config: null, //配置文件
     gameLogic: null,
+    photoWall: null,
 };

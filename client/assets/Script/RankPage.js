@@ -36,11 +36,14 @@ cc.Class({
     },
 
     start () {
-        this.pageWnd.setCurrentPageIndex(0);
-        this.onPageEvent(this.pageWnd, cc.PageView.EventType.PAGE_TURNING);
-
+        
     },
     // update (dt) {},
+
+    Init: function() {
+        this.pageWnd.setCurrentPageIndex(0);
+        this.onPageEvent(this.pageWnd, cc.PageView.EventType.PAGE_TURNING);
+    },
 
     addPage: function(index){
         if (this.curTotal < index)
