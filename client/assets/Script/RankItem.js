@@ -89,16 +89,51 @@ cc.Class({
         this.label_nick.string = rankData.user_name;
         this.label_like.string = "<color=#000000>点赞数:</c><color=#ff0000>" + rankData.user_be_liked + "</color>"
         this.user_no = rankData.user_no;
-        cc.loader.load(rankData.user_photo, function(err, texture) {
-            this.photo.spriteFrame = new cc.SpriteFrame(texture);
-        })
+        // cc.loader.load(rankData.user_photo, function(err, texture) {
+        //     this.photo.spriteFrame = new cc.SpriteFrame(texture);
+        // })
+        // cc.loader.load(rankData.user_photo, {
+        //     isCrossOrigin: true
+        // }, function(err, img) {
+        //     this.photo.spriteFrame = new cc.SpriteFrame(texture);
+        // });
+
+        cc.loader.load({url: rankData.user_photo, isCrossOrigin: true}, function (err, tex) {
+            cc.log('Should load a texture from RESTful API by specify the type: ' + (tex instanceof cc.Texture2D));
+        });
+        // this.loadImage(rankData.user_photo, this.photo.spriteFrame);
     },
 
-    OnLike: function()
-    {
-        var likeCallback = function(likeCount){
+    OnLike: function() {
+        var likeCallback = function(likeCount) {
             this.label_like.string = "<color=#000000>点赞数:</c><color=#ff0000>" + likeCount + "</color>"
         };
-        D.common.LikeYou(this.user_no,likeCallback.bind(this));
+        D.common.LikeYou(this.user_no, likeCallback.bind(this));
+    },
+
+    loadImage: function(url, target) {
+
+
+        var imgs = new Image();
+        imgs.crossOrigin = "Anonymous"; //注意存放顺序
+        imgs.src = url;
+        imgs.onload = function() {
+            var canvas = document.createElement('canvas');
+            canvas.width = imgs.width;
+            canvas.height = imgs.height;
+            var ctx = canvas.getContext("2d");
+            ctx.drawImage(imgs, 0, 0, imgs.width, imgs.height);
+            var img = new Image();
+            img.src = canvas.toDataURL("image/png");
+            var texture = new cc.Texture2D();
+            texture.generateMipmaps = false;
+            texture.initWithElement(img);
+            texture.handleLoadedTexture();
+            target.spriteFrame = new cc.SpriteFrame(texture);
+        };
+
+        // img.onerror = function() {
+        //     alert("error");
+        // };
     }
 });
