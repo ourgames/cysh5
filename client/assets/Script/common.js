@@ -204,14 +204,14 @@ cc.Class({
         // return RankRet;
     },
 
-    LikeYou: function(user_no, oldCount, callback) {
+    LikeYou: function(user_no, callback) {
         var url = "/like?user_no=" + user_no;
         var requestCB = function(err, response) {
             if (err) {
                 var msg = JSON.parse(response);
                 if (msg.ReturnCode == 200) {
                     this.userInfo = msg.User;
-                    callback(oldCount + 1);
+                    callback();
                 } else {
                     alert("error code:" + msg.ReturnCode)
                 }

@@ -134,7 +134,6 @@ cc.Class({
     },
 
     onBtnShare: function() {
-        window.open("http://www.baidu.com");
     },
 
     onEditNickEnd: function(sender) {
@@ -152,7 +151,7 @@ cc.Class({
     },
 
     onUploadPhoto: function() {
-
+        window.open("upload.html");
     },
 
     refreshRank: function() {

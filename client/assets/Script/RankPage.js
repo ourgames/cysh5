@@ -65,7 +65,8 @@ cc.Class({
             if (i < ranks.length) {
                 active = true;
             }
-            this.refreshRankItem(active, curPage, "node_1", from, ranks["0"]);
+            var rankData = i < ranks.length ? ranks[i] : null;
+            this.refreshRankItem(active, curPage, "node_"+i, from, rankData);
         }
     },
 

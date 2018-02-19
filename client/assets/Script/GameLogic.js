@@ -201,6 +201,10 @@ cc.Class({
         {
             D.common.Summon(this.onRoll.bind(this));
         }
+        else
+        {
+            alert("您的抽奖卷不足")
+        }
     },
 
     onRoll: function(step)

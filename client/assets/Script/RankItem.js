@@ -50,6 +50,7 @@ cc.Class({
         },
 
         user_no: 0,
+        rankData: null,
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -61,9 +62,11 @@ cc.Class({
     },
 
     // update (dt) {},
+    
     refresh: function(rankId, rankData) {
         if (rankData == null)
             return;
+        this.rankData = rankData;
         if (rankId == 1) {
             this.first.active = true;
             this.second.active = false;
@@ -89,75 +92,21 @@ cc.Class({
         this.label_nick.string = rankData.user_name;
         this.label_like.string = "<color=#000000>点赞数:</c><color=#ff0000>" + rankData.user_be_liked + "</color>"
         this.user_no = rankData.user_no;
-        // cc.loader.load(rankData.user_photo, function(err, texture) {
-        //     this.photo.spriteFrame = new cc.SpriteFrame(texture);
-        // })
-        // cc.loader.load(rankData.user_photo, {
-        //     isCrossOrigin: true
-        // }, function(err, img) {
-        //     this.photo.spriteFrame = new cc.SpriteFrame(texture);
-        // });
-        rankData.user_photo = "http://jaredpath.oss-cn-beijing.aliyuncs.com/7bSvAhF1XVt5e-EBc7ElvwjgMf7DwuTx67nFwgLAcghit7gf8MsFB00U4mXN5hSH.jpg";
+        rankData.user_photo = "user_photos/test.png";
         if (rankData.user_photo != undefined && rankData.user_photo != "") {
-            // cc.loader.load({
-            //     url: rankData.user_photo,
-            //     isCrossOrigin: true
-            // }, function(err, tex) {
-            //     cc.log('Should load a texture from RESTful API by specify the type: ' + (tex instanceof cc.Texture2D));
-            // });
-            // var item = {
-            //     url: rankData.user_photo
-            // };
-            var callback = function(texture) {
+            var callback = function(err, texture) {
                 if (texture) {
                     this.photo.spriteFrame = new cc.SpriteFrame(texture);
-                    // spTouXiang.setPosition(x, y);
-                    // m_choiceLayer.addChild(spTouXiang);
-
                 }
-            }
-            // var isCrossOrigin = true;
-            // cc.loader.loadImage(item, callback.bind(this), isCrossOrigin)
-            var url = rankData.user_photo;
-            // cc.loader.addDownloadHandlers({
-            //     'png': function(url, callback) {}
-            // });
-            var tex = cc.textureCache.addImage(url, callback.bind(this), this);
+            };
+            cc.loader.load(rankData.user_photo, callback.bind(this));
         }
-        // addDownloadHandlers
-        // this.loadImage(rankData.user_photo, this.photo.spriteFrame);
     },
 
     OnLike: function() {
-        var likeCallback = function(likeCount) {
-            this.label_like.string = "<color=#000000>点赞数:</c><color=#ff0000>" + likeCount + "</color>"
+        var likeCallback = function() {
+            this.label_like.string = "<color=#000000>点赞数:</c><color=#ff0000>" + (thisrankData.user_be_liked + 1) + "</color>"
         };
-        D.common.LikeYou(this.user_no, rankData.user_be_liked, likeCallback.bind(this));
+        D.common.LikeYou(this.user_no, likeCallback.bind(this));
     },
-
-    loadImage: function(url, target) {
-
-
-        var imgs = new Image();
-        imgs.crossOrigin = "Anonymous"; //注意存放顺序
-        imgs.src = url;
-        imgs.onload = function() {
-            var canvas = document.createElement('canvas');
-            canvas.width = imgs.width;
-            canvas.height = imgs.height;
-            var ctx = canvas.getContext("2d");
-            ctx.drawImage(imgs, 0, 0, imgs.width, imgs.height);
-            var img = new Image();
-            img.src = canvas.toDataURL("image/png");
-            var texture = new cc.Texture2D();
-            texture.generateMipmaps = false;
-            texture.initWithElement(img);
-            texture.handleLoadedTexture();
-            target.spriteFrame = new cc.SpriteFrame(texture);
-        };
-
-        // img.onerror = function() {
-        //     alert("error");
-        // };
-    }
 });
