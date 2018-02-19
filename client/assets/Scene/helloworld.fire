@@ -1426,7 +1426,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 1448
+      "y": 667
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -2752,7 +2752,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 50,
+      "width": 55.62,
       "height": 20
     },
     "_rotationX": 0,
@@ -2784,10 +2784,8 @@
     "_fontSize": 20,
     "_lineHeight": 20,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "99999",
     "_N$horizontalAlign": 1,
@@ -2910,10 +2908,8 @@
     "_fontSize": 20,
     "_lineHeight": 20,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "寂寞少妇",
     "_N$horizontalAlign": 1,
@@ -2967,7 +2963,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 110,
+      "width": 110.05000000000001,
       "height": 20
     },
     "_rotationX": 0,
@@ -2997,9 +2993,7 @@
     "_N$string": "<color=#000000>点赞数:</c><color=#ff0000>2000</color>",
     "_N$horizontalAlign": 0,
     "_N$fontSize": 20,
-    "_N$font": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
+    "_N$font": null,
     "_N$maxWidth": 0,
     "_N$lineHeight": 20,
     "_N$imageAtlas": null,
@@ -3866,7 +3860,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 50,
+      "width": 55.62,
       "height": 20
     },
     "_rotationX": 0,
@@ -3898,10 +3892,8 @@
     "_fontSize": 20,
     "_lineHeight": 20,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "99999",
     "_N$horizontalAlign": 1,
@@ -4024,10 +4016,8 @@
     "_fontSize": 20,
     "_lineHeight": 20,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "寂寞少妇",
     "_N$horizontalAlign": 1,
@@ -4081,7 +4071,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 110,
+      "width": 110.05000000000001,
       "height": 20
     },
     "_rotationX": 0,
@@ -4111,9 +4101,7 @@
     "_N$string": "<color=#000000>点赞数:</c><color=#ff0000>2000</color>",
     "_N$horizontalAlign": 0,
     "_N$fontSize": 20,
-    "_N$font": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
+    "_N$font": null,
     "_N$maxWidth": 0,
     "_N$lineHeight": 20,
     "_N$imageAtlas": null,
@@ -4980,7 +4968,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 50,
+      "width": 55.62,
       "height": 20
     },
     "_rotationX": 0,
@@ -5012,10 +5000,8 @@
     "_fontSize": 20,
     "_lineHeight": 20,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "99999",
     "_N$horizontalAlign": 1,
@@ -5138,10 +5124,8 @@
     "_fontSize": 20,
     "_lineHeight": 20,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "寂寞少妇",
     "_N$horizontalAlign": 1,
@@ -5195,7 +5179,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 110,
+      "width": 110.05000000000001,
       "height": 20
     },
     "_rotationX": 0,
@@ -5225,9 +5209,7 @@
     "_N$string": "<color=#000000>点赞数:</c><color=#ff0000>2000</color>",
     "_N$horizontalAlign": 0,
     "_N$fontSize": 20,
-    "_N$font": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
+    "_N$font": null,
     "_N$maxWidth": 0,
     "_N$lineHeight": 20,
     "_N$imageAtlas": null,
@@ -6094,7 +6076,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 50,
+      "width": 55.62,
       "height": 20
     },
     "_rotationX": 0,
@@ -6126,10 +6108,8 @@
     "_fontSize": 20,
     "_lineHeight": 20,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "99999",
     "_N$horizontalAlign": 1,
@@ -6252,10 +6232,8 @@
     "_fontSize": 20,
     "_lineHeight": 20,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "寂寞少妇",
     "_N$horizontalAlign": 1,
@@ -6309,7 +6287,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 110,
+      "width": 110.05000000000001,
       "height": 20
     },
     "_rotationX": 0,
@@ -6339,9 +6317,7 @@
     "_N$string": "<color=#000000>点赞数:</c><color=#ff0000>2000</color>",
     "_N$horizontalAlign": 0,
     "_N$fontSize": 20,
-    "_N$font": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
+    "_N$font": null,
     "_N$maxWidth": 0,
     "_N$lineHeight": 20,
     "_N$imageAtlas": null,
@@ -7208,7 +7184,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 50,
+      "width": 55.62,
       "height": 20
     },
     "_rotationX": 0,
@@ -7240,10 +7216,8 @@
     "_fontSize": 20,
     "_lineHeight": 20,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "99999",
     "_N$horizontalAlign": 1,
@@ -7366,10 +7340,8 @@
     "_fontSize": 20,
     "_lineHeight": 20,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "寂寞少妇",
     "_N$horizontalAlign": 1,
@@ -7423,7 +7395,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 110,
+      "width": 110.05000000000001,
       "height": 20
     },
     "_rotationX": 0,
@@ -7453,9 +7425,7 @@
     "_N$string": "<color=#000000>点赞数:</c><color=#ff0000>2000</color>",
     "_N$horizontalAlign": 0,
     "_N$fontSize": 20,
-    "_N$font": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
+    "_N$font": null,
     "_N$maxWidth": 0,
     "_N$lineHeight": 20,
     "_N$imageAtlas": null,
@@ -8322,7 +8292,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 50,
+      "width": 55.62,
       "height": 20
     },
     "_rotationX": 0,
@@ -8354,10 +8324,8 @@
     "_fontSize": 20,
     "_lineHeight": 20,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "99999",
     "_N$horizontalAlign": 1,
@@ -8480,10 +8448,8 @@
     "_fontSize": 20,
     "_lineHeight": 20,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "寂寞少妇",
     "_N$horizontalAlign": 1,
@@ -8537,7 +8503,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 110,
+      "width": 110.05000000000001,
       "height": 20
     },
     "_rotationX": 0,
@@ -8567,9 +8533,7 @@
     "_N$string": "<color=#000000>点赞数:</c><color=#ff0000>2000</color>",
     "_N$horizontalAlign": 0,
     "_N$fontSize": 20,
-    "_N$font": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
+    "_N$font": null,
     "_N$maxWidth": 0,
     "_N$lineHeight": 20,
     "_N$imageAtlas": null,
@@ -10384,10 +10348,8 @@
     "_fontSize": 28,
     "_lineHeight": 28,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "初音未来",
     "_N$horizontalAlign": 1,
@@ -10458,9 +10420,7 @@
     "_N$string": "<color=#000000>获赞数:</c><color=#ff0000>2000</color>",
     "_N$horizontalAlign": 0,
     "_N$fontSize": 24,
-    "_N$font": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
+    "_N$font": null,
     "_N$maxWidth": 200,
     "_N$lineHeight": 24,
     "_N$imageAtlas": null,
@@ -12253,7 +12213,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 384,
+      "width": 373.34,
       "height": 24
     },
     "_rotationX": 0,
@@ -12285,10 +12245,8 @@
     "_fontSize": 24,
     "_lineHeight": 24,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "没关系,我们还有积分兑换和抽奖哦!",
     "_N$horizontalAlign": 1,
@@ -12490,7 +12448,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 400,
-      "height": 28
+      "height": 56
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -12519,9 +12477,7 @@
     "_N$string": "<color=#ffffff>再获得</c><color=#ffe178>20000</color><color=#ffffff>票饥渴获得一次抽奖机会</c>",
     "_N$horizontalAlign": 1,
     "_N$fontSize": 24,
-    "_N$font": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
+    "_N$font": null,
     "_N$maxWidth": 400,
     "_N$lineHeight": 28,
     "_N$imageAtlas": null,
@@ -18022,9 +17978,7 @@
     "_N$string": "<color=#ffffff>我的积分:</c><color=#ffe178>20</color>",
     "_N$horizontalAlign": 1,
     "_N$fontSize": 24,
-    "_N$font": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
+    "_N$font": null,
     "_N$maxWidth": 220,
     "_N$lineHeight": 24,
     "_N$imageAtlas": null,
@@ -18290,7 +18244,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 100,
+      "width": 102.25,
       "height": 20
     },
     "_rotationX": 0,
@@ -18322,10 +18276,8 @@
     "_fontSize": 20,
     "_lineHeight": 20,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "20元优惠卷",
     "_N$horizontalAlign": 1,
@@ -18366,7 +18318,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 60,
+      "width": 62.25,
       "height": 20
     },
     "_rotationX": 0,
@@ -18398,10 +18350,8 @@
     "_fontSize": 20,
     "_lineHeight": 20,
     "_enableWrapText": false,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "10积分",
     "_N$horizontalAlign": 1,
@@ -18608,7 +18558,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 100,
+      "width": 102.25,
       "height": 20
     },
     "_rotationX": 0,
@@ -18640,10 +18590,8 @@
     "_fontSize": 20,
     "_lineHeight": 20,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "50元优惠卷",
     "_N$horizontalAlign": 1,
@@ -18684,7 +18632,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 70,
+      "width": 73.37,
       "height": 20
     },
     "_rotationX": 0,
@@ -18716,10 +18664,8 @@
     "_fontSize": 20,
     "_lineHeight": 20,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "200积分",
     "_N$horizontalAlign": 1,
@@ -18958,10 +18904,8 @@
     "_fontSize": 20,
     "_lineHeight": 20,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "迪奥粉饼",
     "_N$horizontalAlign": 1,
@@ -19002,7 +18946,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 80,
+      "width": 84.49,
       "height": 20
     },
     "_rotationX": 0,
@@ -19034,10 +18978,8 @@
     "_fontSize": 20,
     "_lineHeight": 20,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "1000积分",
     "_N$horizontalAlign": 1,
@@ -19244,7 +19186,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 72,
+      "width": 77.32,
       "height": 20
     },
     "_rotationX": 0,
@@ -19276,10 +19218,8 @@
     "_fontSize": 24,
     "_lineHeight": 20,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "TF口红",
     "_N$horizontalAlign": 1,
@@ -19320,7 +19260,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 80,
+      "width": 84.49,
       "height": 20
     },
     "_rotationX": 0,
@@ -19352,10 +19292,8 @@
     "_fontSize": 20,
     "_lineHeight": 20,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "2000积分",
     "_N$horizontalAlign": 1,
@@ -19635,7 +19573,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 182,
+      "width": 177.68,
       "height": 26
     },
     "_rotationX": 0,
@@ -19665,9 +19603,7 @@
     "_N$string": "<color=#000000>我的抽奖卷:</c><color=#ff0000>2</color><color=#000000>张</c>",
     "_N$horizontalAlign": 0,
     "_N$fontSize": 26,
-    "_N$font": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
+    "_N$font": null,
     "_N$maxWidth": 0,
     "_N$lineHeight": 26,
     "_N$imageAtlas": null,
@@ -20156,7 +20092,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 120,
+      "width": 122.7,
       "height": 24
     },
     "_rotationX": 0,
@@ -20188,10 +20124,8 @@
     "_fontSize": 24,
     "_lineHeight": 24,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "20元优惠卷",
     "_N$horizontalAlign": 1,

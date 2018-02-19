@@ -3,7 +3,7 @@
     <meta charset="utf-8">
 
 </head>
-<title>h5图片压缩与上传</title>
+<title>美人妆抽奖活动</title>
 <style>
     .filePicker {
         background: none repeat scroll 0 0 #00B7EE;
@@ -11,11 +11,12 @@
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
         color: #FFFFFF;
         cursor: pointer;
+        text-align: center;
         display: inline-block;
-        font-size: 18px;
-        height: 44px;
-        line-height: 44px;
-        width: 90%;
+        font-size: 34px;
+        height: 80px;
+        line-height: 80px;
+        width: 100%;
         min-width: 120px;
         margin: 0 auto 0px;
         overflow: hidden;
@@ -33,12 +34,14 @@
             max-width: 30%;
         }
 </style>
-
+<body bgcolor="#FD6C59">
 <div class="page" id="upload">
-    <h2>UploadImg</h2>
-    <div id="dd" class="filePicker">点击选择文件</div>
+    <!-- <h1 align="center">上传您的美妆照片参与活动</h1> -->
+    <p style="text-align:center; font-weight:bold; font-size:50px;">上传您的美妆照片参与活动</p>
+    <div id="dd" class="filePicker">点击选择照片</div>
     <img id="resultImage" />
     <div id="preview"></div>
+    <input class="filePicker" type="button" name="Submit" onclick="javascript:history.back(-1);" value="返回上一页">
 </div>
 <script src="zepto.min.js"></script>
 <script src="../h5upload.js"></script>

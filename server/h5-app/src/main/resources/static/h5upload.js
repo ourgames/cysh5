@@ -257,10 +257,10 @@
     $.extend($, {
         fileUpload: function (options) {
             var para = {
-                multiple: true,
+                multiple: false,
                 filebutton: ".filePicker",
                 uploadButton: null,
-                url: "/home/MUploadImg",
+                url: "/user_photos",
                 base64strUrl: "/home/MUploadImgBase64Str",
                 filebase: "mfile",//mvc后台需要对应的名称
                 auto: true,
