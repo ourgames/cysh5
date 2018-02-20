@@ -1494,7 +1494,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 3330
+      "y": 667
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -9290,6 +9290,7 @@
     "pageWnd": null,
     "pageIndex": 0,
     "curRankFrom": 1,
+    "curRankEnd": 6,
     "pageLimit": 6,
     "curTotal": 0
   },

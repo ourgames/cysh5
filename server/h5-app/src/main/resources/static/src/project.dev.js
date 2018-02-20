@@ -840,7 +840,7 @@ require = function e(t, n, r) {
           var callback = function callback(err, texture) {
             texture && (this.photo.spriteFrame = new cc.SpriteFrame(texture));
           };
-          cc.loader.load(rankData.user_photo, callback.bind(this));
+          cc.textureCache.addImage(rankData.user_photo, callback.bind(this));
         }
       },
       OnLike: function OnLike() {
@@ -869,6 +869,7 @@ require = function e(t, n, r) {
         },
         pageIndex: 0,
         curRankFrom: 1,
+        curRankEnd: 6,
         pageLimit: 6,
         curTotal: 0
       },
@@ -886,16 +887,21 @@ require = function e(t, n, r) {
         var pageGrid = cc.instantiate(this.grid_prefab);
         this.pageWnd.addPage(pageGrid);
       },
-      refreshGrid: function refreshGrid(ranks) {
+      refreshGrid: function refreshGrid(error, ranks) {
+        if (null == ranks || void 0 == ranks || 0 == ranks.length) return;
         var index = this.pageWnd.getCurrentPageIndex();
         var curPage = this.pageWnd.getPages()[index];
         var from = 6 * index + 1;
         for (var i = 0; i < 6; i++) {
           var active = false;
-          i < ranks.length && (active = true);
+          if (i < ranks.length) {
+            this.curRankEnd = from + i;
+            active = true;
+          }
           var rankData = i < ranks.length ? ranks[i] : null;
           this.refreshRankItem(active, curPage, "node_" + i, from, rankData);
         }
+        this.curRankEnd < this.curRankFrom + 5 && this.pageWnd.removePageAtIndex(index + 1);
       },
       refreshRankItem: function refreshRankItem(active, page, nodeId, rankId, rankData) {
         var node = page.getChildByName(nodeId).getChildByName("rank_item");
@@ -913,6 +919,7 @@ require = function e(t, n, r) {
       },
       OnPageNext: function OnPageNext() {
         if (16 == this.pageIndex) return;
+        if (this.curRankEnd < this.curRankFrom + 5) return;
         this.pageIndex += 1;
         this.curRankFrom = 6 * this.pageIndex + 1;
         D.common.GetRank(this.curRankFrom, this.pageLimit, this.refreshGrid.bind(this));
@@ -921,10 +928,7 @@ require = function e(t, n, r) {
         if (eventType !== cc.PageView.EventType.PAGE_TURNING) return;
         console.log("当前所在的页面索引:" + sender.getCurrentPageIndex());
         var index = sender.getCurrentPageIndex();
-        if (0 == index) {
-          this.addPage(index);
-          this.addPage(index + 1);
-        } else index < 17 && this.addPage(index + 1);
+        0 == index ? this.addPage(index + 1) : index < 17 && this.addPage(index + 1);
         this.curRankFrom = 6 * index + 1;
         D.common.GetRank(this.curRankFrom, this.pageLimit, this.refreshGrid.bind(this));
       }
@@ -1169,8 +1173,8 @@ require = function e(t, n, r) {
             var msg = JSON.parse(response);
             if (200 == msg.ReturnCode) {
               var rank = msg.Rank;
-              callback(rank);
-            } else alert("error code:" + msg.ReturnCode);
+              callback("success", rank);
+            } else callback("error");
           }
         };
         Http.init.getWithUrl(url, requestCB.bind(this));

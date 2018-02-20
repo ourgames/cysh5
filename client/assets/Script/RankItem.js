@@ -94,12 +94,26 @@ cc.Class({
         this.user_no = rankData.user_no;
         rankData.user_photo = "user_photos/test.png";
         if (rankData.user_photo != undefined && rankData.user_photo != "") {
+            // var cacheTex = cc.textureCache.getTextureForKey(rankData.user_photo);
+            // if (cacheTex != null) {
+            //     this.photo.spriteFrame = new cc.SpriteFrame(texture);
+            // }
+            // else {
+            //     var callback = function(err, texture) {
+            //         if (texture) {
+            //             cc.textureCache.cacheImage(rankData.user_photo, texture);
+            //             this.photo.spriteFrame = new cc.SpriteFrame(texture);
+            //         }
+            //     };
+            //     // cc.loader.load(rankData.user_photo, callback.bind(this));
+            //     cc.textureCache.addImage(rankData.user_photo, callback.bind(this));
+            // }
             var callback = function(err, texture) {
                 if (texture) {
                     this.photo.spriteFrame = new cc.SpriteFrame(texture);
                 }
             };
-            cc.loader.load(rankData.user_photo, callback.bind(this));
+            cc.textureCache.addImage(rankData.user_photo, callback.bind(this));
         }
     },
 

@@ -192,9 +192,9 @@ cc.Class({
                 var msg = JSON.parse(response);
                 if (msg.ReturnCode == 200) {
                     var rank = msg.Rank;
-                    callback(rank);
+                    callback("success", rank);
                 } else {
-                    alert("error code:" + msg.ReturnCode)
+                    callback("error");
                 }
 
             }

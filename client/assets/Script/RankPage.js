@@ -24,6 +24,7 @@ cc.Class({
 
         pageIndex : 0,
         curRankFrom : 1,
+        curRankEnd : 6,
         pageLimit : 6,
         curTotal : 0,
     },
@@ -54,8 +55,10 @@ cc.Class({
     },
 
 
-    refreshGrid: function(ranks)
+    refreshGrid: function(error,ranks)
     {
+        if (ranks == null || ranks == undefined || ranks.length == 0)
+            return;
         var index = this.pageWnd.getCurrentPageIndex();
         var curPage = this.pageWnd.getPages()[index];
         // 添加照片
@@ -63,10 +66,16 @@ cc.Class({
         for (var i = 0; i < 6; i++) {
             var active = false;
             if (i < ranks.length) {
+                this.curRankEnd = from + i;
                 active = true;
             }
             var rankData = i < ranks.length ? ranks[i] : null;
             this.refreshRankItem(active, curPage, "node_"+i, from, rankData);
+        }
+        if (this.curRankEnd < (this.curRankFrom + 5))
+        {
+            // var pages = this.pageWnd.getPages();
+            this.pageWnd.removePageAtIndex(index + 1);
         }
     },
 
@@ -95,6 +104,9 @@ cc.Class({
         // 只显示前100
         if (this.pageIndex == 16)
             return;
+        if (this.curRankEnd < (this.curRankFrom + 5))
+            return;
+
         this.pageIndex += 1;
         this.curRankFrom = this.pageIndex * 6 + 1;
         D.common.GetRank(this.curRankFrom, this.pageLimit, this.refreshGrid.bind(this))
@@ -109,7 +121,7 @@ cc.Class({
         var index = sender.getCurrentPageIndex();
         if (index == 0)
         {
-            this.addPage(index);
+            // this.addPage(index);
             this.addPage(index + 1);
         }
         else if (index < 17){
