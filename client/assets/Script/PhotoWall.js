@@ -151,7 +151,8 @@ cc.Class({
     },
 
     onUploadPhoto: function() {
-        window.open("upload.html");
+        // window.open("upload.html");
+        window.location.href = "upload/index.html";
     },
 
     refreshRank: function() {

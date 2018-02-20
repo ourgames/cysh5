@@ -752,7 +752,7 @@ require = function e(t, n, r) {
         cc.log("onEditAddressEnd:" + this.edit_address.string);
       },
       onUploadPhoto: function onUploadPhoto() {
-        window.open("upload.html");
+        window.location.href = "upload/index.html";
       },
       refreshRank: function refreshRank() {}
     });
