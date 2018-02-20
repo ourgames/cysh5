@@ -399,7 +399,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 50,
+      "width": 55.62,
       "height": 20
     },
     "_rotationX": 0,
@@ -431,10 +431,8 @@
     "_fontSize": 20,
     "_lineHeight": 20,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "99999",
     "_N$horizontalAlign": 1,
@@ -557,10 +555,8 @@
     "_fontSize": 20,
     "_lineHeight": 20,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "寂寞少妇",
     "_N$horizontalAlign": 1,
@@ -614,7 +610,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 110,
+      "width": 110.05000000000001,
       "height": 20
     },
     "_rotationX": 0,
@@ -644,9 +640,7 @@
     "_N$string": "<color=#000000>点赞数:</c><color=#ff0000>2000</color>",
     "_N$horizontalAlign": 0,
     "_N$fontSize": 20,
-    "_N$font": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
+    "_N$font": null,
     "_N$maxWidth": 0,
     "_N$lineHeight": 20,
     "_N$imageAtlas": null,
@@ -1513,7 +1507,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 50,
+      "width": 55.62,
       "height": 20
     },
     "_rotationX": 0,
@@ -1545,10 +1539,8 @@
     "_fontSize": 20,
     "_lineHeight": 20,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "99999",
     "_N$horizontalAlign": 1,
@@ -1671,10 +1663,8 @@
     "_fontSize": 20,
     "_lineHeight": 20,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "寂寞少妇",
     "_N$horizontalAlign": 1,
@@ -1728,7 +1718,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 110,
+      "width": 110.05000000000001,
       "height": 20
     },
     "_rotationX": 0,
@@ -1758,9 +1748,7 @@
     "_N$string": "<color=#000000>点赞数:</c><color=#ff0000>2000</color>",
     "_N$horizontalAlign": 0,
     "_N$fontSize": 20,
-    "_N$font": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
+    "_N$font": null,
     "_N$maxWidth": 0,
     "_N$lineHeight": 20,
     "_N$imageAtlas": null,
@@ -2627,7 +2615,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 50,
+      "width": 55.62,
       "height": 20
     },
     "_rotationX": 0,
@@ -2659,10 +2647,8 @@
     "_fontSize": 20,
     "_lineHeight": 20,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "99999",
     "_N$horizontalAlign": 1,
@@ -2785,10 +2771,8 @@
     "_fontSize": 20,
     "_lineHeight": 20,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "寂寞少妇",
     "_N$horizontalAlign": 1,
@@ -2842,7 +2826,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 110,
+      "width": 110.05000000000001,
       "height": 20
     },
     "_rotationX": 0,
@@ -2872,9 +2856,7 @@
     "_N$string": "<color=#000000>点赞数:</c><color=#ff0000>2000</color>",
     "_N$horizontalAlign": 0,
     "_N$fontSize": 20,
-    "_N$font": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
+    "_N$font": null,
     "_N$maxWidth": 0,
     "_N$lineHeight": 20,
     "_N$imageAtlas": null,
@@ -3741,7 +3723,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 50,
+      "width": 55.62,
       "height": 20
     },
     "_rotationX": 0,
@@ -3773,10 +3755,8 @@
     "_fontSize": 20,
     "_lineHeight": 20,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "99999",
     "_N$horizontalAlign": 1,
@@ -3899,10 +3879,8 @@
     "_fontSize": 20,
     "_lineHeight": 20,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "寂寞少妇",
     "_N$horizontalAlign": 1,
@@ -3956,7 +3934,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 110,
+      "width": 110.05000000000001,
       "height": 20
     },
     "_rotationX": 0,
@@ -3986,9 +3964,7 @@
     "_N$string": "<color=#000000>点赞数:</c><color=#ff0000>2000</color>",
     "_N$horizontalAlign": 0,
     "_N$fontSize": 20,
-    "_N$font": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
+    "_N$font": null,
     "_N$maxWidth": 0,
     "_N$lineHeight": 20,
     "_N$imageAtlas": null,
@@ -4855,7 +4831,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 50,
+      "width": 55.62,
       "height": 20
     },
     "_rotationX": 0,
@@ -4887,10 +4863,8 @@
     "_fontSize": 20,
     "_lineHeight": 20,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "99999",
     "_N$horizontalAlign": 1,
@@ -5013,10 +4987,8 @@
     "_fontSize": 20,
     "_lineHeight": 20,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "寂寞少妇",
     "_N$horizontalAlign": 1,
@@ -5070,7 +5042,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 110,
+      "width": 110.05000000000001,
       "height": 20
     },
     "_rotationX": 0,
@@ -5100,9 +5072,7 @@
     "_N$string": "<color=#000000>点赞数:</c><color=#ff0000>2000</color>",
     "_N$horizontalAlign": 0,
     "_N$fontSize": 20,
-    "_N$font": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
+    "_N$font": null,
     "_N$maxWidth": 0,
     "_N$lineHeight": 20,
     "_N$imageAtlas": null,
@@ -5969,7 +5939,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 50,
+      "width": 55.62,
       "height": 20
     },
     "_rotationX": 0,
@@ -6001,10 +5971,8 @@
     "_fontSize": 20,
     "_lineHeight": 20,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "99999",
     "_N$horizontalAlign": 1,
@@ -6127,10 +6095,8 @@
     "_fontSize": 20,
     "_lineHeight": 20,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
-    "_isSystemFontUsed": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_N$string": "寂寞少妇",
     "_N$horizontalAlign": 1,
@@ -6184,7 +6150,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 110,
+      "width": 110.05000000000001,
       "height": 20
     },
     "_rotationX": 0,
@@ -6214,9 +6180,7 @@
     "_N$string": "<color=#000000>点赞数:</c><color=#ff0000>2000</color>",
     "_N$horizontalAlign": 0,
     "_N$fontSize": 20,
-    "_N$font": {
-      "__uuid__": "dd35c034-ca49-4328-b247-d38f63d44292"
-    },
+    "_N$font": null,
     "_N$maxWidth": 0,
     "_N$lineHeight": 20,
     "_N$imageAtlas": null,

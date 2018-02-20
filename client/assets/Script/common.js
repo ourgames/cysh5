@@ -54,6 +54,7 @@ cc.Class({
         //     default: null,
         //     type: require('Http'),
         // },
+
     },
 
     statics: {

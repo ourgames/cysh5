@@ -62,7 +62,7 @@ cc.Class({
     },
 
     // update (dt) {},
-    
+
     refresh: function(rankId, rankData) {
         if (rankData == null)
             return;
@@ -105,7 +105,7 @@ cc.Class({
 
     OnLike: function() {
         var likeCallback = function() {
-            this.label_like.string = "<color=#000000>点赞数:</c><color=#ff0000>" + (thisrankData.user_be_liked + 1) + "</color>"
+            this.label_like.string = "<color=#000000>点赞数:</c><color=#ff0000>" + (this.rankData.user_be_liked + 1) + "</color>"
         };
         D.common.LikeYou(this.user_no, likeCallback.bind(this));
     },

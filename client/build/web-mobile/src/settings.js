@@ -491,6 +491,10 @@ window._CCSettings = {
             "61cyPdEfRN047sDK9rO0W5": [
                 "image/default_scrollbar_vertical_bg.png",
                 "cc.Texture2D"
+            ],
+            "02delMVqdBD70a/HSD99FK": [
+                "image/default_sprite_splash.png",
+                "cc.Texture2D"
             ]
         }
     },
@@ -502,7 +506,7 @@ window._CCSettings = {
         }
     ],
     "packedAssets": {
-        "0d626568b": [
+        "03128eb4d": [
             "01d12md5lBML9NB2abCHME",
             "02A4PtBbZAC5j4NSTErM76",
             "05cVias9hPK7QAwsh5AO/y",
@@ -575,6 +579,7 @@ window._CCSettings = {
             "9erVIwJ1RFyJzIQ4W4M3S/",
             "a0wv5ZBQpCp6EP+1T1sNSN",
             "a2C9KQTApK+JaF2f8bjAUj",
+            "a2MjXRFdtLlYQ5ouAFv/+R",
             "a2ebNF6hRMPKtOte5WQ9ge",
             "a3PfBe7YZNhaA0rf9deKeh",
             "a4DqSd6yZC+ZGQwUcgLP/D",
@@ -606,7 +611,6 @@ window._CCSettings = {
             "d9/blrT+BAjJvPZj0M1Zrr",
             "dbBk94/51OHpuUptnrbbmD",
             "dc2G31xnpEG4awnhDG1m5Y",
-            "ddNcA0yklDKLJH049j1EKS",
             "ddYnEGZPVGQ4Bt9a35OWJK",
             "dfSswkP/BIp7+HVcrhuqy0",
             "e1eacnVmdDdLcg7IvV8Qhy",

@@ -2,6 +2,10 @@ var Http = cc.Class({
     extends: cc.Component,
 
     properties: {
+    	waiting: {
+            default: null,
+            type:cc.Node,
+        },
     },
 
 	statics: {
@@ -22,6 +26,7 @@ var Http = cc.Class({
      * callback 回调参数
      * */
     getWithUrl : function(url,callback){
+    	this.waiting.active = true;
     	var realUrl = url;
         var request = cc.loader.getXMLHttpRequest();
 	    cc.log("Status: Send Get Request to " + realUrl);
@@ -31,7 +36,8 @@ var Http = cc.Class({
 	    request.setRequestHeader("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
 	    request.setRequestHeader("X-Powered-By","Jetty");
 	    // request.setRequestHeader("Content-Type","application/x-www-form-urlencode;charset=UTF-8");
-	    request.onreadystatechange = function () {
+	    var reqCallback = function() {
+    		this.waiting.active = false;
 	    	cc.log("request.status:"+request.status)
 	        // if (request.readyState == 4 && (request.status >= 200 && request.status <= 207)) {
 	        //     var httpStatus = request.statusText;
@@ -51,6 +57,7 @@ var Http = cc.Class({
 	            	callback(false, response);
 	        }
 	    };
+	    request.onreadystatechange = reqCallback.bind(this);
 	    request.send();
     }, 
 });

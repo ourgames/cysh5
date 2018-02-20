@@ -411,22 +411,22 @@ require = function e(t, n, r) {
         if (!this.isMovingEnd) return;
         if (0 == this.diceCount) {
           var c_event = D.config.battle[this.curStep];
-          cc.log("----c_event:" + c_event.event_type);
           if (null == c_event || null == c_event.event_type || "null" == c_event.event_type) {
-            cc.log("--0--c_event null:");
             this.miku.Idle();
             this.isMoving = false;
+            this.btn_start.enabled = true;
+            this.refreshPanel();
             return;
           }
           if ("move" == c_event.event_type) {
-            cc.log("--1--c_event:" + c_event.event_value);
             this.diceCount = parseInt(c_event.event_value);
             this.triggerEvent(c_event);
           } else if ("reward" == c_event.event_type) {
-            cc.log("--2--c_event:" + c_event.event_value);
-            this.isMoving = false;
             this.miku.Idle();
+            this.isMoving = false;
             this.triggerEvent(c_event);
+            this.btn_start.enabled = true;
+            this.refreshPanel();
             return;
           }
         }
@@ -466,7 +466,9 @@ require = function e(t, n, r) {
       },
       refreshPanel: function refreshPanel() {
         this.reward_show.hide();
-        this.setScore(D.common.userInfo.user_score);
+        cc.log("D.common.userInfo.user_score_a:" + D.common.userInfo.user_score_a);
+        cc.log("D.common.userInfo.user_tickets:" + D.common.userInfo.user_tickets);
+        this.setScore(D.common.userInfo.user_score_a);
         this.setSummonInfo(D.common.userInfo.user_tickets);
         this.setSummonTips(D.common.userInfo.user_tickets);
       },
@@ -476,7 +478,10 @@ require = function e(t, n, r) {
         "reward" == event.event_type && this.reward_show.show(event.event_value);
       },
       onBtnSummon: function onBtnSummon() {
-        D.common.userInfo.user_tickets > 0 ? D.common.Summon(this.onRoll.bind(this)) : alert("您的抽奖卷不足");
+        if (D.common.userInfo.user_tickets > 0) {
+          this.btn_start.enabled = false;
+          D.common.Summon(this.onRoll.bind(this));
+        } else alert("您的抽奖卷不足");
       },
       onRoll: function onRoll(step) {
         var diceAni = function diceAni() {
@@ -488,10 +493,12 @@ require = function e(t, n, r) {
           D.gameLogic.targetStep += step;
           D.gameLogic.isMoving = true;
         };
+        var refresh = function refresh() {};
         var diceAniCB = cc.callFunc(diceAni.bind(this));
         var delay = cc.delayTime(1);
         var moveActCB = cc.callFunc(moveAct.bind(this));
-        var seq = cc.sequence(diceAniCB, delay, moveActCB);
+        var refreshCB = cc.callFunc(refresh.bind(this));
+        var seq = cc.sequence(diceAniCB, delay, moveActCB, refreshCB);
         this.node.runAction(seq);
       }
     });
@@ -574,7 +581,12 @@ require = function e(t, n, r) {
     "use strict";
     var Http = cc.Class({
       extends: cc.Component,
-      properties: {},
+      properties: {
+        waiting: {
+          default: null,
+          type: cc.Node
+        }
+      },
       statics: {
         init: null,
         url: null,
@@ -587,6 +599,7 @@ require = function e(t, n, r) {
         this.port = "";
       },
       getWithUrl: function getWithUrl(url, callback) {
+        this.waiting.active = true;
         var realUrl = url;
         var request = cc.loader.getXMLHttpRequest();
         cc.log("Status: Send Get Request to " + realUrl);
@@ -595,7 +608,8 @@ require = function e(t, n, r) {
         request.setRequestHeader("Access-Control-Allow-Headers", "Content-Type, Content-Length, Authorization, Accept, X-Requested-With, X-HTTP-Method-Override");
         request.setRequestHeader("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
         request.setRequestHeader("X-Powered-By", "Jetty");
-        request.onreadystatechange = function() {
+        var reqCallback = function reqCallback() {
+          this.waiting.active = false;
           cc.log("request.status:" + request.status);
           if (4 == request.readyState && 200 == request.status) {
             var response = request.responseText;
@@ -605,6 +619,7 @@ require = function e(t, n, r) {
             callback && callback(false, response);
           }
         };
+        request.onreadystatechange = reqCallback.bind(this);
         request.send();
       }
     });
@@ -737,7 +752,7 @@ require = function e(t, n, r) {
         cc.log("onEditAddressEnd:" + this.edit_address.string);
       },
       onUploadPhoto: function onUploadPhoto() {
-        window.location.href = "upload.html";
+        window.open("upload.html");
       },
       refreshRank: function refreshRank() {}
     });
@@ -830,7 +845,7 @@ require = function e(t, n, r) {
       },
       OnLike: function OnLike() {
         var likeCallback = function likeCallback() {
-          this.label_like.string = "<color=#000000>点赞数:</c><color=#ff0000>" + (thisrankData.user_be_liked + 1) + "</color>";
+          this.label_like.string = "<color=#000000>点赞数:</c><color=#ff0000>" + (this.rankData.user_be_liked + 1) + "</color>";
         };
         D.common.LikeYou(this.user_no, likeCallback.bind(this));
       }
@@ -1033,10 +1048,16 @@ require = function e(t, n, r) {
       },
       onLoad: function onLoad() {
         this.node.on(cc.Node.EventType.TOUCH_START, function(event) {
-          this.propagate && event.stopPropagation();
+          if (this.propagate) {
+            cc.log("TOUCH_START");
+            event.stopPropagation();
+          }
         }, this.node);
         this.node.on(cc.Node.EventType.TOUCH_END, function(event) {
-          this.propagate && event.stopPropagation();
+          if (this.propagate) {
+            cc.log("TOUCH_END");
+            event.stopPropagation();
+          }
         }, this.node);
       },
       start: function start() {},

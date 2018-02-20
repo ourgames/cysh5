@@ -98,26 +98,30 @@ cc.Class({
             // var c_event = D.config.getItemById(D.config.battle, "pos_" + this.curStep)
             // c_event = c_event[0];
             var c_event = D.config.battle[this.curStep];
-            cc.log("----c_event:"+c_event.event_type);
+            // cc.log("----c_event:"+c_event.event_type);
             if (c_event == null || c_event.event_type == null || c_event.event_type == "null")
             {
-                cc.log("--0--c_event null:");
+                // cc.log("--0--c_event null:");
                 this.miku.Idle();
                 this.isMoving = false;
+                this.btn_start.enabled = true;
+                this.refreshPanel();
                 return;
             }
             else if (c_event.event_type == "move")
             {
-                cc.log("--1--c_event:"+c_event.event_value);
+                // cc.log("--1--c_event:"+c_event.event_value);
                 this.diceCount = parseInt(c_event.event_value);
                 this.triggerEvent(c_event);
             }
             else if (c_event.event_type == "reward")
             {
-                cc.log("--2--c_event:"+c_event.event_value);
-                this.isMoving = false;
+                // cc.log("--2--c_event:"+c_event.event_value);
                 this.miku.Idle();
+                this.isMoving = false;
                 this.triggerEvent(c_event);
+                this.btn_start.enabled = true;
+                this.refreshPanel();
                 return;
             }
         }
@@ -173,7 +177,9 @@ cc.Class({
     refreshPanel: function() {
         this.reward_show.hide();
         //刷新积分
-        this.setScore(D.common.userInfo.user_score);
+        cc.log("D.common.userInfo.user_score_a:"+D.common.userInfo.user_score_a)
+        cc.log("D.common.userInfo.user_tickets:"+D.common.userInfo.user_tickets)
+        this.setScore(D.common.userInfo.user_score_a);
         //刷新抽奖卷
         this.setSummonInfo(D.common.userInfo.user_tickets);
         //刷新抽奖提示
@@ -199,6 +205,7 @@ cc.Class({
     onBtnSummon: function(){
         if (D.common.userInfo.user_tickets > 0)
         {
+            this.btn_start.enabled = false;
             D.common.Summon(this.onRoll.bind(this));
         }
         else
@@ -217,11 +224,14 @@ cc.Class({
             cc.log("callback:"+D.gameLogic.diceCount)
             D.gameLogic.targetStep += step;
             D.gameLogic.isMoving = true;
-        }
+        };
+        var refresh = function(){
+        };
         var diceAniCB = cc.callFunc(diceAni.bind(this));
         var delay = cc.delayTime(1);
         var moveActCB = cc.callFunc(moveAct.bind(this));
-        var seq = cc.sequence(diceAniCB, delay, moveActCB);
+        var refreshCB = cc.callFunc(refresh.bind(this));
+        var seq = cc.sequence(diceAniCB, delay, moveActCB, refreshCB);
         this.node.runAction(seq);
     }
 });

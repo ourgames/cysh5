@@ -22,12 +22,18 @@ cc.Class({
     onLoad () {
         this.node.on(cc.Node.EventType.TOUCH_START, function (event) {
             if (this.propagate)
+            {
+                cc.log("TOUCH_START")
                 event.stopPropagation();
+            }
         }, this.node);
 
         this.node.on(cc.Node.EventType.TOUCH_END, function (event) {
             if (this.propagate)
+            {
+                cc.log("TOUCH_END")
                 event.stopPropagation();
+            }
         }, this.node);
     },
 
