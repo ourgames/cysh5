@@ -11,11 +11,12 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sh.bean.LikesLimit;
 import com.sh.bean.User;
 import com.sh.bean.UserShortInfo;
 import com.sh.config.SHConfig;
+import com.sh.dao.LikesLimitDAO;
 import com.sh.dao.UserDAO;
 import com.sh.define.Define;
 import com.sh.define.ReturnCode;
@@ -26,6 +27,8 @@ import com.sh.util.TimeUtil;
 public class UserService {
 	@Autowired
 	private UserDAO UserDAO;
+	@Autowired
+	private LikesLimitDAO LikesLimitDAO;
 	@Autowired
 	private TimeUtil TimeUtil;
 	@Autowired
@@ -127,15 +130,45 @@ public class UserService {
 	}
 
 	@SuppressWarnings("unchecked")
-	public Map<String, Object> like(Integer user_no) {
+	@Transactional
+	public Map<String, Object> like(Integer user_no, String ip) {
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 
-		// 更新我自己的信息
+		// 获取我自己的信息
 		User user = getUserInfo();
 		Integer user_likes_today = user.getUser_likes_today();
 		int user_like_max = Integer.parseInt(SHConfig.getConfig("user-like-max"));
 
-		// 判断今天是否还可以点赞
+		// 获取IP限制信息
+		int ip_like_max = Integer.parseInt(SHConfig.getConfig("ip-like-max"));
+
+		// 判断本IP是否还可以点赞
+		LikesLimit limit = LikesLimitDAO.selectLikesLimit(ip);
+		if (limit == null) {
+			limit = (LikesLimit) SpringUtil.getBean("LikesLimit");
+			limit.setIp(ip);
+			limit.setIp_likes_today(0);
+			limit.setIp_likes_total(0);
+			limit.setLast_refresh_time(TimeUtil.now());
+			LikesLimitDAO.insertLikesLimit(limit);
+		} else {
+			// 判断此IP是否需要刷新
+			Long system_refresh_time = TimeUtil.getTimestampToday(0, 0, 0).getTime();
+			// 判断上次刷新是否小于今天0点
+			if (limit.getLast_refresh_time().getTime() < system_refresh_time) {
+				// 需要刷新
+				limit.setIp_likes_today(0);
+				LikesLimitDAO.clear(ip);
+			}
+
+			// 判断今天此IP点赞是否已经满
+			if (limit.getIp_likes_today() >= ip_like_max) {
+				resultMap.put("ReturnCode", ReturnCode.USER_LIKE_MAX.getCode());
+				return resultMap;
+			}
+		}
+
+		// 判断今天本用户是否还可以点赞
 		if (user_likes_today >= user_like_max) {
 			resultMap.put("ReturnCode", ReturnCode.USER_LIKE_MAX.getCode());
 			return resultMap;
@@ -172,7 +205,7 @@ public class UserService {
 		user.setUser_likes_total(user_likes_total = user_likes_total + 1);
 
 		// 如果被赞的是自己
-		if (user_no == user.getUser_no()) {
+		if (user_no.equals(user.getUser_no())) {
 			int be_liked = user.getUser_be_liked();
 			user.setUser_be_liked(be_liked + 1);
 		} else {
@@ -184,6 +217,8 @@ public class UserService {
 		updateUserInfo(user);
 		// 更新排行榜
 		RankService.updateRank(user_no);
+		// 更新IP限制信息
+		LikesLimitDAO.like(ip);
 
 		resultMap.put("ReturnCode", ReturnCode.SUCCESS.getCode());
 		resultMap.put("User", user);

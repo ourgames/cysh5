@@ -58,6 +58,11 @@
 	<!-- 用户类 -->
 	<bean id="User" class="com.sh.bean.User" scope="prototype">
 	</bean>
+	
+	<!-- IP限制类 -->
+	<bean id="LikesLimit" class="com.sh.bean.LikesLimit" scope="prototype">
+	</bean>
+
 
 	<!-- 配置类 -->
 	<bean id="SHConfig" class="com.sh.config.SHConfig"></bean>
