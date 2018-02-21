@@ -401,6 +401,7 @@ require = function e(t, n, r) {
       },
       start: function start() {},
       Init: function Init() {
+        this.reward_show.hide();
         this.refreshPanel();
       },
       movingCallback: function movingCallback() {
@@ -465,7 +466,6 @@ require = function e(t, n, r) {
         "idle" == action ? this.miku.Idle() : "run" == action && this.miku.RunTo(pos);
       },
       refreshPanel: function refreshPanel() {
-        this.reward_show.hide();
         cc.log("D.common.userInfo.user_score_a:" + D.common.userInfo.user_score_a);
         cc.log("D.common.userInfo.user_tickets:" + D.common.userInfo.user_tickets);
         this.setScore(D.common.userInfo.user_score_a);
@@ -1096,8 +1096,8 @@ require = function e(t, n, r) {
       },
       update: function update(dt) {},
       getUuid: function getUuid() {
-        var uuid = cc.sys.localStorage.getItem("uuid");
-        this.isEmptyStr(uuid) ? this.userUuid = uuid = this.uuidv4() : this.userUuid = uuid;
+        var uuid = localStorage.getItem("uuid");
+        this.isEmptyStr(uuid) ? this.userUuid = this.uuidv4() : this.userUuid = uuid;
         return this.userUuid;
       },
       signin: function signin() {
@@ -1108,7 +1108,8 @@ require = function e(t, n, r) {
           if (err) {
             var msg = JSON.parse(response);
             if (200 == msg.ReturnCode) {
-              cc.sys.localStorage.setItem("uuid", this.userUuid);
+              var uuid = localStorage.getItem("uuid");
+              this.isEmptyStr(uuid) && localStorage.setItem("uuid", this.userUuid);
               this.userInfo = msg.User;
               D.gameLogic.Init();
               D.photoWall.Init();
@@ -1118,7 +1119,7 @@ require = function e(t, n, r) {
         Http.init.getWithUrl(url, requestCB.bind(this));
       },
       getUserInfo: function getUserInfo() {
-        var url = "/getuserinfo?uuid=" + this.getUuid();
+        var url = "/getuserinfo";
         cc.log(url);
         var requestCB = function requestCB(err, response) {
           cc.log("response:" + response);
@@ -1130,7 +1131,7 @@ require = function e(t, n, r) {
         Http.init.getWithUrl(url, requestCB.bind(this));
       },
       updateUserInfo: function updateUserInfo(user_name, phone_no, address) {
-        var url = "/updateuserinfo?uuid=" + this.getUuid();
+        var url = "/updateuserinfo";
         null != user_name && "" != user_name && (url += "&&user_name=" + user_name);
         null != phone_no && "" != phone_no && (url += "&&phone_no=" + phone_no);
         null != address && "" != address && (url += "&&address=" + address);
@@ -1149,13 +1150,12 @@ require = function e(t, n, r) {
         Http.init.getWithUrl(url, requestCB.bind(this));
       },
       Summon: function Summon(callback) {
-        var url = "/startlottery?uuid=" + this.getUuid();
+        var url = "/startlottery";
         var requestCB = function requestCB(err, response) {
           cc.log("response:" + response);
           if (err) {
             var msg = JSON.parse(response);
             if (200 == msg.ReturnCode) {
-              cc.sys.localStorage.setItem("uuid", this.uuid);
               this.userInfo = msg.User;
               var step = msg.Dice;
               callback(step);

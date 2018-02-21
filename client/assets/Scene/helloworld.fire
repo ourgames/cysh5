@@ -19836,7 +19836,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "rewar_show",
+    "_name": "reward_show",
     "_objFlags": 0,
     "_parent": {
       "__id__": 346
@@ -19856,7 +19856,7 @@
       }
     ],
     "_tag": -1,
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 556
