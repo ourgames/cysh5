@@ -20,28 +20,28 @@ import com.sh.service.UserService;
 @EnableAutoConfiguration
 @ComponentScan
 public class RankMsg {
-	@Autowired
-	private RankService RankService;
-	@Autowired
-	private UserService UserService;
-	@Autowired
-	SHConfig SHConfig;
+    @Autowired
+    private RankService RankService;
+    @Autowired
+    private UserService UserService;
+    @Autowired
+    SHConfig SHConfig;
 
-	// 请求排行榜信息
-	@RequestMapping("/rank")
-	public Map<String, Object> rank(Integer start, Integer limit) throws Exception {
-		Map<String, Object> resultMap = new HashMap<String, Object>();
-		if (start == null || limit == null) {
-			resultMap.put("ReturnCode", ReturnCode.PARAM_MISSING.getCode());
-			return resultMap;
-		}
+    // 请求排行榜信息
+    @RequestMapping("/rank")
+    public Map<String, Object> rank(Integer start, Integer limit) throws Exception {
+        Map<String, Object> resultMap = new HashMap<String, Object>();
+        if (start == null || limit == null) {
+            resultMap.put("ReturnCode", ReturnCode.PARAM_MISSING.getCode());
+            return resultMap;
+        }
 
-		List<Integer> lstRankInfo = RankService.getRankInfo(start, limit);
-		List<UserShortInfo> infos = UserService.getUserShortInfos(lstRankInfo);
+        // 获取排行榜信息
+        List<UserShortInfo> infos = RankService.getRankUserInfo(start, limit);
 
-		resultMap.put("ReturnCode", ReturnCode.SUCCESS.getCode());
-		resultMap.put("Rank", infos);
+        resultMap.put("ReturnCode", ReturnCode.SUCCESS.getCode());
+        resultMap.put("Rank", infos);
 
-		return resultMap;
-	}
+        return resultMap;
+    }
 }

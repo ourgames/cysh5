@@ -38,9 +38,8 @@ public class PicUtil {
 		this.resourceLoader = resourceLoader;
 	}
 
-	public String uploadPic(String media_id, InputStream is)
-			throws JsonProcessingException {
-		String fileName = String.format("%s.jpg", media_id);
+	public String uploadPic(String suffix, InputStream is){
+		String fileName = generatePicName(suffix);
 		Path uploadDir = Paths.get(SERVER_UPLOAD_DIR, fileName);
 		Log.debug("准备上传的路径:{}", uploadDir.toAbsolutePath().toString());
 		try {
@@ -57,6 +56,26 @@ public class PicUtil {
 		Log.debug("上传图片{}成功", URL);
 		return URL;
 	}
+
+//	public String uploadPic(String media_id, InputStream is)
+//			throws JsonProcessingException {
+//		String fileName = media_id;//String.format("%s.jpg", media_id);
+//		Path uploadDir = Paths.get(SERVER_UPLOAD_DIR, fileName);
+//		Log.debug("准备上传的路径:{}", uploadDir.toAbsolutePath().toString());
+//		try {
+//			// 判断文件是否已经存在
+//			if (!Files.exists(uploadDir)) {
+//				Files.copy(is, uploadDir);
+//			}
+//		} catch (IOException e) {
+//			Log.error("保存图片失败:{}", e);
+//			return null;
+//		}
+//
+//		String URL = String.format("%s/pics/%s", SERVER_DOMAIN, fileName);
+//		Log.debug("上传图片{}成功", URL);
+//		return URL;
+//	}
 
 	public byte[] getPicBinary(MultipartFile file) throws IOException {
 		byte[] in_b = null;
