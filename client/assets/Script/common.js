@@ -207,8 +207,12 @@ cc.Class({
                 if (msg.ReturnCode == 200) {
                     this.userInfo = msg.User;
                     callback();
-                } else {
-                    alert("error code:" + msg.ReturnCode)
+                } else if (msg.ReturnCode == 2001) {
+                    alert("被您点赞的小伙伴消失在异次元中了!")
+                } else if (msg.ReturnCode == 2005) {
+                    alert("今日您的三次点赞机会已经全部用光了,明天再来吧~")
+                } else if (msg.ReturnCode == 2006) {
+                    alert("您已经为该小伙伴点赞了~")
                 }
             }
         };
