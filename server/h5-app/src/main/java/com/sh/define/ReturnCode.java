@@ -14,6 +14,8 @@ public enum ReturnCode {
 	USER_NOT_LOGIN(2004),
 	/** 用户点赞已达到上限 */
 	USER_LIKE_MAX(2005),
+	/** 用户已经给这个人点过赞了 */
+	USER_LIKED_THIS(2006),
 	/** 抽奖失败 */
 	LOTTERY_START_FAILED(3001),
 	/** 抽奖券不足 */

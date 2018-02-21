@@ -133,10 +133,10 @@ public class PicUtil {
 		// 设置是否使用分组
 		nf.setGroupingUsed(false);
 		// 设置最大整数位数
-		nf.setMaximumIntegerDigits(4);
+		nf.setMaximumIntegerDigits(8);
 		// 设置最小整数位数
-		nf.setMinimumIntegerDigits(4);
-		int n = (int) (Math.random() * 100);
+		nf.setMinimumIntegerDigits(8);
+		int n = (int) (Math.random() * 10000000);
 
 		String s = String.format("%s-%s.%s", outFormat.format(now),
 				nf.format(n), suffix);
