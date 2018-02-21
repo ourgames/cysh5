@@ -260,7 +260,9 @@
     "node": {
       "__id__": 3
     },
-    "_enabled": true
+    "_enabled": true,
+    "userInfo": "",
+    "userUuid": ""
   },
   {
     "__type__": "cc.Node",

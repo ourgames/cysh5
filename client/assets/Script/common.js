@@ -50,16 +50,8 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        // http: {
-        //     default: null,
-        //     type: require('Http'),
-        // },
-
-    },
-
-    statics: {
-        userInfo: null,
-        uuid: null
+        userInfo: "",
+        userUuid: "",
     },
 
     uuidv4: function() {
@@ -80,14 +72,14 @@ cc.Class({
     },
 
     getUuid: function() {
-        if (this.uuid != null)
-            return this.uuid;
-
         var uuid = cc.sys.localStorage.getItem('uuid');
-        if (uuid == null) {
-            this.uuid = uuid = this.uuidv4();
+        if (this.isEmptyStr(uuid)) {
+            this.userUuid = uuid = this.uuidv4();
         }
-        return this.uuid;
+        else {
+            this.userUuid = uuid;
+        }
+        return this.userUuid;
     },
 
     signin: function() {
@@ -98,7 +90,7 @@ cc.Class({
             if (err) {
                 var msg = JSON.parse(response);
                 if (msg.ReturnCode == 200) {
-                    cc.sys.localStorage.setItem('uuid', this.uuid);
+                    cc.sys.localStorage.setItem('uuid', this.userUuid);
                     this.userInfo = msg.User;
                     D.gameLogic.Init();
                     D.photoWall.Init();
@@ -225,5 +217,9 @@ cc.Class({
 
     isEmpty: function(obj) {
         return obj == null || obj == undefined;
+    },
+
+    isEmptyStr: function(str) {
+        return str == null || str == undefined || str == "";
     }
 });

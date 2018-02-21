@@ -23,7 +23,7 @@ public class UserController {
             Integer like_no = UserService.getUserNo(like_uuid);
             // 如果是自己则不点赞
             Integer my_no = UserService.getUserNo();
-            if (like_no != null && like_no != my_no) {
+            if (like_no != null && my_no != null && like_no != my_no) {
                 UserService.like(like_no);
             }
 

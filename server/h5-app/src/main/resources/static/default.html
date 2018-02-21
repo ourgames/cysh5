@@ -1,0 +1,25 @@
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<title>欢迎参加美人妆抽奖活动</title>
+
+<div class="page" id="default">
+</div>
+<script type="text/javascript">
+    function uuidv4() {
+        return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+            (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16))
+    }
+    var uuid = localStorage.getItem('uuid');
+    if (uuid == null || uuid == "" || uuid == undefined)
+    {
+        uuid = uuidv4();
+        localStorage.setItem("uuid", uuid);
+    }
+    console.log("default: %s", uuid)
+    window.location.href = ("/index?like_uuid=" + uuid);
+</script>
+
+</body>
+</html>

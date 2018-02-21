@@ -388,14 +388,23 @@
                 success();
             }
 
+            function dataURLtoBlob(dataurl) {
+                var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+                    bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+                while (n--) {
+                    u8arr[n] = bstr.charCodeAt(n);
+                }
+                return new Blob([u8arr], { type: mime });
+            }
+
             function upload(success, error) {
                 console.log("开始上传");
 
                 var filebase = "mfile";
                 var url = "/user_photos";
                 var formdata = new FormData();
-
-                formdata.append(filebase, imgData);//这个名字要和mvc后台配合
+                var blob = dataURLtoBlob(imgData);
+                formdata.append(filebase, blob);//这个名字要和mvc后台配合
 
                 var xhr = new XMLHttpRequest();
                 xhr.upload.addEventListener("progress", function (e) {

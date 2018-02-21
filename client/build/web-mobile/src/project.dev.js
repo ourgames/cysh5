@@ -1081,10 +1081,9 @@ require = function e(t, n, r) {
     var Http = require("Http");
     cc.Class({
       extends: cc.Component,
-      properties: {},
-      statics: {
-        userInfo: null,
-        uuid: null
+      properties: {
+        userInfo: "",
+        userUuid: ""
       },
       uuidv4: function uuidv4() {
         return ([ 1e7 ] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, function(c) {
@@ -1097,10 +1096,9 @@ require = function e(t, n, r) {
       },
       update: function update(dt) {},
       getUuid: function getUuid() {
-        if (null != this.uuid) return this.uuid;
         var uuid = cc.sys.localStorage.getItem("uuid");
-        null == uuid && (this.uuid = uuid = this.uuidv4());
-        return this.uuid;
+        this.isEmptyStr(uuid) ? this.userUuid = uuid = this.uuidv4() : this.userUuid = uuid;
+        return this.userUuid;
       },
       signin: function signin() {
         var url = "/signin?uuid=" + this.getUuid();
@@ -1110,7 +1108,7 @@ require = function e(t, n, r) {
           if (err) {
             var msg = JSON.parse(response);
             if (200 == msg.ReturnCode) {
-              cc.sys.localStorage.setItem("uuid", this.uuid);
+              cc.sys.localStorage.setItem("uuid", this.userUuid);
               this.userInfo = msg.User;
               D.gameLogic.Init();
               D.photoWall.Init();
@@ -1194,6 +1192,9 @@ require = function e(t, n, r) {
       },
       isEmpty: function isEmpty(obj) {
         return null == obj || void 0 == obj;
+      },
+      isEmptyStr: function isEmptyStr(str) {
+        return null == str || void 0 == str || "" == str;
       }
     });
     cc._RF.pop();

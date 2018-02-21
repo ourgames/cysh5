@@ -2599,22 +2599,22 @@
             "__id__": 142
           },
           "self_photo": {
-            "__id__": 146
+            "__id__": 145
           },
           "btn_share": {
-            "__id__": 148
+            "__id__": 147
           },
           "btn_input": {
-            "__id__": 150
+            "__id__": 149
           },
           "label_nick": {
-            "__id__": 152
+            "__id__": 151
           },
           "label_like": {
-            "__id__": 154
+            "__id__": 153
           },
           "self_info": {
-            "__id__": 156
+            "__id__": 155
           },
           "edit_nick": {
             "__id__": 160
@@ -6761,49 +6761,25 @@
           "__id__": 144
         },
         {
-          "__id__": 145
+          "__id__": 146
         },
         {
-          "__id__": 147
+          "__id__": 148
         },
         {
-          "__id__": 149
+          "__id__": 150
         },
         {
-          "__id__": 151
+          "__id__": 152
         },
         {
-          "__id__": 153
+          "__id__": 154
         },
         {
           "__id__": 155
-        },
-        {
-          "__id__": 156
         }
       ],
       "_active": false
-    },
-    {
-      "__type__": "cc.Node",
-      "_name": "touch_propagate",
-      "_parent": {
-        "__id__": 142
-      },
-      "_components": [
-        {
-          "__type__": "5d6f8Nh+H5NMpQLgCUvvNZT",
-          "node": {
-            "__id__": 143
-          },
-          "propagate": true
-        }
-      ],
-      "_contentSize": {
-        "__type__": "cc.Size",
-        "width": 750,
-        "height": 5000
-      }
     },
     {
       "__type__": "cc.Node",
@@ -6815,7 +6791,7 @@
         {
           "__type__": "cc.Sprite",
           "node": {
-            "__id__": 144
+            "__id__": 143
           },
           "_spriteFrame": {
             "__uuid__": "c88nDG6cFHdZp9O7n0gU5d"
@@ -6840,7 +6816,7 @@
       },
       "_components": [
         {
-          "__id__": 146
+          "__id__": 145
         }
       ],
       "_contentSize": {
@@ -6856,7 +6832,7 @@
     {
       "__type__": "cc.Sprite",
       "node": {
-        "__id__": 145
+        "__id__": 144
       },
       "_spriteFrame": {
         "__uuid__": "597BDMSKZAD5NAfPFtdLRe"
@@ -6872,7 +6848,7 @@
         {
           "__type__": "cc.Sprite",
           "node": {
-            "__id__": 147
+            "__id__": 146
           },
           "_spriteFrame": {
             "__uuid__": "49CMMw34BOhqTrbbL+2OqF"
@@ -6881,7 +6857,7 @@
           "_sizeMode": 0
         },
         {
-          "__id__": 148
+          "__id__": 147
         }
       ],
       "_contentSize": {
@@ -6897,7 +6873,7 @@
     {
       "__type__": "cc.Button",
       "node": {
-        "__id__": 147
+        "__id__": 146
       },
       "transition": 3,
       "pressedColor": {
@@ -6947,7 +6923,7 @@
         "__uuid__": "49CMMw34BOhqTrbbL+2OqF"
       },
       "_N$target": {
-        "__id__": 147
+        "__id__": 146
       }
     },
     {
@@ -6960,7 +6936,7 @@
         {
           "__type__": "cc.Sprite",
           "node": {
-            "__id__": 149
+            "__id__": 148
           },
           "_spriteFrame": {
             "__uuid__": "096Zwdcr5N1JTHj4BqST9T"
@@ -6969,7 +6945,7 @@
           "_sizeMode": 0
         },
         {
-          "__id__": 150
+          "__id__": 149
         }
       ],
       "_contentSize": {
@@ -6986,7 +6962,7 @@
     {
       "__type__": "cc.Button",
       "node": {
-        "__id__": 149
+        "__id__": 148
       },
       "transition": 3,
       "pressedColor": {
@@ -7036,7 +7012,7 @@
         "__uuid__": "096Zwdcr5N1JTHj4BqST9T"
       },
       "_N$target": {
-        "__id__": 149
+        "__id__": 148
       }
     },
     {
@@ -7047,7 +7023,7 @@
       },
       "_components": [
         {
-          "__id__": 152
+          "__id__": 151
         }
       ],
       "_color": {
@@ -7067,7 +7043,7 @@
     {
       "__type__": "cc.Label",
       "node": {
-        "__id__": 151
+        "__id__": 150
       },
       "_useOriginalSize": false,
       "_actualFontSize": 28,
@@ -7085,7 +7061,7 @@
       },
       "_components": [
         {
-          "__id__": 154
+          "__id__": 153
         }
       ],
       "_anchorPoint": {
@@ -7106,7 +7082,7 @@
     {
       "__type__": "cc.RichText",
       "node": {
-        "__id__": 153
+        "__id__": 152
       },
       "_N$string": "<color=#000000>获赞数:</c><color=#ff0000>2000</color>",
       "_N$fontSize": 24,
@@ -7123,7 +7099,7 @@
         {
           "__type__": "cc.Sprite",
           "node": {
-            "__id__": 155
+            "__id__": 154
           },
           "_spriteFrame": {
             "__uuid__": "9erVIwJ1RFyJzIQ4W4M3S/"
@@ -7149,6 +7125,9 @@
       },
       "_children": [
         {
+          "__id__": 156
+        },
+        {
           "__id__": 157
         },
         {
@@ -7158,9 +7137,30 @@
     },
     {
       "__type__": "cc.Node",
+      "_name": "touch_propagate",
+      "_parent": {
+        "__id__": 155
+      },
+      "_components": [
+        {
+          "__type__": "5d6f8Nh+H5NMpQLgCUvvNZT",
+          "node": {
+            "__id__": 156
+          },
+          "propagate": true
+        }
+      ],
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 750,
+        "height": 5000
+      }
+    },
+    {
+      "__type__": "cc.Node",
       "_name": "New Sprite",
       "_parent": {
-        "__id__": 156
+        "__id__": 155
       },
       "_children": [
         {
@@ -7451,7 +7451,7 @@
       "__type__": "cc.Node",
       "_name": "btn_commit",
       "_parent": {
-        "__id__": 156
+        "__id__": 155
       },
       "_components": [
         {
