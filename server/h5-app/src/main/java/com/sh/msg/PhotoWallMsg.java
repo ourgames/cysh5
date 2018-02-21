@@ -22,9 +22,6 @@ import com.sh.service.UserService;
 public class PhotoWallMsg {
 	@Autowired
 	private UserService UserService;
-	@Autowired
-	private RankService RankService;
-	
 	// 点赞
 	@RequestMapping("/like")
 	public Map<String, Object> like(Integer user_no) {
@@ -35,18 +32,7 @@ public class PhotoWallMsg {
 		}
 
 		// 更新玩家
-		User user = UserService.like(user_no);
-		if(user != null)
-		{
-			// 更新排行榜
-			RankService.updateRank(user_no);
-			resultMap.put("ReturnCode", ReturnCode.SUCCESS.getCode());
-		}
-		else{
-			resultMap.put("ReturnCode", ReturnCode.USER_LIKE_MAX.getCode());
-		}
-		
-		resultMap.put("User", user);
+		resultMap = UserService.like(user_no);
 		return resultMap;
 	}
 

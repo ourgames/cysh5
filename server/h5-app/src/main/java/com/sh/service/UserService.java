@@ -1,18 +1,24 @@
 package com.sh.service;
 
-import java.sql.Timestamp;
+import java.io.IOException;
+import java.text.NumberFormat;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import org.apache.commons.lang3.concurrent.TimedSemaphore;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sh.bean.User;
 import com.sh.bean.UserShortInfo;
 import com.sh.config.SHConfig;
 import com.sh.dao.UserDAO;
 import com.sh.define.Define;
+import com.sh.define.ReturnCode;
 import com.sh.util.Log;
 import com.sh.util.SpringUtil;
 import com.sh.util.TimeUtil;
@@ -24,11 +30,15 @@ public class UserService {
 	private TimeUtil TimeUtil;
 	@Autowired
 	SHConfig SHConfig;
+	@Autowired
+	RankService RankService;
 
 	// 插入新用户
-	public User insert(String uuid, String user_name, String ip) {
+	@Transactional
+	public User insert(String uuid, String ip) {
 		User user = (User) SpringUtil.getBean("User");
 		user.setAccount_uuid(uuid);
+		String user_name = getRandomName();
 		user.setUser_name(user_name);
 		// 记录插入IP
 		user.setRegist_ip(ip);
@@ -53,14 +63,11 @@ public class UserService {
 		// 初始化点赞数
 		user.setUser_be_liked(0);
 
-		try {
-			int user_no = UserDAO.insert(user);
-			if (user_no > 0) {
-				return user;
-			}
-		} catch (Exception e) {
-			Log.error("插入玩家失败", e);
-			return null;
+		int user_count = UserDAO.insert(user);
+		if (user_count > 0) {
+			// 刷新排行榜
+			RankService.updateRank(user.getUser_no());
+			return user;
 		}
 
 		return null;
@@ -119,7 +126,10 @@ public class UserService {
 		return null;
 	}
 
-	public User like(int user_no) {
+	@SuppressWarnings("unchecked")
+	public Map<String, Object> like(Integer user_no) {
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+
 		// 更新我自己的信息
 		User user = getUserInfo();
 		Integer user_likes_today = user.getUser_likes_today();
@@ -127,9 +137,36 @@ public class UserService {
 
 		// 判断今天是否还可以点赞
 		if (user_likes_today >= user_like_max) {
-			return null;
+			resultMap.put("ReturnCode", ReturnCode.USER_LIKE_MAX.getCode());
+			return resultMap;
 		}
 
+		// 获取今日的点赞Map
+		String user_likes_no = user.getUser_likes_no();
+		ObjectMapper mapper = new ObjectMapper(); // 转换器
+		Map<Integer, Boolean> mapUserLikesNo = null;
+		try {
+			if (user_likes_no == null) {
+				mapUserLikesNo = new HashMap<Integer, Boolean>();
+			}
+			// 转换成map
+			else {
+				mapUserLikesNo = mapper.readValue(user_likes_no, HashMap.class);
+			}
+
+			// 判断是否已经给该用户点过赞了
+			if (mapUserLikesNo.containsKey(user_no.toString())) {
+				resultMap.put("ReturnCode", ReturnCode.USER_LIKED_THIS.getCode());
+				return resultMap;
+			}
+
+			// 记录该玩家的点赞信息
+			mapUserLikesNo.put(user_no, true);
+			user_likes_no = mapper.writeValueAsString(mapUserLikesNo);
+			user.setUser_likes_no(user_likes_no);
+		} catch (IOException e) {
+			Log.error("JSON转换失败", e);
+		}
 		Integer user_likes_total = user.getUser_likes_total();
 		user.setUser_likes_today(user_likes_today = user_likes_today + 1);
 		user.setUser_likes_total(user_likes_total = user_likes_total + 1);
@@ -145,7 +182,12 @@ public class UserService {
 
 		// 保存用户信息
 		updateUserInfo(user);
-		return user;
+		// 更新排行榜
+		RankService.updateRank(user_no);
+
+		resultMap.put("ReturnCode", ReturnCode.SUCCESS.getCode());
+		resultMap.put("User", user);
+		return resultMap;
 	}
 
 	public boolean isNeedRefresh() {
@@ -157,6 +199,8 @@ public class UserService {
 			// 需要刷新
 			// 重置今天的点赞数
 			user.setUser_likes_today(0);
+			// 重置今天的点赞人
+			user.setUser_likes_no(null);
 
 			// 设置刷新时间为现在
 			user.setLast_refresh_time(TimeUtil.now());
@@ -172,5 +216,21 @@ public class UserService {
 	public List<UserShortInfo> getUserShortInfos(List<Integer> user_nums) {
 		List<UserShortInfo> infos = UserDAO.selectUsersShort(user_nums);
 		return infos;
+	}
+
+	private String getRandomName() {
+		String user_name = SHConfig.getConfig("default-name");
+
+		NumberFormat nf = NumberFormat.getInstance();
+		// 设置是否使用分组
+		nf.setGroupingUsed(false);
+		// 设置最大整数位数
+		nf.setMaximumIntegerDigits(7);
+		// 设置最小整数位数
+		nf.setMinimumIntegerDigits(7);
+		int n = (int) (Math.random() * 10000000);
+
+		String s = String.format("%s%s", user_name, nf.format(n));
+		return s;
 	}
 }

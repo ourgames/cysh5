@@ -19,6 +19,8 @@ public class User {
 	@JsonIgnore
 	Integer user_likes_today;
 	@JsonIgnore
+	String user_likes_no;
+	@JsonIgnore
 	Integer user_likes_total;
 	@JsonIgnore
 	Timestamp last_refresh_time;
@@ -31,6 +33,12 @@ public class User {
 	@JsonIgnore
 	String regist_ip;
 	
+	public String getUser_likes_no() {
+		return user_likes_no;
+	}
+	public void setUser_likes_no(String user_likes_no) {
+		this.user_likes_no = user_likes_no;
+	}
 	public Integer getUser_no() {
 		return user_no;
 	}

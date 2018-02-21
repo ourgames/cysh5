@@ -39,7 +39,7 @@ public class UserMsg {
 		}
 
 		String ip = NetUtil.getRemoteAddress(request);
-		User user = UserService.insert(uuid, user_name, ip);
+		User user = UserService.insert(uuid, ip);
 
 		// 插入成功
 		if (user != null) {
@@ -76,7 +76,7 @@ public class UserMsg {
 		} else {
 			// 不存在用户，进行注册
 			String ip = NetUtil.getRemoteAddress(request);
-			user = UserService.insert(uuid, SHConfig.getConfig("default-name"), ip);
+			user = UserService.insert(uuid, ip);
 
 			// 注册用户失败
 			if (user == null) {

@@ -15,6 +15,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			<if test="user_tickets != null">user_tickets = '${user_tickets}',</if>
 			<if test="user_be_liked != null">user_be_liked = ${user_be_liked},</if>
 			<if test="user_likes_today != null">user_likes_today = ${user_likes_today},</if>
+			<if test="user_likes_no != null">user_likes_no = '${user_likes_no}',</if>
 			<if test="user_likes_total != null">user_likes_total = ${user_likes_total},</if>
 			<if test="last_refresh_time != null">last_refresh_time = '${last_refresh_time}',</if>
 			<if test="phone_no != null">phone_no = '${phone_no}',</if>
