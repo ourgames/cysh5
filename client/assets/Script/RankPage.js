@@ -70,7 +70,7 @@ cc.Class({
                 active = true;
             }
             var rankData = i < ranks.length ? ranks[i] : null;
-            this.refreshRankItem(active, curPage, "node_"+i, from, rankData);
+            this.refreshRankItem(active, curPage, "node_" + i, from + i, rankData);
         }
         if (this.curRankEnd < (this.curRankFrom + 5))
         {

@@ -920,7 +920,7 @@ require = function e(t, n, r) {
             active = true;
           }
           var rankData = i < ranks.length ? ranks[i] : null;
-          this.refreshRankItem(active, curPage, "node_" + i, from, rankData);
+          this.refreshRankItem(active, curPage, "node_" + i, from + i, rankData);
         }
         this.curRankEnd < this.curRankFrom + 5 && this.pageWnd.removePageAtIndex(index + 1);
       },
