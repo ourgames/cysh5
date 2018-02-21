@@ -21,7 +21,7 @@ public class AuthInterceptor implements HandlerInterceptor {
         // 获取请求的URI
         String uri = request.getRequestURI();
         // 只有登录消息可以通过拦截器
-        if (uri.indexOf("/signin") >= 0 || uri.indexOf("/index") >= 0) {
+        if (uri.indexOf("/signin") >= 0 || uri.indexOf("/index") >= 0 || uri.indexOf("/") >= 0) {
             return true;
         }
 

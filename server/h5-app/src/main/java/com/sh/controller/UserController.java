@@ -1,20 +1,25 @@
 package com.sh.controller;
 
 import com.sh.service.UserService;
+
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-
-import java.io.IOException;
 
 @Controller
 @Configuration
 public class UserController {
     @Autowired
     private UserService UserService;
+    
+    @GetMapping("/")
+	public String showUploadPage(Model model) throws IOException {
+		return "redirect:/default.html";
+	}
 
     @GetMapping("/index")
     public String index(String uuid, String like_uuid) throws Exception {
