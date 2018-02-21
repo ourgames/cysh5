@@ -88,11 +88,29 @@ cc.Class({
     refreshPanel: function() {
         this.onBtnTabRank();
         //self
-        //照片
         //名字
         this.label_nick.string = D.common.userInfo.user_name;
         //点赞数
         this.label_like.string = "<color=#000000>获赞数:</c><color=#ff0000>"+ D.common.userInfo.user_be_liked + "</color>";
+        //照片
+        D.common.userInfo.user_photo = "user_photos/test.png";
+        if (D.common.userInfo.user_photo != undefined && D.common.userInfo.user_photo != "") {
+            var callback = function(texture) {
+                if (texture != null && texture != undefined) {
+                    this.self_photo.spriteFrame = new cc.SpriteFrame(texture);
+                    var ws = 366 / texture.width;
+                    var hs = 488 / texture.height;
+                    var mins = Math.min(ws,hs);
+                    this.self_photo.node.scaleX = mins;
+                    this.self_photo.node.scaleY = mins;
+                }
+                else
+                {
+                    cc.log("add image error")
+                }
+            };
+            cc.textureCache.addImage(D.common.userInfo.user_photo, callback.bind(this));
+        }
     },
 
     onBtnTabRank: function() {

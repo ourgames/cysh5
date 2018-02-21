@@ -108,9 +108,18 @@ cc.Class({
             //     // cc.loader.load(rankData.user_photo, callback.bind(this));
             //     cc.textureCache.addImage(rankData.user_photo, callback.bind(this));
             // }
-            var callback = function(err, texture) {
-                if (texture) {
+            var callback = function(texture) {
+                if (texture != null && texture != undefined) {
                     this.photo.spriteFrame = new cc.SpriteFrame(texture);
+                    var ws = 178 / texture.width;
+                    var hs = 251 / texture.height;
+                    var mins = Math.min(ws,hs);
+                    this.photo.node.scaleX = mins;
+                    this.photo.node.scaleY = mins;
+                }
+                else
+                {
+                    cc.log("add image error")
                 }
             };
             cc.textureCache.addImage(rankData.user_photo, callback.bind(this));

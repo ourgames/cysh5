@@ -709,6 +709,20 @@ require = function e(t, n, r) {
         this.onBtnTabRank();
         this.label_nick.string = D.common.userInfo.user_name;
         this.label_like.string = "<color=#000000>获赞数:</c><color=#ff0000>" + D.common.userInfo.user_be_liked + "</color>";
+        D.common.userInfo.user_photo = "user_photos/test.png";
+        if (void 0 != D.common.userInfo.user_photo && "" != D.common.userInfo.user_photo) {
+          var callback = function callback(texture) {
+            if (null != texture && void 0 != texture) {
+              this.self_photo.spriteFrame = new cc.SpriteFrame(texture);
+              var ws = 366 / texture.width;
+              var hs = 488 / texture.height;
+              var mins = Math.min(ws, hs);
+              this.self_photo.node.scaleX = mins;
+              this.self_photo.node.scaleY = mins;
+            } else cc.log("add image error");
+          };
+          cc.textureCache.addImage(D.common.userInfo.user_photo, callback.bind(this));
+        }
       },
       onBtnTabRank: function onBtnTabRank() {
         this.tab_rank.active = true;
@@ -837,8 +851,15 @@ require = function e(t, n, r) {
         this.user_no = rankData.user_no;
         rankData.user_photo = "user_photos/test.png";
         if (void 0 != rankData.user_photo && "" != rankData.user_photo) {
-          var callback = function callback(err, texture) {
-            texture && (this.photo.spriteFrame = new cc.SpriteFrame(texture));
+          var callback = function callback(texture) {
+            if (null != texture && void 0 != texture) {
+              this.photo.spriteFrame = new cc.SpriteFrame(texture);
+              var ws = 178 / texture.width;
+              var hs = 251 / texture.height;
+              var mins = Math.min(ws, hs);
+              this.photo.node.scaleX = mins;
+              this.photo.node.scaleY = mins;
+            } else cc.log("add image error");
           };
           cc.textureCache.addImage(rankData.user_photo, callback.bind(this));
         }
