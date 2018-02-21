@@ -709,7 +709,6 @@ require = function e(t, n, r) {
         this.onBtnTabRank();
         this.label_nick.string = D.common.userInfo.user_name;
         this.label_like.string = "<color=#000000>获赞数:</c><color=#ff0000>" + D.common.userInfo.user_be_liked + "</color>";
-        D.common.userInfo.user_photo = "user_photos/test.png";
         if (void 0 != D.common.userInfo.user_photo && "" != D.common.userInfo.user_photo) {
           var callback = function callback(texture) {
             if (null != texture && void 0 != texture) {
@@ -849,7 +848,6 @@ require = function e(t, n, r) {
         this.label_nick.string = rankData.user_name;
         this.label_like.string = "<color=#000000>点赞数:</c><color=#ff0000>" + rankData.user_be_liked + "</color>";
         this.user_no = rankData.user_no;
-        rankData.user_photo = "user_photos/test.png";
         if (void 0 != rankData.user_photo && "" != rankData.user_photo) {
           var callback = function callback(texture) {
             if (null != texture && void 0 != texture) {
@@ -1206,7 +1204,7 @@ require = function e(t, n, r) {
             if (200 == msg.ReturnCode) {
               this.userInfo = msg.User;
               callback();
-            } else alert("error code:" + msg.ReturnCode);
+            } else 2001 == msg.ReturnCode ? alert("被您点赞的小伙伴消失在异次元中了!") : 2005 == msg.ReturnCode ? alert("今日您的三次点赞机会已经全部用光了,明天再来吧~") : 2006 == msg.ReturnCode && alert("您已经为该小伙伴点赞了~");
           }
         };
         Http.init.getWithUrl(url, requestCB.bind(this));

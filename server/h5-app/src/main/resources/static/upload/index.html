@@ -247,6 +247,7 @@
                     // downloadFile(imgData);
                     upload(function(text) {
                         tips('上传成功:' + text);
+                        window.history.go(-1);
                     });
                 });
                 document.querySelector('#btn-detail').addEventListener('click', function() {

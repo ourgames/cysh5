@@ -93,7 +93,7 @@ cc.Class({
         //点赞数
         this.label_like.string = "<color=#000000>获赞数:</c><color=#ff0000>"+ D.common.userInfo.user_be_liked + "</color>";
         //照片
-        D.common.userInfo.user_photo = "user_photos/test.png";
+        // D.common.userInfo.user_photo = "user_photos/test.png";
         if (D.common.userInfo.user_photo != undefined && D.common.userInfo.user_photo != "") {
             var callback = function(texture) {
                 if (texture != null && texture != undefined) {

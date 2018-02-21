@@ -92,7 +92,7 @@ cc.Class({
         this.label_nick.string = rankData.user_name;
         this.label_like.string = "<color=#000000>点赞数:</c><color=#ff0000>" + rankData.user_be_liked + "</color>"
         this.user_no = rankData.user_no;
-        rankData.user_photo = "user_photos/test.png";
+        // rankData.user_photo = "user_photos/test.png";
         if (rankData.user_photo != undefined && rankData.user_photo != "") {
             // var cacheTex = cc.textureCache.getTextureForKey(rankData.user_photo);
             // if (cacheTex != null) {

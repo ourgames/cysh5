@@ -442,6 +442,10 @@ window._CCSettings = {
                 "Texture/photo/photo.png",
                 "cc.Texture2D"
             ],
+            "eeHiYQ0gFPp7p9fmzIxWvW": [
+                "Texture/photo/photo2.png",
+                "cc.Texture2D"
+            ],
             "52W8eptDFIJLIhL0FFqaNu": [
                 "Texture/photo/second.png",
                 "cc.Texture2D"
@@ -502,7 +506,7 @@ window._CCSettings = {
         }
     ],
     "packedAssets": {
-        "0813f2476": [
+        "021a3bb18": [
             "01d12md5lBML9NB2abCHME",
             "02A4PtBbZAC5j4NSTErM76",
             "05cVias9hPK7QAwsh5AO/y",
@@ -583,6 +587,7 @@ window._CCSettings = {
             "aecHOPRhNEK7DPhtShZFYK",
             "b1whE5YARAbaKGGo+fo3Ki",
             "b4I6NQg/BLO6EX3T0qW190",
+            "b4OrCFQn1JCb0l2tDVzTLM",
             "b5CL25615D6533YvFlvQZS",
             "b88Bvp/5FN14qDBrVp6c/X",
             "bcHAYksMtDyJC7xcEWACHw",
