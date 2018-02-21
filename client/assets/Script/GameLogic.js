@@ -77,6 +77,7 @@ cc.Class({
     },
 
     Init: function(){
+        this.reward_show.hide();
         this.refreshPanel();
     },
 
@@ -175,7 +176,6 @@ cc.Class({
     },
 
     refreshPanel: function() {
-        this.reward_show.hide();
         //刷新积分
         cc.log("D.common.userInfo.user_score_a:"+D.common.userInfo.user_score_a)
         cc.log("D.common.userInfo.user_tickets:"+D.common.userInfo.user_tickets)

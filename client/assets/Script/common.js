@@ -72,9 +72,9 @@ cc.Class({
     },
 
     getUuid: function() {
-        var uuid = cc.sys.localStorage.getItem('uuid');
+        var uuid = localStorage.getItem('uuid');
         if (this.isEmptyStr(uuid)) {
-            this.userUuid = uuid = this.uuidv4();
+            this.userUuid = this.uuidv4();
         }
         else {
             this.userUuid = uuid;
@@ -90,7 +90,10 @@ cc.Class({
             if (err) {
                 var msg = JSON.parse(response);
                 if (msg.ReturnCode == 200) {
-                    cc.sys.localStorage.setItem('uuid', this.userUuid);
+                    var uuid = localStorage.getItem('uuid');
+                    if (this.isEmptyStr(uuid)) {
+                        localStorage.setItem('uuid', this.userUuid);
+                    }
                     this.userInfo = msg.User;
                     D.gameLogic.Init();
                     D.photoWall.Init();
@@ -103,7 +106,7 @@ cc.Class({
     },
 
     getUserInfo: function() {
-        var url = "/getuserinfo?uuid=" + this.getUuid();
+        var url = "/getuserinfo";
         cc.log(url);
         var requestCB = function(err, response) {
             cc.log("response:" + response);
@@ -121,7 +124,7 @@ cc.Class({
     },
 
     updateUserInfo: function(user_name, phone_no, address) {
-        var url = "/updateuserinfo?uuid=" + this.getUuid();
+        var url = "/updateuserinfo";
         if (user_name != null && user_name != "") {
             url += "&&user_name=" + user_name;
         }
@@ -153,13 +156,12 @@ cc.Class({
     },
 
     Summon: function(callback) {
-        var url = "/startlottery?uuid=" + this.getUuid();
+        var url = "/startlottery";
         var requestCB = function(err, response) {
             cc.log("response:" + response);
             if (err) {
                 var msg = JSON.parse(response);
                 if (msg.ReturnCode == 200) {
-                    cc.sys.localStorage.setItem('uuid', this.uuid);
                     this.userInfo = msg.User;
                     var step = msg.Dice;
                     callback(step);
@@ -171,7 +173,7 @@ cc.Class({
         Http.init.getWithUrl(url, requestCB.bind(this));
 
         // var step = Math.floor(Math.random() * 6 + 1);
-        // // step = 6;
+        // var step = 6;
         // callback(step);
         // return step;
     },

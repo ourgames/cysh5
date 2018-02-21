@@ -10902,7 +10902,7 @@
     },
     {
       "__type__": "cc.Node",
-      "_name": "rewar_show",
+      "_name": "reward_show",
       "_parent": {
         "__id__": 176
       },
@@ -10920,7 +10920,6 @@
           "__id__": 290
         }
       ],
-      "_active": false,
       "_components": [
         {
           "__id__": 291
