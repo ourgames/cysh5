@@ -54,6 +54,15 @@ CREATE TABLE `tb_config` (
   KEY `idx_config_key` (`config_key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- 配置文件
+INSERT INTO `db_cysh5`.`tb_config` (`config_no`, `config_key`, `config_value`) VALUES ('1', 'default-name', '佳丽');
+INSERT INTO `db_cysh5`.`tb_config` (`config_no`, `config_key`, `config_value`) VALUES ('2', 'tickets-cost', '1');
+INSERT INTO `db_cysh5`.`tb_config` (`config_no`, `config_key`, `config_value`) VALUES ('3', 'score-add', '10');
+INSERT INTO `db_cysh5`.`tb_config` (`config_no`, `config_key`, `config_value`) VALUES ('4', 'start-step', '28');
+INSERT INTO `db_cysh5`.`tb_config` (`config_no`, `config_key`, `config_value`) VALUES ('5', 'init-ticket', '5');
+INSERT INTO `db_cysh5`.`tb_config` (`config_no`, `config_key`, `config_value`) VALUES ('6', 'rank-max', '100');
+INSERT INTO `db_cysh5`.`tb_config` (`config_no`, `config_key`, `config_value`) VALUES ('7', 'user-like-max', '3');
+INSERT INTO `db_cysh5`.`tb_config` (`config_no`, `config_key`, `config_value`) VALUES ('8', 'ip-like-max', '100');
 
 DROP TABLE IF EXISTS `SPRING_SESSION`;
 CREATE TABLE `SPRING_SESSION` (
