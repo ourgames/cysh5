@@ -23,10 +23,10 @@ cc.Class({
         },
 
         pageIndex : 0,
-        curRankFrom : 1,
+        curRankFrom : 0,
         curRankEnd : 6,
         pageLimit : 6,
-        curTotal : 0,
+        curTotal : 1,
     },
 
     
@@ -62,7 +62,7 @@ cc.Class({
         var index = this.pageWnd.getCurrentPageIndex();
         var curPage = this.pageWnd.getPages()[index];
         // 添加照片
-        var from = index * 6 + 1;
+        var from = index * 6;
         for (var i = 0; i < 6; i++) {
             var active = false;
             if (i < ranks.length) {
@@ -70,12 +70,13 @@ cc.Class({
                 active = true;
             }
             var rankData = i < ranks.length ? ranks[i] : null;
-            this.refreshRankItem(active, curPage, "node_" + i, from + i, rankData);
+            this.refreshRankItem(active, curPage, "node_" + i, from + i + 1, rankData);
         }
-        if (this.curRankEnd < (this.curRankFrom + 5))
+        if (ranks.length == 7)
         {
+            this.addPage(index + 1);
             // var pages = this.pageWnd.getPages();
-            this.pageWnd.removePageAtIndex(index + 1);
+            // this.pageWnd.removePageAtIndex(index + 1);
         }
     },
 
@@ -95,7 +96,7 @@ cc.Class({
         if (this.pageIndex == 0)
             return;
         this.pageIndex -= 1;
-        this.curRankFrom = this.pageIndex * 6 + 1;
+        this.curRankFrom = this.pageIndex * 6;
         D.common.GetRank(this.curRankFrom, this.pageLimit, this.refreshGrid.bind(this))
     },
 
@@ -108,8 +109,8 @@ cc.Class({
             return;
 
         this.pageIndex += 1;
-        this.curRankFrom = this.pageIndex * 6 + 1;
-        D.common.GetRank(this.curRankFrom, this.pageLimit, this.refreshGrid.bind(this))
+        this.curRankFrom = this.pageIndex * 6;
+        D.common.GetRank(this.curRankFrom, this.pageLimit + 1, this.refreshGrid.bind(this))
     },
 
     onPageEvent (sender, eventType) {
@@ -117,18 +118,16 @@ cc.Class({
         if (eventType !== cc.PageView.EventType.PAGE_TURNING) {
             return;
         }
-        console.log("当前所在的页面索引:" + sender.getCurrentPageIndex());
         var index = sender.getCurrentPageIndex();
-        if (index == 0)
-        {
-            // this.addPage(index);
-            this.addPage(index + 1);
+        console.log("当前所在的页面索引:" + index);
+        this.curRankFrom = index * 6;
+        // 判断是向前翻页还是向后翻页
+        var ret = this.pageIndex - index;
+        if (ret <= 0) {
+            D.common.GetRank(this.curRankFrom, this.pageLimit + 1, this.refreshGrid.bind(this))
+        } else {
+            D.common.GetRank(this.curRankFrom, this.pageLimit, this.refreshGrid.bind(this))
         }
-        else if (index < 17){
-            this.addPage(index + 1);
-        }
-        this.curRankFrom = index * 6 + 1;
-        D.common.GetRank(this.curRankFrom, this.pageLimit, this.refreshGrid.bind(this))
-
+        this.pageIndex = index;
     }
 });

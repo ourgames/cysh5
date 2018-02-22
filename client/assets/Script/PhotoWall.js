@@ -81,12 +81,12 @@ cc.Class({
     // update (dt) {},
 
     Init: function(){
+        this.onBtnTabRank();
         this.refreshPanel();
         this.rank_page.Init();
     },
 
     refreshPanel: function() {
-        this.onBtnTabRank();
         //self
         //名字
         this.label_nick.string = D.common.userInfo.user_name;
@@ -131,6 +131,7 @@ cc.Class({
         this.btn_rank.height = 54;
         this.btn_self.getComponent("cc.Sprite").spriteFrame = this.btn_self.getComponent("BtnIcon").btn_selected;
         this.btn_self.height = 62;
+        D.common.getUserInfo(this.refreshPanel.bind(this))
     },
 
     onBtnInputInfo: function() {

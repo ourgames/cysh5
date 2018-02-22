@@ -9291,10 +9291,10 @@
     },
     "pageWnd": null,
     "pageIndex": 0,
-    "curRankFrom": 1,
+    "curRankFrom": 0,
     "curRankEnd": 6,
     "pageLimit": 6,
-    "curTotal": 0
+    "curTotal": 1
   },
   {
     "__type__": "cc.Node",

@@ -105,7 +105,7 @@ cc.Class({
         Http.init.getWithUrl(url, requestCB.bind(this));
     },
 
-    getUserInfo: function() {
+    getUserInfo: function(callback) {
         var url = "/getuserinfo";
         cc.log(url);
         var requestCB = function(err, response) {
@@ -115,6 +115,7 @@ cc.Class({
                 var msg = JSON.parse(response);
                 if (msg.ReturnCode == 200) {
                     this.userInfo = msg.User;
+                    callback();
                 } else {
                     alert("error code:" + msg.ReturnCode)
                 }

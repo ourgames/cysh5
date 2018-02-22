@@ -403,6 +403,7 @@ require = function e(t, n, r) {
       Init: function Init() {
         this.reward_show.hide();
         this.refreshPanel();
+        this.refreshMikuPos();
       },
       movingCallback: function movingCallback() {
         D.gameLogic.isMovingEnd = true;
@@ -471,6 +472,12 @@ require = function e(t, n, r) {
         this.setScore(D.common.userInfo.user_score_a);
         this.setSummonInfo(D.common.userInfo.user_tickets);
         this.setSummonTips(D.common.userInfo.user_tickets);
+      },
+      refreshMikuPos: function refreshMikuPos() {
+        this.curStep = D.common.userInfo.user_step;
+        var node = this.tile.getChildByName("tile_" + this.curStep);
+        var pos = node.getPosition();
+        this.miku.node.setPosition(pos);
       },
       triggerEvent: function triggerEvent(event) {
         this.label_pop.string = event.tips;
@@ -702,11 +709,11 @@ require = function e(t, n, r) {
       },
       start: function start() {},
       Init: function Init() {
+        this.onBtnTabRank();
         this.refreshPanel();
         this.rank_page.Init();
       },
       refreshPanel: function refreshPanel() {
-        this.onBtnTabRank();
         this.label_nick.string = D.common.userInfo.user_name;
         this.label_like.string = "<color=#000000>获赞数:</c><color=#ff0000>" + D.common.userInfo.user_be_liked + "</color>";
         if (void 0 != D.common.userInfo.user_photo && "" != D.common.userInfo.user_photo) {
@@ -740,6 +747,7 @@ require = function e(t, n, r) {
         this.btn_rank.height = 54;
         this.btn_self.getComponent("cc.Sprite").spriteFrame = this.btn_self.getComponent("BtnIcon").btn_selected;
         this.btn_self.height = 62;
+        D.common.getUserInfo(this.refreshPanel.bind(this));
       },
       onBtnInputInfo: function onBtnInputInfo() {
         this.edit_nick.string = D.common.userInfo.user_name;
@@ -887,10 +895,10 @@ require = function e(t, n, r) {
           type: cc.Prefab
         },
         pageIndex: 0,
-        curRankFrom: 1,
+        curRankFrom: 0,
         curRankEnd: 6,
         pageLimit: 6,
-        curTotal: 0
+        curTotal: 1
       },
       onLoad: function onLoad() {
         this.pageWnd = this.getComponent("cc.PageView");
@@ -910,7 +918,7 @@ require = function e(t, n, r) {
         if (null == ranks || void 0 == ranks || 0 == ranks.length) return;
         var index = this.pageWnd.getCurrentPageIndex();
         var curPage = this.pageWnd.getPages()[index];
-        var from = 6 * index + 1;
+        var from = 6 * index;
         for (var i = 0; i < 6; i++) {
           var active = false;
           if (i < ranks.length) {
@@ -918,9 +926,9 @@ require = function e(t, n, r) {
             active = true;
           }
           var rankData = i < ranks.length ? ranks[i] : null;
-          this.refreshRankItem(active, curPage, "node_" + i, from + i, rankData);
+          this.refreshRankItem(active, curPage, "node_" + i, from + i + 1, rankData);
         }
-        this.curRankEnd < this.curRankFrom + 5 && this.pageWnd.removePageAtIndex(index + 1);
+        7 == ranks.length && this.addPage(index + 1);
       },
       refreshRankItem: function refreshRankItem(active, page, nodeId, rankId, rankData) {
         var node = page.getChildByName(nodeId).getChildByName("rank_item");
@@ -933,23 +941,24 @@ require = function e(t, n, r) {
       OnPagePrevious: function OnPagePrevious() {
         if (0 == this.pageIndex) return;
         this.pageIndex -= 1;
-        this.curRankFrom = 6 * this.pageIndex + 1;
+        this.curRankFrom = 6 * this.pageIndex;
         D.common.GetRank(this.curRankFrom, this.pageLimit, this.refreshGrid.bind(this));
       },
       OnPageNext: function OnPageNext() {
         if (16 == this.pageIndex) return;
         if (this.curRankEnd < this.curRankFrom + 5) return;
         this.pageIndex += 1;
-        this.curRankFrom = 6 * this.pageIndex + 1;
-        D.common.GetRank(this.curRankFrom, this.pageLimit, this.refreshGrid.bind(this));
+        this.curRankFrom = 6 * this.pageIndex;
+        D.common.GetRank(this.curRankFrom, this.pageLimit + 1, this.refreshGrid.bind(this));
       },
       onPageEvent: function onPageEvent(sender, eventType) {
         if (eventType !== cc.PageView.EventType.PAGE_TURNING) return;
-        console.log("当前所在的页面索引:" + sender.getCurrentPageIndex());
         var index = sender.getCurrentPageIndex();
-        0 == index ? this.addPage(index + 1) : index < 17 && this.addPage(index + 1);
-        this.curRankFrom = 6 * index + 1;
-        D.common.GetRank(this.curRankFrom, this.pageLimit, this.refreshGrid.bind(this));
+        console.log("当前所在的页面索引:" + index);
+        this.curRankFrom = 6 * index;
+        var ret = this.pageIndex - index;
+        ret <= 0 ? D.common.GetRank(this.curRankFrom, this.pageLimit + 1, this.refreshGrid.bind(this)) : D.common.GetRank(this.curRankFrom, this.pageLimit, this.refreshGrid.bind(this));
+        this.pageIndex = index;
       }
     });
     cc._RF.pop();
@@ -1137,14 +1146,17 @@ require = function e(t, n, r) {
         };
         Http.init.getWithUrl(url, requestCB.bind(this));
       },
-      getUserInfo: function getUserInfo() {
+      getUserInfo: function getUserInfo(callback) {
         var url = "/getuserinfo";
         cc.log(url);
         var requestCB = function requestCB(err, response) {
           cc.log("response:" + response);
           if (err) {
             var msg = JSON.parse(response);
-            200 == msg.ReturnCode ? this.userInfo = msg.User : alert("error code:" + msg.ReturnCode);
+            if (200 == msg.ReturnCode) {
+              this.userInfo = msg.User;
+              callback();
+            } else alert("error code:" + msg.ReturnCode);
           }
         };
         Http.init.getWithUrl(url, requestCB.bind(this));
