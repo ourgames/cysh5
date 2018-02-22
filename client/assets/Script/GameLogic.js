@@ -79,6 +79,7 @@ cc.Class({
     Init: function(){
         this.reward_show.hide();
         this.refreshPanel();
+        this.refreshMikuPos();
     },
 
     movingCallback: function() {
@@ -184,6 +185,13 @@ cc.Class({
         this.setSummonInfo(D.common.userInfo.user_tickets);
         //刷新抽奖提示
         this.setSummonTips(D.common.userInfo.user_tickets);
+    },
+
+    refreshMikuPos: function() {
+        this.curStep = D.common.userInfo.user_step;
+        var node = this.tile.getChildByName("tile_"+this.curStep)
+        var pos = node.getPosition();
+        this.miku.node.setPosition(pos);
     },
 
     triggerEvent: function(event){
