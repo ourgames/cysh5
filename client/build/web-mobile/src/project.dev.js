@@ -640,6 +640,7 @@ require = function e(t, n, r) {
         this.node.runAction(seq);
       },
       update: function update(dt) {
+        if (this.touch_count > this.animations.length) return;
         var time = this.trackEntry.trackTime;
         var checkTime = this.animations[this.touch_count] / 30;
         time > checkTime && (this.spine_1.timeScale = 0);
@@ -649,6 +650,15 @@ require = function e(t, n, r) {
         this.spine_2.node.active = false;
         this.spine_1.node.active = true;
         this.trackEntry = this.spine_1.setAnimation(0, "animation", false);
+      },
+      Init: function Init(skip) {
+        if (skip) {
+          this.touch_count = this.animations.length + 1;
+          this.spine_1.timeScale = 0;
+          this.spine_2.timeScale = 0;
+          this.propagate = false;
+          this.touch_node.active = false;
+        }
       }
     });
     cc._RF.pop();
@@ -1185,7 +1195,11 @@ require = function e(t, n, r) {
         userUuid: "",
         game_pageview: {
           default: null,
-          type: cc.PageView
+          type: cc.Node
+        },
+        helloworld_node: {
+          default: null,
+          type: cc.Node
         }
       },
       uuidv4: function uuidv4() {
@@ -1217,7 +1231,8 @@ require = function e(t, n, r) {
               D.gameLogic.Init();
               D.photoWall.Init();
               var noPhoto = this.isEmptyStr(this.userInfo.user_photo);
-              this.game_pageview.OnLoginNotify(!noPhoto);
+              this.helloworld_node.getComponent("HelloWorld").Init(!noPhoto);
+              this.game_pageview.getComponent("GamePage").OnLoginNotify(!noPhoto);
             } else alert("error code:" + msg.ReturnCode);
           }
         };

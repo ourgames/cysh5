@@ -54,7 +54,11 @@ cc.Class({
         userUuid: "",
         game_pageview: {
             default: null,
-            type: cc.PageView,
+            type: cc.Node,
+        },
+        helloworld_node: {
+            default: null,
+            type: cc.Node,
         },
     },
 
@@ -102,7 +106,8 @@ cc.Class({
                     D.gameLogic.Init();
                     D.photoWall.Init();
                     var noPhoto = this.isEmptyStr(this.userInfo.user_photo);
-                    this.game_pageview.OnLoginNotify(!noPhoto);
+                    this.helloworld_node.getComponent("HelloWorld").Init(!noPhoto);
+                    this.game_pageview.getComponent("GamePage").OnLoginNotify(!noPhoto);
                 } else {
                     alert("error code:" + msg.ReturnCode)
                 }

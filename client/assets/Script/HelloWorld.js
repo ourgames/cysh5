@@ -41,17 +41,6 @@ cc.Class({
             this.trackEntry = this.spine_1.setAnimation(0, 'animation', false);
         };
         
-        // var play3 = function(){
-        //     this.spine_3.setAnimation(0, 'animation', false);
-        // };
-
-        // var play1CB = cc.callFunc(play1.bind(this));
-        // var delay = cc.delayTime(this.spine_1_time);
-        // var play2CB = cc.callFunc(play2.bind(this));
-        // var delay2 = cc.delayTime(this.spine_2_time);
-        // var play3CB = cc.callFunc(showNext.bind(this));
-        // var seq = cc.sequence(play1CB, delay, play2CB, delay2, play3CB);
-        // this.node.runAction(seq);
         this.touch_node.on(cc.Node.EventType.TOUCH_START, this.onTouchBegan.bind(this), this.node);
         this.touch_node.on(cc.Node.EventType.TOUCH_END, this.onTouchEnded.bind(this), this.node);
     },
@@ -103,6 +92,8 @@ cc.Class({
     },
     // called every frame
     update: function(dt) {
+    	if (this.touch_count > this.animations.length)
+    		return;
     	var time = this.trackEntry.trackTime;
     	var checkTime = this.animations[this.touch_count] / 30;
     	if (time > checkTime)
@@ -116,5 +107,16 @@ cc.Class({
         this.spine_2.node.active = false;
         this.spine_1.node.active = true;
         this.trackEntry = this.spine_1.setAnimation(0, 'animation', false);
+    },
+
+    Init: function(skip) {
+    	if (skip)
+    	{
+    		this.touch_count = this.animations.length + 1;
+    		this.spine_1.timeScale = 0;
+    		this.spine_2.timeScale = 0;
+    		this.propagate = false;
+            this.touch_node.active = false;
+    	}
     },
 });
