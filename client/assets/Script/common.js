@@ -52,6 +52,10 @@ cc.Class({
     properties: {
         userInfo: "",
         userUuid: "",
+        game_pageview: {
+            default: null,
+            type: cc.PageView,
+        },
     },
 
     uuidv4: function() {
@@ -97,6 +101,8 @@ cc.Class({
                     this.userInfo = msg.User;
                     D.gameLogic.Init();
                     D.photoWall.Init();
+                    var noPhoto = this.isEmptyStr(this.userInfo.user_photo);
+                    this.game_pageview.OnLoginNotify(!noPhoto);
                 } else {
                     alert("error code:" + msg.ReturnCode)
                 }
