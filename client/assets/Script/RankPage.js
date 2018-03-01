@@ -72,7 +72,7 @@ cc.Class({
             var rankData = i < ranks.length ? ranks[i] : null;
             this.refreshRankItem(active, curPage, "node_" + i, from + i + 1, rankData);
         }
-        if (ranks.length == 7)
+        if (ranks.length == 7 && (index + 1) == this.pageWnd.getPages().length)
         {
             this.addPage(index + 1);
             // var pages = this.pageWnd.getPages();
