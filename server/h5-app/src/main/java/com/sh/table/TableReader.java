@@ -2,6 +2,7 @@ package com.sh.table;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -34,17 +35,16 @@ public class TableReader {
 			for (Resource resource : resources) {
 				String filename = resource.getFilename();
 				String name = filename.substring(0, filename.length() - 5);
-				File file = resource.getFile();
-				readJson(name, file);
+				readJson(name, resource.getInputStream());
 			}
 		} catch (IOException e) {
 			Log.error("读取Json文件失败", e);
 		}
 	}
 
-	void readJson(String name, File file)
+	void readJson(String name, InputStream in)
 			throws IOException, ClassNotFoundException, InstantiationException, IllegalAccessException {
-		String jsonData = jsonRead(file);
+		String jsonData = inputStream2String(in);
 
 		Class<?> cls = Class.forName("com.sh.table." + name);
 		Map<Integer, Object> tableMap = new HashMap<Integer, Object>();
@@ -117,5 +117,14 @@ public class TableReader {
 			}
 		}
 		return buffer.toString();
+	}
+
+	public String inputStream2String(InputStream in) throws IOException {
+		StringBuffer out = new StringBuffer();
+		byte[] b = new byte[4096];
+		for (int n; (n = in.read(b)) != -1;) {
+			out.append(new String(b, 0, n));
+		}
+		return out.toString();
 	}
 }
