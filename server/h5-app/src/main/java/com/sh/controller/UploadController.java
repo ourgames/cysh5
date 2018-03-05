@@ -1,6 +1,7 @@
 package com.sh.controller;
 
 import com.sh.bean.User;
+import com.sh.config.SHConfig;
 import com.sh.service.UserService;
 import com.sh.util.PicUtil;
 import com.sh.util.SpringUtil;
@@ -26,6 +27,8 @@ public class UploadController {
 	PicUtil PicUtil;
 	@Autowired
 	private UserService UserService;
+	@Autowired
+	SHConfig SHConfig;
 
 	@GetMapping("/upload")
 	public String showUploadPage(Model model) throws IOException {
@@ -41,12 +44,22 @@ public class UploadController {
 
 		// 获取图片的URL
 		String picURL = PicUtil.uploadPic(suffix, in);
-		
+
 		// 保存用户图片信息
 		User user = (User) SpringUtil.getBean("User");
 		Integer user_no = UserService.getUserNo();
 		user.setUser_no(user_no);
 		user.setUser_photo(picURL);
+
+		// 判断是否没初始化过奖券数
+		if (user.getUser_tickets() == null || user.getUser_tickets() == -1) {
+			if (picURL != null && !picURL.equals("")) {
+				// 记录初始奖券数
+				int initTicket = Integer.parseInt(SHConfig.getConfig("init-ticket"));
+				user.setUser_tickets(initTicket);
+			}
+		}
+
 		UserService.updateUserInfo(user);
 
 		return "redirect:/";
