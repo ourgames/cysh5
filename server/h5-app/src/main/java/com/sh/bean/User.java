@@ -18,7 +18,6 @@ public class User {
 	Integer user_be_liked;
 	@JsonIgnore
 	Integer user_likes_today;
-	@JsonIgnore
 	String user_likes_no;
 	@JsonIgnore
 	Integer user_likes_total;
