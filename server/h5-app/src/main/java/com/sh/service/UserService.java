@@ -53,7 +53,7 @@ public class UserService {
 		Integer start_step = Integer.parseInt(SHConfig.getConfig("start-step"));
 		user.setUser_step(start_step);
 		// 记录初始奖券数
-		user.setUser_tickets(-1);
+		user.setUser_tickets(0);
 		// 初始化用户初始积分
 		user.setUser_score_a(0);
 		// 初始化照片
@@ -67,8 +67,6 @@ public class UserService {
 
 		int user_count = UserDAO.insert(user);
 		if (user_count > 0) {
-			// 刷新排行榜
-			RankService.updateRank(user.getUser_no());
 			return user;
 		}
 

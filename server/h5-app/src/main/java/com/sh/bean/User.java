@@ -22,6 +22,8 @@ public class User {
 	@JsonIgnore
 	Integer user_likes_total;
 	@JsonIgnore
+	String rewards;
+	@JsonIgnore
 	Timestamp last_refresh_time;
 	String phone_no;
 	@JsonIgnore
@@ -32,6 +34,12 @@ public class User {
 	@JsonIgnore
 	String regist_ip;
 	
+	public String getRewards() {
+		return rewards;
+	}
+	public void setRewards(String rewards) {
+		this.rewards = rewards;
+	}
 	public String getUser_likes_no() {
 		return user_likes_no;
 	}

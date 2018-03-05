@@ -87,6 +87,18 @@ public class UserMsg {
 		}
 
 		request.getSession().setAttribute(Define.USER_NO, user_no);
+
+		// 判断是否需要点赞
+		String account_uuid = (String) request.getSession().getAttribute(Define.LIKE_UUID);
+		if (account_uuid != null && !account_uuid.equals("")) {
+			Integer like_no = UserService.getUserNo(account_uuid);
+			if (like_no != null && user_no != null && !like_no.equals(user_no)) {
+				String ip = NetUtil.getRemoteAddress(request);
+				UserService.like(like_no, ip);
+				request.getSession().setAttribute(Define.LIKE_UUID, null);
+			}
+		}
+
 		resultMap.put("User", user);
 		return resultMap;
 	}

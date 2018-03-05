@@ -1,10 +1,14 @@
 package com.sh.service;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sh.bean.User;
 import com.sh.config.SHConfig;
 import com.sh.define.ReturnCode;
@@ -50,7 +54,7 @@ public class LotteryService {
 
 		// 获取用户当前pos
 		Integer currentStep = user.getUser_step();
-		mapResult = calculateStep(currentStep, score_b);
+		mapResult = calculateStep(currentStep, score_b, user);
 
 		// 获取增加的积分
 		battle battleInfo = TableReader.getTableRow(battle.class, currentStep);
@@ -72,7 +76,7 @@ public class LotteryService {
 	}
 
 	// 计算最终步骤
-	private Map<String, Integer> calculateStep(int currentStep, int score_b) {
+	private Map<String, Integer> calculateStep(int currentStep, int score_b, User user) {
 		Map<String, Integer> mapResult = new HashMap<String, Integer>();
 		int diceKey = getWeightPool(currentStep, score_b);
 		battle_step stepInfo = TableReader.getTableRow(battle_step.class, diceKey);
@@ -89,7 +93,17 @@ public class LotteryService {
 
 		// 计算骰子步数
 		int diceValue = (Integer) RandomUtil.randomByWeight(objects);
-		Integer finalStep = move(currentStep, diceValue);
+		Integer finalStep = move(currentStep, diceValue, user);
+
+		mapResult.put("diceValue", diceValue);
+		mapResult.put("finalStep", finalStep);
+		return mapResult;
+	}
+
+	// 根据骰子点数向前移动，返回最终点数
+	@SuppressWarnings("unchecked")
+	private int move(int currentStep, int diceValue, User user) {
+		int finalStep = loopAdd(MAX_STEP, currentStep, diceValue);
 
 		// 计算棋盘触发事件
 		battle battleInfo = TableReader.getTableRow(battle.class, finalStep);
@@ -97,22 +111,34 @@ public class LotteryService {
 			switch (battleInfo.getEvent_type()) {
 			case "move":
 				int moveStep = Integer.parseInt(battleInfo.getEvent_value());
-				move(finalStep, moveStep);
+				finalStep = move(finalStep, moveStep, user);
 				Log.debug("触发移动事件，移动{}步", moveStep);
 				break;
 			case "reward":
+				ObjectMapper mapper = new ObjectMapper(); // 转换器
+				List<String> lstRewards = null;
+				String rewards = user.getRewards();
+				try {
+					if (rewards == null) {
+						lstRewards = new ArrayList<String>();
+					}
+					// 转换成map
+					else {
+						lstRewards = mapper.readValue(rewards, ArrayList.class);
+					}
+
+					String rewardValue = battleInfo.getEvent_value();
+					// 记录该玩家的奖励信息
+					lstRewards.add(rewardValue);
+					rewards = mapper.writeValueAsString(lstRewards);
+					user.setRewards(rewards);
+				} catch (IOException e) {
+					Log.error("JSON转换失败", e);
+				}
 				break;
 			}
 		}
-
-		mapResult.put("diceValue", diceValue);
-		mapResult.put("finalStep", finalStep);
-		return mapResult;
-	}
-
-	// 根据骰子点数向前移动
-	private int move(int currentStep, int diceValue) {
-		int finalStep = loopAdd(MAX_STEP, currentStep, diceValue);
+		
 		return finalStep;
 
 	}

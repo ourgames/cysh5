@@ -2,6 +2,7 @@ package com.sh.controller;
 
 import com.sh.bean.User;
 import com.sh.config.SHConfig;
+import com.sh.service.RankService;
 import com.sh.service.UserService;
 import com.sh.util.PicUtil;
 import com.sh.util.SpringUtil;
@@ -27,6 +28,8 @@ public class UploadController {
 	PicUtil PicUtil;
 	@Autowired
 	private UserService UserService;
+	@Autowired
+	RankService RankService;
 	@Autowired
 	SHConfig SHConfig;
 
@@ -60,7 +63,11 @@ public class UploadController {
 			}
 		}
 
-		UserService.updateUserInfo(user);
+		user = UserService.updateUserInfo(user);
+		if (user != null) {
+			// 刷新排行榜
+			RankService.updateRank(user.getUser_no());
+		}
 
 		return "redirect:/";
 	}

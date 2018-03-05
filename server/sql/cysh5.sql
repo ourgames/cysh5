@@ -17,6 +17,7 @@ CREATE TABLE `tb_user` (
   `user_likes_today` int(11) DEFAULT '0',
   `user_likes_no` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `user_likes_total` int(11) DEFAULT '0',
+  `rewards` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `last_refresh_time` datetime DEFAULT NULL,
   `phone_no` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT "",
   `qq_no` int(11) DEFAULT '0',

@@ -36,10 +36,9 @@ public class AuthInterceptor implements HandlerInterceptor {
             return true;
         }
 
-        request.getSession().setAttribute("uri_to_go", uri);
         Log.debug("权限拦截:无[{}]地址的访问权限，用户SESSION为[{}]", uri, request.getSession()
                 .getId());
-        response.sendRedirect("/signin");
+        response.sendRedirect("/");
         return false;
     }
 

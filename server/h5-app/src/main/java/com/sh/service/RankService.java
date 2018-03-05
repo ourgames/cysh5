@@ -29,7 +29,7 @@ public class RankService {
 		User user = UserService.getUserInfo(user_no);
 
 		// 如果没传照片则不进入排行榜
-		if (user.getUser_photo() == null) {
+		if (user.getUser_photo() == null || user.getUser_photo().equals("")) {
 			return -1;
 		}
 
