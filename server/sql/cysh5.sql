@@ -14,6 +14,7 @@ CREATE TABLE `tb_user` (
   `user_step` int(11) DEFAULT '0',
   `user_tickets` int(11) DEFAULT '0',
   `user_be_liked` int(11) DEFAULT '0',
+  `user_be_liked_for_tickets` int(11) DEFAULT '0',
   `user_likes_today` int(11) DEFAULT '0',
   `user_likes_no` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `user_likes_total` int(11) DEFAULT '0',
@@ -87,7 +88,7 @@ CREATE TABLE `SPRING_SESSION_ATTRIBUTES` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP PROCEDURE IF EXISTS proc_update_rank;
-delimiter $$
+DELIMITER $$
 CREATE PROCEDURE `proc_update_rank`(
 	OUT result INT,
 	IN user_no INT,
@@ -128,4 +129,17 @@ BEGIN
 		END IF;
      END IF;
 END$$
-delimiter ;
+DELIMITER ;
+
+DROP TRIGGER IF EXISTS `tri_update_user`;
+DELIMITER $$
+CREATE TRIGGER `tri_update_user` BEFORE UPDATE ON `tb_user` FOR EACH ROW
+BEGIN
+	DECLARE my_be_liked INT DEFAULT 0;
+    SELECT user_be_liked_for_tickets INTO my_be_liked FROM `tb_user` WHERE `tb_user`.`user_no` = new.user_no;
+    IF my_be_liked >= 4 THEN
+		SET new.user_be_liked_for_tickets = 0;
+        SET new.user_tickets = new.user_tickets + 1;
+    END IF;
+END$$
+DELIMITER ;

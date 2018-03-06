@@ -16,6 +16,7 @@ public class User {
 	Integer user_step;
 	Integer user_tickets;
 	Integer user_be_liked;
+	Integer user_be_liked_for_tickets;
 	@JsonIgnore
 	Integer user_likes_today;
 	String user_likes_no;
@@ -34,6 +35,12 @@ public class User {
 	@JsonIgnore
 	String regist_ip;
 	
+	public Integer getUser_be_liked_for_tickets() {
+		return user_be_liked_for_tickets;
+	}
+	public void setUser_be_liked_for_tickets(Integer user_be_liked_for_tickets) {
+		this.user_be_liked_for_tickets = user_be_liked_for_tickets;
+	}
 	public String getRewards() {
 		return rewards;
 	}

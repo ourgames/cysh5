@@ -22,7 +22,7 @@ public interface UserDAO {
 	@Select("SELECT user_no FROM tb_user WHERE account_uuid = #{account_uuid}")
 	public Integer selectUserNoByAccount(@Param("account_uuid") String account_uuid);
 
-	// 按编号获取用户详细信息
+	// 按编号获取用户简要信息
 	public List<UserShortInfo> selectUsersShort(@Param("user_nums") List<Integer> user_nums);
 
 	// 按编号获取用户详细信息
@@ -30,7 +30,7 @@ public interface UserDAO {
 	public User selectUserInfo(@Param("user_no") int user_no);
 
 	// 给其他用户点赞
-	@Select("UPDATE tb_user SET user_be_liked = user_be_liked + 1 WHERE user_no = #{user_no}")
+	@Select("UPDATE tb_user SET user_be_liked = user_be_liked + 1, user_be_liked_for_tickets = user_be_liked_for_tickets + 1 WHERE user_no = #{user_no}")
 	public User like(@Param("user_no") int user_no);
 
 	// 修改用户信息

@@ -171,12 +171,12 @@ public class UserService {
 			return resultMap;
 		}
 
-		// 获取今日的点赞Map
+		// 判断是否已经给该用户点过赞了，获取今日的点赞Map
 		String user_likes_no = user.getUser_likes_no();
 		ObjectMapper mapper = new ObjectMapper(); // 转换器
 		Map<Integer, Boolean> mapUserLikesNo = null;
 		try {
-			if (user_likes_no == null) {
+			if (user_likes_no == null || user_likes_no.equals("")) {
 				mapUserLikesNo = new HashMap<Integer, Boolean>();
 			}
 			// 转换成map
@@ -231,8 +231,8 @@ public class UserService {
 			// 需要刷新
 			// 重置今天的点赞数
 			user.setUser_likes_today(0);
-			// 重置今天的点赞人
-			user.setUser_likes_no(null);
+			// 重置今天的已点赞人
+			user.setUser_likes_no("");
 
 			// 设置刷新时间为现在
 			user.setLast_refresh_time(TimeUtil.now());
