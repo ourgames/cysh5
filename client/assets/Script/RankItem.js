@@ -34,7 +34,7 @@ cc.Class({
         },
         btn_like: {
             default: null,
-            type: cc.Button
+            type: cc.Sprite
         },
         first: {
             default: null,
@@ -90,8 +90,12 @@ cc.Class({
             this.label_rank.string = "" + rankId;
         }
         this.label_nick.string = rankData.user_name;
-        this.label_like.string = "<color=#000000>点赞数:</c><color=#ff0000>" + rankData.user_be_liked + "</color>"
+        this.label_like.string = "<color=#000000>点赞数:</c><color=#ff0000>" + rankData.user_be_liked + "</color>";
+
+
         this.user_no = rankData.user_no;
+        this.RefreshLikeBtn();
+
         // rankData.user_photo = "user_photos/test.png";
         if (rankData.user_photo != undefined && rankData.user_photo != "") {
             // var cacheTex = cc.textureCache.getTextureForKey(rankData.user_photo);
@@ -129,7 +133,34 @@ cc.Class({
     OnLike: function() {
         var likeCallback = function() {
             this.label_like.string = "<color=#000000>点赞数:</c><color=#ff0000>" + (this.rankData.user_be_liked + 1) + "</color>"
+            this.RefreshLikeBtn();
         };
         D.common.LikeYou(this.user_no, likeCallback.bind(this));
+    },
+
+    RefreshLikeBtn: function() {
+        for(var no in D.common.userInfo.user_likes_no){
+            if (this.user_no == no)
+            {
+                this.btn_like.spriteFrame = this.btn_like.getComponent("BtnIcon").btn_liked;
+                break;
+            }
+            else
+            {
+                this.btn_like.spriteFrame = this.btn_like.getComponent("BtnIcon").btn_unlike;
+            }
+        }
+
+        // for (var i = D.common.userInfo.user_likes_no.length - 1; i >= 0; i--) {
+        //     if (this.user_no == D.common.userInfo.user_likes_no[i])
+        //     {
+        //         this.btn_like.spriteFrame = this.btn_like.getComponent("BtnIcon").btn_liked;
+        //         break;
+        //     }
+        //     else
+        //     {
+        //         this.btn_like.spriteFrame = this.btn_like.getComponent("BtnIcon").btn_unlike;
+        //     }
+        // }
     },
 });
