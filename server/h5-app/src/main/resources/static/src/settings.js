@@ -162,20 +162,36 @@ window._CCSettings = {
                 "Texture/game/9.png",
                 "cc.Texture2D"
             ],
-            "53Np+P4QZPqZ0U1AAVwxTN": [
-                "Texture/game/a_move_2.png",
+            "e1DYIOXD9CwYkXT4XhphMJ": [
+                "Texture/game/a_move_-4.png",
+                "cc.Texture2D"
+            ],
+            "01Zfl4sVpGfpaM8K26bh3u": [
+                "Texture/game/a_move_1.png",
+                "cc.Texture2D"
+            ],
+            "9fgziCUmhFboLFU3isWtps": [
+                "Texture/game/a_move_4.png",
                 "cc.Texture2D"
             ],
             "4ewZq/PsRPwrD4qjiz0P5J": [
                 "Texture/game/b_move_-3.png",
                 "cc.Texture2D"
             ],
+            "9bou2RGbJJsp6v+2yWpU6B": [
+                "Texture/game/b_move_-5.png",
+                "cc.Texture2D"
+            ],
+            "d113OnBHlJjZi9XfIBw3Vu": [
+                "Texture/game/b_move_1.png",
+                "cc.Texture2D"
+            ],
             "2eDBv6MqlIrJih9V10ZbDp": [
                 "Texture/game/b_move_2.png",
                 "cc.Texture2D"
             ],
-            "c2MgDHuBJADaq13CIU7/fY": [
-                "Texture/game/b_move_5.png",
+            "0aXudlEexDYL3M5N2tp/39": [
+                "Texture/game/b_move_3.png",
                 "cc.Texture2D"
             ],
             "a6oDLvOu1PU4413aTIMBf0": [
@@ -510,7 +526,7 @@ window._CCSettings = {
         }
     ],
     "packedAssets": {
-        "08b982332": [
+        "0af8d020f": [
             "01d12md5lBML9NB2abCHME",
             "02A4PtBbZAC5j4NSTErM76",
             "05cVias9hPK7QAwsh5AO/y",
@@ -548,10 +564,12 @@ window._CCSettings = {
             "49F7plRs9KarOA4G9ckbQm",
             "49HNW0Yp1Gt7ogVWWPV1vl",
             "4aBBTb9BBAIp55vonSVMB/",
+            "4cemh2nVdPIpiJYE4aGQOB",
             "4dkVHWaipKU4d0HgnsPs1X",
             "51gWxeZ3pHTJTnLTLCNs8u",
             "52XlkKFwtF9qp+zN+cQOg6",
             "53ukIdWDlEqbj27qOj/NWf",
+            "55N3kUrLxDwq10ovFUzEti",
             "597BDMSKZAD5NAfPFtdLRe",
             "5cO7kybDxGj4ipyMYdRYZB",
             "5dOTGbKK9KXbeNn1Ev+Ce9",
@@ -568,6 +586,7 @@ window._CCSettings = {
             "76OZBBXyVDFq9+3ZdYKE2A",
             "79qkt31d1IdIwpDRRmEezI",
             "7cWur8YnpH+LUKPwgGPq/O",
+            "7cZnHrMZ9IELO03B7SbNIV",
             "7dIHUd2X5FXpMXxr3rpGge",
             "7dZGB49uFOaIXUIJIJvZ1J",
             "84Xu00DYdBu698g/MO81ii",
@@ -581,15 +600,17 @@ window._CCSettings = {
             "95r3gVlFRNcrQ/J5PS+2Nk",
             "98upPTzclLGLiz/G07qZUJ",
             "9bvaMerUlDyary99mJa6xp",
+            "9efk/ReU1AdrACpJTFWC7X",
             "9erVIwJ1RFyJzIQ4W4M3S/",
             "a0wv5ZBQpCp6EP+1T1sNSN",
             "a2C9KQTApK+JaF2f8bjAUj",
             "a2ebNF6hRMPKtOte5WQ9ge",
-            "a3PfBe7YZNhaA0rf9deKeh",
             "a4DqSd6yZC+ZGQwUcgLP/D",
             "a4gr+AS0FL2IqTSu23gkpX",
             "adp6xqHulKcJHyak4c+rNg",
             "aecHOPRhNEK7DPhtShZFYK",
+            "b0X3ZF7XBNp7WYVm1JMS+G",
+            "b0vRcPVJNNMr8O2YYwRkhj",
             "b1whE5YARAbaKGGo+fo3Ki",
             "b4I6NQg/BLO6EX3T0qW190",
             "b4OrCFQn1JCb0l2tDVzTLM",
@@ -604,7 +625,6 @@ window._CCSettings = {
             "c88nDG6cFHdZp9O7n0gU5d",
             "c922KpuF1BuJvhOEPScwm8",
             "caBg2HRKlNWLmqAnZH29YV",
-            "caVPqOiaBL84KmnM9We33b",
             "ceUzBUeyZEfrMI/2koKWT3",
             "cf0Mn2GyRDz5OLYpJeMLnm",
             "cf8e5B+AJAFZLzpGvFic7g",

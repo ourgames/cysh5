@@ -139,28 +139,18 @@ cc.Class({
     },
 
     RefreshLikeBtn: function() {
-        for(var no in D.common.userInfo.user_likes_no){
-            if (this.user_no == no)
+        var jsonObj = JSON.parse(D.common.userInfo.user_likes_no);
+        var user_no_str = "" + this.user_no;
+        for(var like_me_no in jsonObj){
+            if (user_no_str == like_me_no)
             {
-                this.btn_like.spriteFrame = this.btn_like.getComponent("BtnIcon").btn_liked;
+                this.btn_like.getComponent("cc.Sprite").spriteFrame = this.btn_like.getComponent("BtnIcon").btn_selected;
                 break;
             }
             else
             {
-                this.btn_like.spriteFrame = this.btn_like.getComponent("BtnIcon").btn_unlike;
+                this.btn_like.getComponent("cc.Sprite").spriteFrame = this.btn_like.getComponent("BtnIcon").btn_unSelected;
             }
         }
-
-        // for (var i = D.common.userInfo.user_likes_no.length - 1; i >= 0; i--) {
-        //     if (this.user_no == D.common.userInfo.user_likes_no[i])
-        //     {
-        //         this.btn_like.spriteFrame = this.btn_like.getComponent("BtnIcon").btn_liked;
-        //         break;
-        //     }
-        //     else
-        //     {
-        //         this.btn_like.spriteFrame = this.btn_like.getComponent("BtnIcon").btn_unlike;
-        //     }
-        // }
     },
 });

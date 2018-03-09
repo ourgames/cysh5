@@ -66,6 +66,10 @@ cc.Class({
             default: null,
             type:require("RankPage"), 
         },
+        share_node:{
+            default: null,
+            type:cc.Node,
+        }
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -153,6 +157,11 @@ cc.Class({
     },
 
     onBtnShare: function() {
+        this.share_node.active = true;
+    },
+
+    onBtnShareClose: function() {
+        this.share_node.active = false;
     },
 
     onEditNickEnd: function(sender) {

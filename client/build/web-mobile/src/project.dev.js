@@ -36,14 +36,6 @@ require = function e(t, n, r) {
         btn_unSelected: {
           default: null,
           type: cc.SpriteFrame
-        },
-        btn_unlike: {
-          default: null,
-          type: cc.SpriteFrame
-        },
-        btn_liked: {
-          default: null,
-          type: cc.SpriteFrame
         }
       },
       start: function start() {}
@@ -109,7 +101,7 @@ require = function e(t, n, r) {
         event_type: "move",
         event_value: "2",
         score: "10",
-        tips: "前进两步"
+        tips: "前进2步"
       },
       "3": {
         battle_id: "3",
@@ -123,7 +115,7 @@ require = function e(t, n, r) {
         event_type: "move",
         event_value: "-3",
         score: "10",
-        tips: "后退三步"
+        tips: "后退3步"
       },
       "5": {
         battle_id: "5",
@@ -135,9 +127,9 @@ require = function e(t, n, r) {
       "6": {
         battle_id: "6",
         event_type: "reward",
-        event_value: "reward_2",
+        event_value: "reward_1",
         score: "10",
-        tips: "恭喜获得50元优惠卷"
+        tips: "恭喜获得奖励1"
       },
       "7": {
         battle_id: "7",
@@ -155,17 +147,17 @@ require = function e(t, n, r) {
       },
       "9": {
         battle_id: "9",
-        event_type: "null",
-        event_value: "0",
+        event_type: "move",
+        event_value: "-4",
         score: "10",
-        tips: "无"
+        tips: "后退4步"
       },
       "10": {
         battle_id: "10",
         event_type: "reward",
-        event_value: "reward_1",
+        event_value: "reward_2",
         score: "10",
-        tips: "恭喜获得20元优惠卷"
+        tips: "恭喜获得奖励2"
       },
       "11": {
         battle_id: "11",
@@ -184,9 +176,9 @@ require = function e(t, n, r) {
       "13": {
         battle_id: "13",
         event_type: "move",
-        event_value: "2",
+        event_value: "4",
         score: "10",
-        tips: "前进两步"
+        tips: "前进4步"
       },
       "14": {
         battle_id: "14",
@@ -197,7 +189,7 @@ require = function e(t, n, r) {
       },
       "15": {
         battle_id: "15",
-        event_type: "null",
+        event_type: "move",
         event_value: "0",
         score: "10",
         tips: "无"
@@ -207,7 +199,7 @@ require = function e(t, n, r) {
         event_type: "reward",
         event_value: "reward_3",
         score: "10",
-        tips: "恭喜获得TF07口红"
+        tips: "恭喜获得奖励3"
       },
       "17": {
         battle_id: "17",
@@ -218,28 +210,28 @@ require = function e(t, n, r) {
       },
       "18": {
         battle_id: "18",
-        event_type: "null",
-        event_value: "0",
+        event_type: "move",
+        event_value: "1",
         score: "10",
-        tips: "无"
+        tips: "前进1步"
       },
       "19": {
         battle_id: "19",
         event_type: "reward",
-        event_value: "reward_1",
+        event_value: "reward_4",
         score: "10",
-        tips: "恭喜获得20元优惠卷"
+        tips: "恭喜获得奖励4"
       },
       "20": {
         battle_id: "20",
         event_type: "null",
-        event_value: "0",
+        event_value: "3",
         score: "10",
-        tips: "无"
+        tips: "前进3步"
       },
       "21": {
         battle_id: "21",
-        event_type: "null",
+        event_type: "move",
         event_value: "0",
         score: "10",
         tips: "无"
@@ -247,9 +239,9 @@ require = function e(t, n, r) {
       "22": {
         battle_id: "22",
         event_type: "reward",
-        event_value: "reward_4",
+        event_value: "reward_5",
         score: "10",
-        tips: "恭喜获得纪梵希礼盒"
+        tips: "恭喜获得奖励5"
       },
       "23": {
         battle_id: "23",
@@ -261,16 +253,16 @@ require = function e(t, n, r) {
       "24": {
         battle_id: "24",
         event_type: "move",
-        event_value: "5",
+        event_value: "-5",
         score: "10",
-        tips: "前进五步"
+        tips: "后退5步"
       },
       "25": {
         battle_id: "25",
         event_type: "null",
-        event_value: "0",
+        event_value: "1",
         score: "10",
-        tips: "无"
+        tips: "前进1步"
       },
       "26": {
         battle_id: "26",
@@ -281,10 +273,10 @@ require = function e(t, n, r) {
       },
       "27": {
         battle_id: "27",
-        event_type: "null",
-        event_value: "0",
+        event_type: "move",
+        event_value: "-4",
         score: "10",
-        tips: "无"
+        tips: "后退4步"
       },
       "28": {
         battle_id: "28",
@@ -793,6 +785,10 @@ require = function e(t, n, r) {
         rank_page: {
           default: null,
           type: require("RankPage")
+        },
+        share_node: {
+          default: null,
+          type: cc.Node
         }
       },
       onLoad: function onLoad() {
@@ -853,7 +849,12 @@ require = function e(t, n, r) {
         var address = this.edit_address.string;
         D.common.updateUserInfo(nick, phone, address);
       },
-      onBtnShare: function onBtnShare() {},
+      onBtnShare: function onBtnShare() {
+        this.share_node.active = true;
+      },
+      onBtnShareClose: function onBtnShareClose() {
+        this.share_node.active = false;
+      },
       onEditNickEnd: function onEditNickEnd(sender) {
         cc.log("onEditNickEnd:" + this.edit_nick.string);
       },
@@ -970,12 +971,14 @@ require = function e(t, n, r) {
         D.common.LikeYou(this.user_no, likeCallback.bind(this));
       },
       RefreshLikeBtn: function RefreshLikeBtn() {
-        for (var no in D.common.userInfo.user_likes_no) {
-          if (this.user_no == no) {
-            this.btn_like.spriteFrame = this.btn_like.getComponent("BtnIcon").btn_liked;
+        var jsonObj = JSON.parse(D.common.userInfo.user_likes_no);
+        var user_no_str = "" + this.user_no;
+        for (var like_me_no in jsonObj) {
+          if (user_no_str == like_me_no) {
+            this.btn_like.getComponent("cc.Sprite").spriteFrame = this.btn_like.getComponent("BtnIcon").btn_selected;
             break;
           }
-          this.btn_like.spriteFrame = this.btn_like.getComponent("BtnIcon").btn_unlike;
+          this.btn_like.getComponent("cc.Sprite").spriteFrame = this.btn_like.getComponent("BtnIcon").btn_unSelected;
         }
       }
     });

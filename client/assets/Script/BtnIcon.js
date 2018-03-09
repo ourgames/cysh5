@@ -9,15 +9,7 @@ var BtnIcon = cc.Class({
         btn_unSelected: {
             default: null,
             type: cc.SpriteFrame
-        },
-        btn_unlike: {
-            default: null,
-            type: cc.SpriteFrame
-        },
-        btn_liked: {
-            default: null,
-            type: cc.SpriteFrame
-        },
+        }
     },
 
     // LIFE-CYCLE CALLBACKS:
