@@ -139,6 +139,11 @@ cc.Class({
     },
 
     RefreshLikeBtn: function() {
+    	if (D.common.userInfo.user_likes_no == "")
+    	{
+            this.btn_like.getComponent("cc.Sprite").spriteFrame = this.btn_like.getComponent("BtnIcon").btn_unSelected;
+            return;
+    	}
         var jsonObj = JSON.parse(D.common.userInfo.user_likes_no);
         var user_no_str = "" + this.user_no;
         for(var like_me_no in jsonObj){

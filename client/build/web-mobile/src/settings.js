@@ -70,20 +70,12 @@ window._CCSettings = {
                 "Texture/game/1.png",
                 "cc.Texture2D"
             ],
-            "43HCucrdVI/IhjgF+njtOT": [
-                "Texture/game/10.png",
-                "cc.Texture2D"
-            ],
             "06X1MwCcRL3YlP91KXC3eN": [
                 "Texture/game/11.png",
                 "cc.Texture2D"
             ],
             "dcxT7mwrxCrKdZLpZh+Gq/": [
                 "Texture/game/12.png",
-                "cc.Texture2D"
-            ],
-            "68RveaO7VO4IpM9QlAsSr6": [
-                "Texture/game/13.png",
                 "cc.Texture2D"
             ],
             "baprDg7TJAl4TQed0zG+c+": [
@@ -98,22 +90,6 @@ window._CCSettings = {
                 "Texture/game/17.png",
                 "cc.Texture2D"
             ],
-            "bdax8GeQhKQL8IEWssBOoO": [
-                "Texture/game/18.png",
-                "cc.Texture2D"
-            ],
-            "7aNUz3tqlM447BcBFEwlKb": [
-                "Texture/game/19.png",
-                "cc.Texture2D"
-            ],
-            "bfQqqUBYZI/qTV5KPZYflp": [
-                "Texture/game/2.png",
-                "cc.Texture2D"
-            ],
-            "f8zI5g8hxKkb9NxiP5Noxt": [
-                "Texture/game/20.png",
-                "cc.Texture2D"
-            ],
             "76e4xrjVlIzJ9dstOSXUHr": [
                 "Texture/game/21.png",
                 "cc.Texture2D"
@@ -122,28 +98,12 @@ window._CCSettings = {
                 "Texture/game/23.png",
                 "cc.Texture2D"
             ],
-            "1fOc22ADxJT51lbYeeUMqd": [
-                "Texture/game/24.png",
-                "cc.Texture2D"
-            ],
-            "1dpgV+A8FKj6WfCn5PloPq": [
-                "Texture/game/25.png",
-                "cc.Texture2D"
-            ],
             "a6nd7ZC8pP+J9WNdUjX7lm": [
                 "Texture/game/26.png",
                 "cc.Texture2D"
             ],
-            "fevfb1BEVNxqGVrkYdfcAr": [
-                "Texture/game/27.png",
-                "cc.Texture2D"
-            ],
             "4fi/PQ3LtKcpWN7aipTXGX": [
                 "Texture/game/3.png",
-                "cc.Texture2D"
-            ],
-            "32Dwd0GHZALpOBsnhI0Ld7": [
-                "Texture/game/4.png",
                 "cc.Texture2D"
             ],
             "6bM0wFR5BNZYPtYDWit4I+": [
@@ -156,10 +116,6 @@ window._CCSettings = {
             ],
             "2dfzHobJ5KRqwfZyr1AhLX": [
                 "Texture/game/8.png",
-                "cc.Texture2D"
-            ],
-            "6aWfQpyNlNBpVecuS532e7": [
-                "Texture/game/9.png",
                 "cc.Texture2D"
             ],
             "e1DYIOXD9CwYkXT4XhphMJ": [
@@ -308,6 +264,50 @@ window._CCSettings = {
             ],
             "92e1VmPIxCVYpNrKaznqwG": [
                 "Texture/game/f9.png",
+                "cc.Texture2D"
+            ],
+            "d1psKs6HxM/bAhJvNKp7bs": [
+                "Texture/game/jiaobiao (10).png",
+                "cc.Texture2D"
+            ],
+            "403BA7IzlCBbs+HrlRhQyA": [
+                "Texture/game/jiaobiao (13).png",
+                "cc.Texture2D"
+            ],
+            "4eGd/c09hARoEoxSkIBR/N": [
+                "Texture/game/jiaobiao (18).png",
+                "cc.Texture2D"
+            ],
+            "d7x74lWllOFqCSvzDLLtlf": [
+                "Texture/game/jiaobiao (19).png",
+                "cc.Texture2D"
+            ],
+            "0d0J0F/LpCb5DWMzeFbDfk": [
+                "Texture/game/jiaobiao (2).png",
+                "cc.Texture2D"
+            ],
+            "62wZCfSn5GQZwjfLTY616u": [
+                "Texture/game/jiaobiao (20).png",
+                "cc.Texture2D"
+            ],
+            "85N2rK7yZDaqLs8rAAj8JS": [
+                "Texture/game/jiaobiao (24).png",
+                "cc.Texture2D"
+            ],
+            "7ez3qzRBFLxKayTAhbKG7x": [
+                "Texture/game/jiaobiao (25).png",
+                "cc.Texture2D"
+            ],
+            "7318hIXzZHYLQTRAlHJhQ5": [
+                "Texture/game/jiaobiao (27).png",
+                "cc.Texture2D"
+            ],
+            "14uDyDgmxFGKUu1Mx5kKir": [
+                "Texture/game/jiaobiao (4).png",
+                "cc.Texture2D"
+            ],
+            "9bT2EyCgJFp4iiouIhovXq": [
+                "Texture/game/jiaobiao (9).png",
                 "cc.Texture2D"
             ],
             "8b/umQTPZBbpcgU3pbbCuz": [
@@ -486,6 +486,10 @@ window._CCSettings = {
                 "Texture/rule_summon.png",
                 "cc.Texture2D"
             ],
+            "39MY/+AshO8bJp3bmpseyJ": [
+                "Texture/share_tips.png",
+                "cc.Texture2D"
+            ],
             "6dTEa/kHhLZImDLirZ7+le": [
                 "Texture/singleColor.png",
                 "cc.Texture2D"
@@ -526,7 +530,7 @@ window._CCSettings = {
         }
     ],
     "packedAssets": {
-        "0af8d020f": [
+        "0cc28daad": [
             "01d12md5lBML9NB2abCHME",
             "02A4PtBbZAC5j4NSTErM76",
             "05cVias9hPK7QAwsh5AO/y",
@@ -538,6 +542,7 @@ window._CCSettings = {
             "0a18UELMJLxpNgD++kQCRP",
             "0cxRg9A+RKhZ7k+rBR0dBC",
             "0dM19f5wNBt6UzyuK00jm2",
+            "10X7mhuahHD7FG+g0w9BQU",
             "10zvhfSt9O7aIIsdlY+m3x",
             "14GVDzezpJXaPYBaQsrqRs",
             "168/YqqG1CerNt3Vrfd0bR",
@@ -547,14 +552,19 @@ window._CCSettings = {
             "1f4WCeH8RFQ6aWXQ+quOQx",
             "24oYDQrEJNO7DY5V7OmB6q",
             "26L7y85UVNCqyS6smqsBze",
+            "285T+6GBJI85CF7oSVeR3J",
             "29FYIk+N1GYaeWH/q1NxQO",
             "29rG+CdoBG75BF+2mO81cs",
             "2bD72hEphOFa+5+yWZh75z",
             "2bHxlenVJNCJz6OceSP8q8",
             "2dL3kvpAxJu6GJ7RdqJG5J",
+            "2exwgG79pJ9r+hF1qEWaoT",
             "2fWbHE1BdIZJ4ZPgIFE6hp",
+            "32YTZDvPJAE6p/KBPcmZms",
+            "3aEzUdy5pIt4yjfDL3b0Xb",
             "41E0bMwUdKN4U8N5t79+AG",
             "41pKS1bG5PjrYLGYKGYC0L",
+            "4165bgz0ZEpr0WyGEeebqJ",
             "42u5O0VwFHMLD1q6/yKtTB",
             "46VszvYSJAsbL/TrftwM8T",
             "46rr9XwQdCJqfSSbsLAVFf",
@@ -566,7 +576,6 @@ window._CCSettings = {
             "4aBBTb9BBAIp55vonSVMB/",
             "4cemh2nVdPIpiJYE4aGQOB",
             "4dkVHWaipKU4d0HgnsPs1X",
-            "51gWxeZ3pHTJTnLTLCNs8u",
             "52XlkKFwtF9qp+zN+cQOg6",
             "53ukIdWDlEqbj27qOj/NWf",
             "55N3kUrLxDwq10ovFUzEti",
@@ -577,28 +586,26 @@ window._CCSettings = {
             "5f5dyqtRNNxaFmVzYns6FZ",
             "61S/y8ngdCP73HH6r8ztUJ",
             "62Qw3d35JC6pIhEM+LyS0M",
-            "62zY8QAhRMEYARVOG1bjHd",
             "63Tqe27yJGh5wAyaFX9neo",
             "657U+SdXJAhaxzEf9N5M33",
+            "6b9tCfMztLfLSdXN7s0/PS",
             "6cyP+hC69AHZjco5A2vsia",
+            "6eaHmUIbRLlZEAXkDRT2Ei",
             "70MWfvj0dAUbZGRJXCdVZ3",
-            "71eSUG6HxAMbMcmHy5gMLA",
             "76OZBBXyVDFq9+3ZdYKE2A",
             "79qkt31d1IdIwpDRRmEezI",
             "7cWur8YnpH+LUKPwgGPq/O",
             "7cZnHrMZ9IELO03B7SbNIV",
-            "7dIHUd2X5FXpMXxr3rpGge",
-            "7dZGB49uFOaIXUIJIJvZ1J",
+            "80rjfFoE1BoIovUKJbMsj2",
             "84Xu00DYdBu698g/MO81ii",
             "88wohY9CRIc5pIrM8lyshl",
             "8aS7hQmuNBdJQVgjC+zpAt",
             "8eazh7GylGEbtkO6SQO6O1",
             "91NINC/BZFLbIezSAJ75Nu",
-            "92iVcMcJ5KOYjUGtQd4BDA",
             "94e5OjkbdO8pAE6SU9mvxS",
             "94lsHOQ4RMj5p+nmdupt1t",
-            "95r3gVlFRNcrQ/J5PS+2Nk",
             "98upPTzclLGLiz/G07qZUJ",
+            "9ba4UCGINHi7QjPWp8Mzl2",
             "9bvaMerUlDyary99mJa6xp",
             "9efk/ReU1AdrACpJTFWC7X",
             "9erVIwJ1RFyJzIQ4W4M3S/",
@@ -624,17 +631,15 @@ window._CCSettings = {
             "c29Eo0E4RFZrr6ivpt2f26",
             "c88nDG6cFHdZp9O7n0gU5d",
             "c922KpuF1BuJvhOEPScwm8",
-            "caBg2HRKlNWLmqAnZH29YV",
-            "ceUzBUeyZEfrMI/2koKWT3",
             "cf0Mn2GyRDz5OLYpJeMLnm",
             "cf8e5B+AJAFZLzpGvFic7g",
             "d07YE3BuxME5Td8GxdaoVW",
+            "d2ISxC0ENJeIsCK8xu6wON",
             "d299JUxaNLcoyV6r8c6jdb",
             "d3jY4YQstPG7z6Ym/p5P4B",
             "d37/1BTnxJTZ5w9ALqc8I5",
             "d8VsoD/vtL9osp1Xvy/z4+",
             "d9/blrT+BAjJvPZj0M1Zrr",
-            "dbBk94/51OHpuUptnrbbmD",
             "dc2G31xnpEG4awnhDG1m5Y",
             "ddYnEGZPVGQ4Bt9a35OWJK",
             "dfSswkP/BIp7+HVcrhuqy0",
@@ -646,8 +651,8 @@ window._CCSettings = {
             "efgaqDlhRKv4jJEOMGxGqx",
             "f0BIwQ8D5Ml7nTNQbh1YlS",
             "f3AUXJ0spAOp/9RkSAfU35",
-            "f5QZOBgP9P8IU2wkGeHANk",
-            "f9lileHGBFZaR7LGla/Ojh"
+            "f9lileHGBFZaR7LGla/Ojh",
+            "faO9S68ypG3Kzx1YAQaYPi"
         ]
     },
     "orientation": "portrait",
