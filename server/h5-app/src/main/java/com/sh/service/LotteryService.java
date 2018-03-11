@@ -148,7 +148,7 @@ public class LotteryService {
 		List<weight_pool> lstPools = TableReader.getTable(weight_pool.class);
 		int poolID = 0;
 		for (weight_pool pool : lstPools) {
-			if (score_b <= pool.getNeed_score()) {
+			if (score_b >= pool.getNeed_score()) {
 				poolID = pool.getWeight_id();
 			}
 		}

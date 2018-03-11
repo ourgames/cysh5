@@ -60,6 +60,7 @@ cc.Class({
         diceCount : 0,
         isMoving: false,
         isMovingEnd: true,
+        everyLikeGainTicket: 5,
     },
     // LIFE-CYCLE CALLBACKS:
 
@@ -153,7 +154,8 @@ cc.Class({
     },
 
     setSummonTips: function(ticket) {
-        var str = "<color=#ffffff>再获得</c><color=#ffe178>" + ticket + "</color><color=#ffffff>票即可获得一次抽奖机会</c>";
+        var ti = 5 - D.common.userInfo.user_be_liked % 5;
+        var str = "<color=#ffffff>再获得</c><color=#ffe178>" + ti + "</color><color=#ffffff>票即可获得一次抽奖机会</c>";
         this.label_summon_tips.string = str;
     },
 
