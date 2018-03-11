@@ -1,7 +1,7 @@
 --------------------------------------------------------
 --info:battle
 --author:Yutao
---date:2018/3/9 22:45:18
+--date:2018/3/12 1:25:42
 --------------------------------------------------------
 
 battle={
@@ -30,7 +30,7 @@ battle={
     ["score"] = "10",
     ["battle_id"] = "25",
     ["event_value"] = "1",
-    ["event_type"] = "null",
+    ["event_type"] = "move",
     ["tips"] = "前进1步",
 },
 [24] = {
@@ -58,14 +58,14 @@ battle={
     ["score"] = "10",
     ["battle_id"] = "21",
     ["event_value"] = "0",
-    ["event_type"] = "move",
+    ["event_type"] = "null",
     ["tips"] = "无",
 },
 [20] = {
     ["score"] = "10",
     ["battle_id"] = "20",
     ["event_value"] = "3",
-    ["event_type"] = "null",
+    ["event_type"] = "move",
     ["tips"] = "前进3步",
 },
 [19] = {
@@ -100,7 +100,7 @@ battle={
     ["score"] = "10",
     ["battle_id"] = "15",
     ["event_value"] = "0",
-    ["event_type"] = "move",
+    ["event_type"] = "null",
     ["tips"] = "无",
 },
 [3] = {

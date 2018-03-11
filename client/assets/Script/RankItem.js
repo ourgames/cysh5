@@ -139,7 +139,8 @@ cc.Class({
     },
 
     RefreshLikeBtn: function() {
-    	if (D.common.userInfo.user_likes_no == "")
+    	
+    	if (D.common.isEmptyStr(D.common.userInfo.user_likes_no))
     	{
             this.btn_like.getComponent("cc.Sprite").spriteFrame = this.btn_like.getComponent("BtnIcon").btn_unSelected;
             return;

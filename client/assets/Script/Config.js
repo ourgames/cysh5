@@ -143,7 +143,7 @@ var C_Battle = {
   },
   "15": {
     "battle_id": "15",
-    "event_type": "move",
+    "event_type": "null",
     "event_value": "0",
     "score": "10",
     "tips": "无"
@@ -178,14 +178,14 @@ var C_Battle = {
   },
   "20": {
     "battle_id": "20",
-    "event_type": "null",
+    "event_type": "move",
     "event_value": "3",
     "score": "10",
     "tips": "前进3步"
   },
   "21": {
     "battle_id": "21",
-    "event_type": "move",
+    "event_type": "null",
     "event_value": "0",
     "score": "10",
     "tips": "无"
@@ -213,7 +213,7 @@ var C_Battle = {
   },
   "25": {
     "battle_id": "25",
-    "event_type": "null",
+    "event_type": "move",
     "event_value": "1",
     "score": "10",
     "tips": "前进1步"
