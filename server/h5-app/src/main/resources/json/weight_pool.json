@@ -4,15 +4,11 @@
     "weight_id": "1"
   },
   "2": {
-    "need_score": "25",
+    "need_score": "1500",
     "weight_id": "2"
   },
   "3": {
-    "need_score": "50",
+    "need_score": "2500",
     "weight_id": "3"
-  },
-  "4": {
-    "need_score": "100",
-    "weight_id": "4"
   }
 }
