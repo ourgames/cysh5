@@ -1,16 +1,16 @@
 --------------------------------------------------------
 --info:battle
 --author:Yutao
---date:2018/3/12 1:25:42
+--date:2018/3/13 0:03:36
 --------------------------------------------------------
 
 battle={
 [22] = {
     ["score"] = "10",
     ["battle_id"] = "22",
-    ["event_value"] = "reward_5",
+    ["event_value"] = "reward_4",
     ["event_type"] = "reward",
-    ["tips"] = "恭喜获得奖励5",
+    ["tips"] = "恭喜!",
 },
 [27] = {
     ["score"] = "10",
@@ -71,9 +71,9 @@ battle={
 [19] = {
     ["score"] = "10",
     ["battle_id"] = "19",
-    ["event_value"] = "reward_4",
+    ["event_value"] = "reward_1",
     ["event_type"] = "reward",
-    ["tips"] = "恭喜获得奖励4",
+    ["tips"] = "恭喜获得20元代金卷",
 },
 [18] = {
     ["score"] = "10",
@@ -141,9 +141,9 @@ battle={
 [6] = {
     ["score"] = "10",
     ["battle_id"] = "6",
-    ["event_value"] = "reward_1",
+    ["event_value"] = "reward_2",
     ["event_type"] = "reward",
-    ["tips"] = "恭喜获得奖励1",
+    ["tips"] = "恭喜获得50元代金卷",
 },
 [14] = {
     ["score"] = "10",
@@ -164,7 +164,7 @@ battle={
     ["battle_id"] = "16",
     ["event_value"] = "reward_3",
     ["event_type"] = "reward",
-    ["tips"] = "恭喜获得奖励3",
+    ["tips"] = "恭喜!",
 },
 [17] = {
     ["score"] = "10",
@@ -197,8 +197,8 @@ battle={
 [10] = {
     ["score"] = "10",
     ["battle_id"] = "10",
-    ["event_value"] = "reward_2",
+    ["event_value"] = "reward_1",
     ["event_type"] = "reward",
-    ["tips"] = "恭喜获得奖励2",
+    ["tips"] = "恭喜获得20元代金卷",
 },
 }return battle

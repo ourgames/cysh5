@@ -1,7 +1,7 @@
 --------------------------------------------------------
 --info:weight_pool
 --author:Yutao
---date:2018/3/12 1:25:42
+--date:2018/3/13 0:03:36
 --------------------------------------------------------
 
 weight_pool={
@@ -9,16 +9,12 @@ weight_pool={
     ["weight_id"] = "1",
     ["need_score"] = "0",
 },
-[4] = {
-    ["weight_id"] = "4",
-    ["need_score"] = "100",
-},
 [3] = {
     ["weight_id"] = "3",
-    ["need_score"] = "50",
+    ["need_score"] = "2500",
 },
 [2] = {
     ["weight_id"] = "2",
-    ["need_score"] = "25",
+    ["need_score"] = "1500",
 },
 }return weight_pool
