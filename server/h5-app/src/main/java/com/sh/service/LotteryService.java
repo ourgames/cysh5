@@ -31,7 +31,7 @@ public class LotteryService {
 	RandomUtil RandomUtil;
 
 	static final int MAX_STEP = 28;
-	static final int MAX_SCORE_B_MAX = 100;
+	static final int MAX_SCORE_B_MAX = 2500;
 
 	// 开始摇奖
 	public Map<String, Integer> startLottery(User user) {
