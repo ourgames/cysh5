@@ -117,6 +117,13 @@ cc.Class({
         }
     },
 
+    refreshInfoLabel: function() {
+        //名字
+        this.label_nick.string = D.common.userInfo.user_name;
+        //点赞数
+        this.label_like.string = "<color=#000000>获赞数:</c><color=#ff0000>"+ D.common.userInfo.user_be_liked + "</color>";
+    },
+
     onBtnTabRank: function() {
         this.tab_rank.active = true;
         this.tab_self.active = false;
@@ -153,7 +160,7 @@ cc.Class({
         var phone = this.edit_phone.string;
         var address = this.edit_address.string;
         // 发送消息
-        D.common.updateUserInfo(nick, phone, address);
+        D.common.updateUserInfo(nick, phone, address, this.refreshInfoLabel.bind(this));
     },
 
     onBtnShare: function() {

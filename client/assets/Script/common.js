@@ -135,16 +135,22 @@ cc.Class({
         Http.init.getWithUrl(url, requestCB.bind(this));
     },
 
-    updateUserInfo: function(user_name, phone_no, address) {
-        var url = "/updateuserinfo";
+    updateUserInfo: function(user_name, phone_no, address, callback) {
+        var url = "/updateuserinfo?";
         if (user_name != null && user_name != "") {
-            url += "&&user_name=" + user_name;
+            url += "user_name=" + user_name;
         }
         if (phone_no != null && phone_no != "") {
-            url += "&&phone_no=" + phone_no;
+            if (!this.isEmptyStr(user_name)) {
+                url += "&&";
+            }
+            url += "phone_no=" + phone_no;
         }
         if (address != null && address != "") {
-            url += "&&address=" + address;
+            if (!this.isEmptyStr(phone_no) || !this.isEmptyStr(user_name)) {
+                url += "&&";
+            }
+            url += "address=" + address;
         }
 
         cc.log(url);
@@ -159,6 +165,7 @@ cc.Class({
                         this.userInfo.phone_no = msg.User.phone_no
                     if (!this.isEmpty(msg.User.address))
                         this.userInfo.address = msg.User.address
+                    callback();
                 } else {
                     alert("error code:" + msg.ReturnCode)
                 }
