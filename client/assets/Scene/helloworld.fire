@@ -81,7 +81,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 606
+        "__id__": 607
       }
     ],
     "_prefab": null,
@@ -21787,7 +21787,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 605
+        "__id__": 606
       }
     ],
     "_prefab": null,
@@ -22001,6 +22001,9 @@
       },
       {
         "__id__": 603
+      },
+      {
+        "__id__": 605
       }
     ],
     "_prefab": null,
@@ -22142,6 +22145,24 @@
     "component": "SoundCtl",
     "handler": "SoundOff",
     "customEventData": ""
+  },
+  {
+    "__type__": "cc.Animation",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 601
+    },
+    "_enabled": true,
+    "_defaultClip": {
+      "__uuid__": "3ca5a609-4f01-4740-804a-34a9858d8f4b"
+    },
+    "_clips": [
+      {
+        "__uuid__": "3ca5a609-4f01-4740-804a-34a9858d8f4b"
+      }
+    ],
+    "playOnLoad": true
   },
   {
     "__type__": "e93a8BshWhED71THqI5aRi2",
